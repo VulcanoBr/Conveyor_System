@@ -4,7 +4,7 @@ pt-BR:
       user: Usuario
     attributes:
       user:
-        name: "Nome"
-        email: “Email”
-        password: "Senha"
-        password_confirmation: "Confirmar Senha"
+        name: Nome
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirmar Senha

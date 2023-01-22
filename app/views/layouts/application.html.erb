@@ -12,6 +12,12 @@
 
   <body class="container">
     <%= render  "layouts/nav" %>
-    <%= yield %>
+    <main>
+       <div>
+        <%= alert %>
+        <%= notice %>
+      </div>
+      <%= yield %>
+    </main>
   </body>
 </html>
