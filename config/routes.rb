@@ -3,7 +3,7 @@ Rails.application.routes.draw do
  
   root to: 'home#index'
 
-  resources :categories, only: [:index]
+  resources :categories, only: [:index, :new, :create, :show]
 
   
   

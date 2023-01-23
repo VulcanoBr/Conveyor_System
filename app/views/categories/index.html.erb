@@ -1,12 +1,16 @@
 <h1>Categoria(s)</h1>
-<br >
+<br>
+<div>
+    <%= link_to 'Cadastrar nova Categoria', new_category_path %>
+</div>
+<br>
 <div>
     <% if @categories.any? %>
         <table>
             <thead>
                 <tr>
                     <th>Codigo</th>
-                    <th>Descrição</th>
+                    <th>Categoria</th>
                         
                 </tr>
             </thead>

@@ -12,4 +12,5 @@ RSpec.describe User, type: :model do
     # Assert
     expect(result).to eq false
   end
+
 end
