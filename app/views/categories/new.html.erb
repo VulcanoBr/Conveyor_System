@@ -1,27 +1,5 @@
 <h1>Nova Categoria</h1>
 <br>
-<% if @category.errors.any? %>
-    <p>Verifique os merros abaixo</p>
-    <ul>
-        <% @category.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-    </ul>
-<% end %>
-<br>
-<%= form_with(model: @category) do |c| %>
 
-    <div>
-        <%= c.label :name %>
-        <%= c.text_field :name %>
-    </div>
 
-    <div>
-        <%= c.submit 'Salvar' %>
-    </div>
-
-    <div>
-        <%= link_to 'Cancelar', categories_path %>
-    </div>
-
-<% end %>
+<%= render 'form' %>

@@ -1,6 +1,8 @@
 class CategoriesController < ApplicationController
 
-    before_action :set_category, only: [:show]
+    before_action :authenticate_user!, only:[:new, :create, :show, :edit, :update]
+
+    before_action :set_category, only: [:show, :edit, :update]
 
     def index 
         @categories = Category.all
@@ -23,6 +25,19 @@ class CategoriesController < ApplicationController
             render 'new'
         end
 
+    end
+
+    def edit 
+
+    end
+
+    def update 
+        if @category.update(category_params)
+            redirect_to @category, notice: 'Categoria atualizado com sucesso !!!'
+        else 
+            flash.now[:notice] = 'Categoria NÃO atualizado !!!'
+            render 'edit'
+        end
     end
 
     private

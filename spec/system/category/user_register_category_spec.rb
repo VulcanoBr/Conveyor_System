@@ -52,6 +52,7 @@ describe 'Usuario Cadastra Categoria' do
         # Assert
         expect(page).to have_content('Categoria cadastrado com sucesso !!')
         expect(page).to have_content('Categoria: Carro')
+        expect(page).to have_content('Voltar')
 
     end
 

@@ -1,10 +1,10 @@
 <h1><%= Category.model_name.human %> nova/atualizada</h1>
 <br>
 <div>
-    <p><%= notice %> </p>
-</div>
-<br>
-<div>
     <p><strong><%= Category.human_attribute_name(:id)  %>:</strong> <%= @category.id%> </p>
     <p><strong><%= Category.human_attribute_name(:name) %>:</strong> <%= @category.name%> </p>
+</div>
+
+ <div>
+    <p><%= link_to 'Voltar', categories_path %> </p>
 </div>
