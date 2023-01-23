@@ -1,8 +1,8 @@
 class CategoriesController < ApplicationController
 
-    before_action :authenticate_user!, only:[:new, :create, :show, :edit, :update]
+    before_action :authenticate_user!, only:[:new, :create, :show, :edit, :update, :destroy]
 
-    before_action :set_category, only: [:show, :edit, :update]
+    before_action :set_category, only: [:show, :edit, :update, :destroy]
 
     def index 
         @categories = Category.all
@@ -38,6 +38,11 @@ class CategoriesController < ApplicationController
             flash.now[:notice] = 'Categoria NÃO atualizado !!!'
             render 'edit'
         end
+    end
+
+    def destroy
+        @category.destroy
+        redirect_to categories_path, notice: 'Categoria removido com sucesso !!!'
     end
 
     private

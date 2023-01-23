@@ -12,6 +12,8 @@
                 <tr>
                     <th>Codigo</th>
                     <th>Categoria</th>
+                    <th>  </th>
+                    <th>  </th>
                         
                 </tr>
             </thead>
@@ -21,6 +23,8 @@
                         <td align="center"><%= c.id %>   </td>
                         <td> <%= c.name %> </td>
                         <td> <%= link_to 'Editar', edit_category_path(c.id) %> </td>
+                        <td> <%= button_to 'Remover', category_path(c.id), method: :delete, class: 'btn btn-sm btn-danger'  %>  </td>
+                        
                     </tr>
                 <% end %>
             </tbody>
