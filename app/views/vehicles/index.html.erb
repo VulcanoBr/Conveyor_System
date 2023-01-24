@@ -1,0 +1,41 @@
+<h1>Veiculos</h1>
+
+<div>
+    <% if @vehicles.any? %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Placa</th>
+                    <th>Marca</th>
+                    <th>Modelo  </th>
+                    <th>Ano Fabricação  </th>
+                    <th>Carga Maxima</th>
+                    <th>Categoria</th>
+                    <th>Status</th>
+                        
+                </tr>
+            </thead>
+            <tbody>
+                <% @vehicles.each do |v| %>
+                    <tr>
+                        <td> <%= v.nameplate %> </td>
+                        <td> <%= v.brand %> </td>
+                        <td> <%= v.vehicle_model %> </td>
+                        <td> <%= v.year_manufacture %> </td>
+                        <td> <%= v.maximum_load %> </td>
+                        <td> <%= v.category.name %> </td>
+                        <td> <%= v.status %> </td>
+                        
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    <% else %>
+        <p>Não ha Veiculos Cadastradas !!!'</p>
+    <% end%>
+   
+</div>
+
+<div>
+    <p> <%= link_to 'Voltar', root_path %> </p>
+</div>

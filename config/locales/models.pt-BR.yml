@@ -3,6 +3,7 @@ pt-BR:
     models:
       user: Usuario
       category: Categoria
+      vehicle: Veiculo
     attributes:
       user:
         name: Nome
@@ -12,3 +13,12 @@ pt-BR:
       category:
         name: Categoria
         id: Codigo
+      vehicle:
+        nameplate: Placa Identificação
+        brand: Marca
+        vehicle_model: Modelo
+        maximum_load: Carga Maxima
+        year_manufacture: Ano Fabricação
+        status: Status
+        category_id: Categoria
+
