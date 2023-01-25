@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
-  resources :vehicles, only: [:index]
+  resources :vehicles, only: [:index, :new, :create, :show]
 
   
   

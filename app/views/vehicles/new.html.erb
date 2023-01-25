@@ -1,0 +1,71 @@
+<h1>Novo Veiculo</h1>
+<br>
+<% if @vehicle.errors.any? %>
+    <p>Verifique os erros abaixo</p>
+    <ul>
+        <% @vehicle.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+<br>
+
+<div>
+    <%= form_with(model: @vehicle ) do |v| %>
+
+        <div class="row mb-3">
+            <%= v.label :nameplate,  class:"col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+                <%= v.text_field :nameplate, class:"form-control" %>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <%= v.label :brand, class:"col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+                <%= v.text_field :brand, class:"form-control" %>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <%= v.label :vehicle_model, class:"col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+                <%= v.text_field :vehicle_model, class:"form-control" %>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <%= v.label :year_manufacture,  class:"col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+                <%= v.text_field :year_manufacture, class:"form-control" %>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <%= v.label :maximum_load,  class:"col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+                <%= v.text_field :maximum_load, class:"form-control" %>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <%= v.label :category_id,  class:"col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+                <%= v.collection_select :category_id, @categories, :id, :name, prompt: "Escolha uma Categoria...", class:"form-control" %>
+            </div>
+        </div>
+
+       <div class="row mb-3">
+            <%= v.submit 'Salvar',  class:"form-control btn btn-primary" %>
+            
+        </div>
+
+        <div class="row mb-3">
+            <%= link_to 'Cancelar', vehicles_path,  class:"form-control btn btn-primary" %>
+            
+        </div>
+
+
+
+    <% end %>
+</div>

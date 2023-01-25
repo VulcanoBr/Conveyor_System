@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Usuario Cadastra Categoria' do
 
-    it ' e deve estr autenticado' do
+    it ' e deve estar autenticado' do
 
         # Arrange
 

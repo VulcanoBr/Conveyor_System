@@ -10,9 +10,11 @@
 <br>
 <%= form_with(model: @category) do |c| %>
 
-    <div>
-        <%= c.label :name %>
-        <%= c.text_field :name %>
+    <div class="row mb-3">
+            <%= c.label :name,  class:"col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+                <%= c.text_field :name, class:"form-control" %>
+            </div>
     </div>
 
     <div>

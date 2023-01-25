@@ -1,0 +1,35 @@
+<h1><%= Vehicle.model_name.human %> novo/atualizado </h1>
+
+<div>
+    <p><strong> <%= Vehicle.human_attribute_name(:nameplate) %>:</strong> <%= @vehicle.nameplate %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Vehicle.human_attribute_name(:brand) %>:</strong> <%= @vehicle.brand %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Vehicle.human_attribute_name(:vehicle_model) %>:</strong> <%= @vehicle.vehicle_model %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Vehicle.human_attribute_name(:year_manufacture) %>:</strong> <%= @vehicle.year_manufacture %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Vehicle.human_attribute_name(:maximum_load) %>:</strong> <%= @vehicle.maximum_load %> </p>
+</div>
+<div>
+    <p><strong> <%= Vehicle.human_attribute_name(:category_id) %>:</strong> <%= @vehicle.category.name %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Vehicle.human_attribute_name(:status) %>:</strong> 
+                <%= I18n.translate(@vehicle.status) %> </p>
+</div>
+
+<br>
+<div>
+    <p><%= link_to 'Voltar', vehicles_path %>
+</div>
+

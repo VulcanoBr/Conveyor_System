@@ -1,4 +1,8 @@
 pt-BR:
+
+  in_operation: Em Operação
+  in_delivery: Em Entrega
+  in_manutence: Em Manutenção
   activerecord:
     models:
       user: Usuario
@@ -21,4 +25,5 @@ pt-BR:
         year_manufacture: Ano Fabricação
         status: Status
         category_id: Categoria
+        
 
