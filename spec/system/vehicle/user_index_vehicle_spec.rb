@@ -21,7 +21,7 @@ describe 'Usuario ve Veiculos' do
         vehicle1 = Vehicle.create!(nameplate:'KYZ-9268', brand: 'Suzuki', vehicle_model: 'Vitara For You', 
                                    year_manufacture: '2018', maximum_load: 400000, category: category, status: 0)
         vehicle2 = Vehicle.create!(nameplate:'XYZ-3454', brand: 'Ford', vehicle_model: 'Mustang', 
-                                    year_manufacture: '2020', maximum_load: 250000, category: category, status: 0)
+                                    year_manufacture: '2020', maximum_load: 250000, category: category, status: :in_operation)
 
         # Act
         visit root_path
@@ -37,7 +37,7 @@ describe 'Usuario ve Veiculos' do
         expect(page).to have_content('2018')
         expect(page).to have_content('400000')
         expect(page).to have_content('Carro')
-        expect(page).to have_content('0')
+        expect(page).to have_content('Em Operação')
 
         expect(page).to have_content('XYZ-3454')
         expect(page).to have_content('Ford')
@@ -45,7 +45,7 @@ describe 'Usuario ve Veiculos' do
         expect(page).to have_content('2020')
         expect(page).to have_content('250000')
         expect(page).to have_content('Carro')
-        expect(page).to have_content('0')
+        expect(page).to have_content('Em Operação')
 
     end
 

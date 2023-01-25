@@ -6,30 +6,30 @@
 
 <div>
     <% if @vehicles.any? %>
-        <table>
+        <table class="table">
             <thead>
                 <tr>
-                    <th>Placa</th>
-                    <th>Marca</th>
-                    <th>Modelo  </th>
-                    <th>Ano Fabricação  </th>
-                    <th>Carga Maxima</th>
-                    <th>Categoria</th>
-                    <th>Status</th>
+                    <th scope="col">Placa Identificação</th>
+                    <th scope="col" >Marca</th>
+                    <th scope="col">Modelo  </th>
+                    <th scope="col">Ano Fabricação  </th>
+                    <th scope="col">Carga Maxima</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Status</th>
                         
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="table-group-divider">
                 <% @vehicles.each do |v| %>
-                    <tr>
+                    <tr >
                         <td> <%= v.nameplate %> </td>
                         <td> <%= v.brand %> </td>
                         <td> <%= v.vehicle_model %> </td>
-                        <td> <%= v.year_manufacture %> </td>
-                        <td> <%= v.maximum_load %> </td>
+                        <td > <%= v.year_manufacture %> </td>
+                        <td > <%= v.maximum_load %> </td>
                         <td> <%= v.category.name %> </td>
-                        <td> <%= v.status %> </td>
-                        
+                        <td> <%= I18n.translate(v.status) %> </td>
+                        <td> <%= link_to 'Editar', edit_vehicle_path(v.id) %> </td>
                     </tr>
                 <% end %>
             </tbody>

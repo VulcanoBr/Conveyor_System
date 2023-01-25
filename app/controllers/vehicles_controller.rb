@@ -1,8 +1,10 @@
 class VehiclesController < ApplicationController
 
-    before_action :set_vehicle, only: [:show]
+    before_action :authenticate_user!, only:[:new, :create, :show, :edit, :update, :destroy]
 
-    before_action :set_category, only: [:new, :create]
+    before_action :set_vehicle, only: [:show, :edit, :update]
+
+    before_action :set_category, only: [:new, :create, :edit, :update]
 
     def index
         @vehicles = Vehicle.all
@@ -25,6 +27,19 @@ class VehiclesController < ApplicationController
             render 'new'
         end
 
+    end
+
+    def edit 
+
+    end
+
+    def update 
+        if @vehicle.update(vehicle_params)
+            redirect_to @vehicle, notice: 'Veiculo atualizado com sucesso !!!'
+        else  
+            flash.now[:notice] = 'Veiculo NÃO atualizado !!!'
+            render 'edit'
+        end
     end
 
 
