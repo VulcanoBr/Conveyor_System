@@ -2,7 +2,8 @@ pt-BR:
 
   in_operation: Em Operação
   in_delivery: Em Entrega
-  in_manutence: Em Manutenção
+  under_maintenance: Em Manutenção
+  disabled: Desativado
   activerecord:
     models:
       user: Usuario

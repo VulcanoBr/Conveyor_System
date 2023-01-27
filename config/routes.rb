@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
-  resources :vehicles, only: [:index, :new, :create, :show, :edit, :update]
+  resources :vehicles, only: [:index, :new, :create, :show, :edit, :update] do
+    get  'list',        on: :collection
+    post 'maintenance', on: :member
+    post 'operation',   on: :member
+  end
 
   
   

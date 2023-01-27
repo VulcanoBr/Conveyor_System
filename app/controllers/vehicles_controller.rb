@@ -1,13 +1,27 @@
 class VehiclesController < ApplicationController
 
-    before_action :authenticate_user!, only:[:new, :create, :show, :edit, :update, :destroy]
+    before_action :authenticate_user!, only:[:new, :create, :show, :edit, :update, :destroy, :maintenance, :operation]
 
-    before_action :set_vehicle, only: [:show, :edit, :update]
+    before_action :set_vehicle, only: [:show, :edit, :update, :maintenance, :operation]
 
     before_action :set_category, only: [:new, :create, :edit, :update]
 
     def index
-        @vehicles = Vehicle.all
+        @pesq_veic = params[:query]
+        if params[:query].present?
+            @vehicles = Vehicle.where("nameplate LIKE ?", "%#{params[:query]}%")
+        else
+            @vehicles = Vehicle.all
+        end
+    end
+
+    def list  
+        @pesq_veic = params[:query]
+        if params[:query].present?
+            @vehicles = Vehicle.where("nameplate LIKE ?", "%#{params[:query]}%")
+        else
+            @vehicles = Vehicle.all
+        end
     end
 
     def new 
@@ -40,6 +54,16 @@ class VehiclesController < ApplicationController
             flash.now[:notice] = 'Veiculo NÃO atualizado !!!'
             render 'edit'
         end
+    end
+
+    def maintenance
+        @vehicle.under_maintenance!
+        redirect_to @vehicle, notice: 'Veiculo passado para Manutenção com sucesso !!!'
+    end
+
+    def operation
+        @vehicle.in_operation!
+        redirect_to @vehicle, notice: 'Veiculo passado para Operação com sucesso !!!'
     end
 
 

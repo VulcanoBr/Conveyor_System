@@ -8,7 +8,7 @@ describe 'Usuario ve Categorias' do
 
         # Act
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Categorias'
 
         # Assert
@@ -23,7 +23,7 @@ describe 'Usuario ve Categorias' do
         category2 = Category.create!(name: "Moto")
         # Act
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Categorias'
 
         # Assert
@@ -42,7 +42,7 @@ describe 'Usuario ve Categorias' do
 
         # Act
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Categorias'
 
         # Assert
@@ -56,7 +56,7 @@ describe 'Usuario ve Categorias' do
 
         # Act
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Categorias'
         click_on 'Voltar'
 

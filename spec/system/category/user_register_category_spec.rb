@@ -23,7 +23,7 @@ describe 'Usuario Cadastra Categoria' do
         # Act
         login_as(usuario)
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Categorias'
         click_on 'Cadastrar nova Categoria'
 
@@ -41,7 +41,7 @@ describe 'Usuario Cadastra Categoria' do
         # Act
         login_as(usuario)
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Categorias'
         click_on 'Cadastrar nova Categoria'
         
@@ -64,7 +64,7 @@ describe 'Usuario Cadastra Categoria' do
         # Act
         login_as(usuario)
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Categorias'
         click_on 'Cadastrar nova Categoria'
         
@@ -86,7 +86,7 @@ describe 'Usuario Cadastra Categoria' do
         # Act
         login_as(usuario)
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Categorias'
         click_on 'Cadastrar nova Categoria'
         

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Usuario edita veiculo' do
     
-    it 'de estar autenticado' do
+    it 'deve estar autenticado' do
     
         # Arrange
 
@@ -27,8 +27,9 @@ describe 'Usuario edita veiculo' do
         # Act
         login_as(usuario)
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Veiculos'
+        click_on 'Cadastro'
         click_on 'Editar'
 
         # Assert
@@ -54,8 +55,9 @@ describe 'Usuario edita veiculo' do
         # Act
         login_as(usuario)
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Veiculos'
+        click_on 'Cadastro'
         click_on 'Editar'
         fill_in 'Placa Identificação', with: 'KYZ-6292'
         fill_in 'Marca', with: 'Ford'
@@ -89,8 +91,9 @@ describe 'Usuario edita veiculo' do
         # Act
         login_as(usuario)
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Veiculos'
+        click_on 'Cadastro'
         click_on 'Editar'
         fill_in 'Placa Identificação', with: ''
         fill_in 'Marca', with: ''
@@ -124,8 +127,9 @@ describe 'Usuario edita veiculo' do
         # Act
         login_as(usuario)
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Veiculos'
+        click_on 'Cadastro'
         click_on 'Editar'
         
         click_on 'Cancelar'

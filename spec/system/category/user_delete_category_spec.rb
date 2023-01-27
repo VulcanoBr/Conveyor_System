@@ -11,7 +11,7 @@ describe 'Usuario remove Categoria' do
         # Act
         login_as(user)                              
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Categorias'
         click_on 'Remover'
 

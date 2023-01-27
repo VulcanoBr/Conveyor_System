@@ -2,7 +2,7 @@ class Vehicle < ApplicationRecord
 
   belongs_to :category
 
-  enum status: {in_operation: 0}
+  enum status: {in_operation: 0, under_maintenance: 1, in_delivery: 2, disabled: 3}
 
   validates :nameplate, :brand, :vehicle_model, :year_manufacture, :maximum_load, :category_id, presence:true
 

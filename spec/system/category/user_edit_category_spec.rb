@@ -25,7 +25,7 @@ describe 'Usuario edita Categoria' do
         # Act
         login_as(user)                              
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Categorias'
         click_on 'Editar'
 
@@ -45,7 +45,7 @@ describe 'Usuario edita Categoria' do
         # Act
         login_as(user)                              
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Categorias'
         click_on 'Editar'
         fill_in 'Categoria', with: 'Moto'
@@ -68,7 +68,7 @@ describe 'Usuario edita Categoria' do
         # Act
         login_as(user)                              
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Categorias'
         click_on 'Editar'
         fill_in 'Categoria', with: ''
@@ -90,7 +90,7 @@ describe 'Usuario edita Categoria' do
         # Act
         login_as(user)                              
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Categorias'
         click_on 'Editar'
        

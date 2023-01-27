@@ -1,19 +1,17 @@
-<h1>Veiculos</h1>
+<h1>Lista da Frota de Veiculos</h1>
 
-<div class="d-flex justify-content-between ">
-    <p><%= link_to 'Cadastrar novo Veiculo', new_vehicle_path %> </p>
-
-    <div >
-    <%= form_with(url: vehicles_path, method: :get ) do |f| %>
-              <%= f.label :query, 'Placa Identificação' %>
-              <%= f.text_field :query %>
-              <%= f.submit 'Buscar' %>
+    
+<div >
+    <%= form_with(url: list_vehicles_path, method: :get ) do |f| %>
+        <%= f.label :query, 'Placa Identificação' %>
+        <%= f.text_field :query %>
+        <%= f.submit 'Buscar' %>
     <% end %>
-    </div>
 </div>
 
 <div>
     <% if @vehicles.any? %>
+        
         <table class="table">
             <thead>
                 <tr>
@@ -24,7 +22,6 @@
                     <th scope="col">Carga Maxima</th>
                     <th scope="col">Categoria</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Alterar</th>
                         
                 </tr>
             </thead>
@@ -38,20 +35,12 @@
                         <td > <%= v.maximum_load %> Kg </td>
                         <td> <%= v.category.name %> </td>
                         <td> <%= I18n.translate(v.status) %> </td>
-                        <% if v.in_operation? %>
-                            <td> <%= button_to 'Em Manutenção', maintenance_vehicle_path(v.id), class: "btn btn-warning" %> </td>
-                        <% else %>
-                            <% if v.under_maintenance? %>
-                                <td> <%= button_to 'Em Operação', operation_vehicle_path(v.id), class: "btn btn-success" %> </td>
-                            <% end %>
-                        <% end %>
-                        <td> <%= link_to 'Editar', edit_vehicle_path(v.id) %> </td>
                     </tr>
                 <% end %>
             </tbody>
         </table>
     <% else %>
-        <p> <%= @pesq_veic.present? ?  "Veiculo #{@pesq_veic} não encontrado !!!"  : 
+      <p> <%= @pesq_veic.present? ?  "Veiculo #{@pesq_veic} não encontrado !!!"  : 
                     "Não ha Veiculos Cadastrados !!!" %> </p> 
     <% end%>
    

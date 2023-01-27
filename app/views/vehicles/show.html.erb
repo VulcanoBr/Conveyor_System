@@ -17,15 +17,14 @@
 </div>
 
 <div>
-    <p><strong> <%= Vehicle.human_attribute_name(:maximum_load) %>:</strong> <%= @vehicle.maximum_load %> </p>
+    <p><strong> <%= Vehicle.human_attribute_name(:maximum_load) %>:</strong> <%= @vehicle.maximum_load %> Kg</p>
 </div>
 <div>
     <p><strong> <%= Vehicle.human_attribute_name(:category_id) %>:</strong> <%= @vehicle.category.name %> </p>
 </div>
 
 <div>
-    <p><strong> <%= Vehicle.human_attribute_name(:status) %>:</strong> 
-                <%= I18n.translate(@vehicle.status) %> </p>
+    <p><strong> <%= Vehicle.human_attribute_name(:status) %>:</strong> <%= I18n.translate(@vehicle.status) %> </p>
 </div>
 
 <br>

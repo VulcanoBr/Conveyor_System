@@ -24,8 +24,9 @@ describe 'Usuario cadastra veiculo' do
         # Act
         login_as(usuario)
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Veiculos'
+        click_on 'Cadastro'
         click_on 'Cadastrar novo Veiculo'
 
         # Assert
@@ -48,8 +49,9 @@ describe 'Usuario cadastra veiculo' do
         # Act
         login_as(usuario)
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Veiculos'
+        click_on 'Cadastro'
         click_on 'Cadastrar novo Veiculo'
         fill_in 'Placa Identificação', with: 'KYZ-6292'
         fill_in 'Marca', with: 'Ford'
@@ -84,8 +86,9 @@ describe 'Usuario cadastra veiculo' do
         # Act
         login_as(usuario)
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Veiculos'
+        click_on 'Cadastro'
         click_on 'Cadastrar novo Veiculo'
         fill_in 'Placa Identificação', with: ''
         fill_in 'Marca', with: ''
@@ -115,8 +118,9 @@ describe 'Usuario cadastra veiculo' do
         # Act
         login_as(usuario)
         visit root_path
-        click_on 'Cadastro'
+        click_on 'Cadastros'
         click_on 'Veiculos'
+        click_on 'Cadastro'
         click_on 'Cadastrar novo Veiculo'
         
         click_on 'Cancelar'
