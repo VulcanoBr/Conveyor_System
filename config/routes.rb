@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     post 'operation',   on: :member
   end
 
+  resources :mode_transports, only: [:index, :new, :create, :show, :edit, :update]
+
   
   
 end

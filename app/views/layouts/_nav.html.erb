@@ -34,7 +34,19 @@
                                 </ul>
                             </li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Modalidade</a></li>
+                            
+                            <li class="dropend ">
+                                <a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown"href="#">
+                                    Modalidades 
+                                </a>
+                                <ul class="dropdown-menu shadow ">
+                                    <li><a id="modalidade" class="dropdown-item" href="<%= mode_transports_path %>">CadMod</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Prazo</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Peso</a></li>
+                                </ul>
+                            </li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="<%= categories_path %>">Categorias</a></li>
                         </ul>

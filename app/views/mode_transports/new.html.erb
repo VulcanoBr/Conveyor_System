@@ -1,0 +1,57 @@
+<h1>Nova Modalidade</h1>
+<br>
+<% if @mode_transport.errors.any? %>
+    <p>Verifique os erros abaixo</p>
+    <ul>
+        <% @mode_transport.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+<br>
+
+<%= form_with(model: @mode_transport, class:"row g-3") do |mt| %>
+
+    <div class="mb-3">
+        <%= mt.label :name, class:"form-label" %>
+        <%= mt.text_field :name, class:"form-control" ,  placeholder:"Nome" %>
+    </div>
+
+    <div class="col-auto mb-3">
+        <%= mt.label :minimum_distance, class:"form-label" %>
+        <%= mt.number_field :minimum_distance, class:"form-control" ,  placeholder:"Distancia Minima em Km" %>
+    </div>
+
+    <div class="col-auto mb-3">
+        <%= mt.label :maximum_distance, class:"form-label" %>
+        <%= mt.number_field :maximum_distance, class:"form-control" ,  placeholder:"Distancia Maxima em Km" %>
+    </div>
+
+    <div class="col-auto mb-3">
+        <%= mt.label :minimum_weight, class:"form-label" %>
+        <%= mt.number_field :minimum_weight, class:"form-control" ,  placeholder:"Peso Minimo em Kg" %>
+    </div>
+
+    <div class="col-auto mb-3">
+        <%= mt.label :maximum_weight, class:"form-label" %>
+        <%= mt.number_field :maximum_weight, class:"form-control" ,  placeholder:"Peso Maximo em Kg" %>
+    </div>
+
+    <div class="mb-3">
+        <%= mt.label :delivery_fee, class:"form-label" %>
+        <%= mt.text_field :delivery_fee, class:"form-control" ,  placeholder:"Taxa de entrega 99,99" %>
+    </div>
+    <br>
+    <div class="d-flex  mb-5">
+            <div>
+                <%= mt.submit 'Salvar',  class:"form-control btn btn-primary" %>
+            </div>
+
+            <div>
+                <%= link_to 'Cancelar', mode_transports_path,  class:"form-control btn btn-danger" %>  
+            </div>
+        </div>
+
+
+
+<% end %>

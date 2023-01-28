@@ -4,11 +4,13 @@ pt-BR:
   in_delivery: Em Entrega
   under_maintenance: Em Manutenção
   disabled: Desativado
+  active: Ativo
   activerecord:
     models:
       user: Usuario
       category: Categoria
       vehicle: Veiculo
+      mode_transport: Modalidade
     attributes:
       user:
         name: Nome
@@ -26,5 +28,13 @@ pt-BR:
         year_manufacture: Ano Fabricação
         status: Status
         category_id: Categoria
+      mode_transport:
+        name: Nome
+        minimum_distance: Distancia Minima
+        maximum_distance: Distancia Maxima
+        minimum_weight: Peso Minimo
+        maximum_weight: Peso Maximo
+        delivery_fee: Taxa de Entrega
+        status: Status
         
 

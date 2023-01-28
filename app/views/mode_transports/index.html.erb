@@ -1,0 +1,42 @@
+<h1>Modalidades de Transporte</h1>
+<br>
+<div class="d-flex justify-content-between ">
+    <p><%= link_to 'Cadastrar nova Modalidade', new_mode_transport_path %> </p>
+</div>
+</div>
+<div>
+    <% if @mode_transports.any? %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col" >Distancia Minima</th>
+                    <th scope="col">Distancia Maxima</th>
+                    <th scope="col">Peso Minimo  </th>
+                    <th scope="col">Peso Maximo</th>
+                    <th scope="col">Taxa de Entrega</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"> </th>
+                        
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <% @mode_transports.each do |mt| %>
+                    <tr >
+                        <td> <%= mt.name %> </td>
+                        <td> <%= mt.minimum_distance %> Km</td>
+                        <td> <%= mt.maximum_distance %> Km</td>
+                        <td > <%= mt.minimum_weight %> Kg</td>
+                        <td > <%= mt.maximum_weight %> Kg </td>
+                        <td> <%= mt.delivery_fee %> </td>
+                        <td> <%= I18n.translate(mt.status) %> </td>
+                        <td> <%= link_to 'Editar', edit_mode_transport_path(mt.id) %> </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    <% else %>
+                    "Não ha Modalidades Cadastradas !!!" %> </p> 
+    <% end%>
+   
+</div>

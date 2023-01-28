@@ -51,7 +51,7 @@ describe 'Usuario ve Veiculos' do
 
     end
 
-    it 'e não ha veiculoss cadastrados' do
+    it 'e não ha veiculos cadastrados' do
 
         # Arrange
 

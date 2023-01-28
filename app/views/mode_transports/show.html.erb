@@ -1,0 +1,48 @@
+<h1><%= ModeTransport.model_name.human %> cadastrada/atualizada</h1>
+<br>
+<div>
+    <p><strong> <%= ModeTransport.human_attribute_name(:name) %>:</strong>
+                 <%= @mode_transport.name %> 
+    </p>
+</div>
+
+<div>
+    <p><strong> <%= ModeTransport.human_attribute_name(:minimum_distance) %>:</strong>
+                 <%= @mode_transport.minimum_distance %> 
+    </p>
+</div>
+
+<div>
+    <p><strong> <%= ModeTransport.human_attribute_name(:maximum_distance) %>:</strong>
+                 <%= @mode_transport.maximum_distance %> 
+    </p>
+</div>
+
+<div>
+    <p><strong> <%= ModeTransport.human_attribute_name(:minimum_weight) %>:</strong>
+                 <%= @mode_transport.minimum_weight %> 
+    </p>
+</div>
+
+<div>
+    <p><strong> <%= ModeTransport.human_attribute_name(:maximum_weight) %>:</strong>
+                 <%= @mode_transport.maximum_weight %> 
+    </p>
+</div>
+
+<div>
+    <p><strong> <%= ModeTransport.human_attribute_name(:delivery_fee) %>:</strong>
+                 <%= @mode_transport.delivery_fee %> 
+    </p>
+</div>
+
+<div>
+    <p><strong> <%= ModeTransport.human_attribute_name(:status) %>:</strong>
+                 <%= I18n.translate(@mode_transport.status) %> 
+    </p>
+</div>
+
+<br>
+<div>
+    <p><%= link_to 'Voltar', mode_transports_path, class:"btn btn-secundary" %>
+</div>
