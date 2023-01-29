@@ -1,5 +1,7 @@
 class ModeTransportsController < ApplicationController
 
+    before_action :authenticate_user!, only:[:new, :create, :edit, :update, :show]
+
     before_action :set_mode_transport, only: [:show, :edit, :update]
 
     def index 

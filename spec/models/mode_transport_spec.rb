@@ -162,7 +162,7 @@ RSpec.describe ModeTransport, type: :model do
   end
 
   
-  it 'Peso Minimo e obrigatoria' do
+  it 'Peso Maximo e obrigatoria' do
 
     # Arrange  
     mode_transport = ModeTransport.new(maximum_weight: '')
@@ -173,7 +173,7 @@ RSpec.describe ModeTransport, type: :model do
 
   end
   
-  it 'Peso Minimo deve ter tamanho maximo 6' do
+  it 'Peso Maximo deve ter tamanho maximo 6' do
 
     # Arrange  
     mode_transport = ModeTransport.new(maximum_weight: 1234567)

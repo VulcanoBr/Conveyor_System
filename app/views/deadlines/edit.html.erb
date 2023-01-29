@@ -1,0 +1,43 @@
+<h1>Editar Prazo</h1>
+
+<br>
+<% if @deadline.errors.any? %>
+    <p>Verifique os erros abaixo</p>
+    <ul>
+        <% @deadline.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+<br>
+<%= form_with(model: [@mode_transport, @deadline], class:"row g-3") do |d| %>
+
+    <div class="col-auto mb-3">
+        <%= d.label :start_distance, class:"form-label" %>
+        <%= d.number_field :start_distance, class:"form-control" ,  placeholder:"Distancia inicio em Km" %>
+    </div>
+
+    <div class="col-auto mb-3">
+        <%= d.label :final_distance, class:"form-label" %>
+        <%= d.number_field :final_distance, class:"form-control" ,  placeholder:"Distancia Final em Km" %>
+    </div>
+
+    <div class="col-auto mb-3">
+        <%= d.label :deadline_hours, class:"form-label" %>
+        <%= d.number_field :deadline_hours, class:"form-control" ,  placeholder:"Prazo em Hs" %>
+    </div>
+
+    <br>
+    <div class="d-flex  mb-5">
+            <div>
+                <%= d.submit 'Salvar',  class:"form-control btn btn-primary" %>
+            </div>
+
+            <div>
+                <%= link_to 'Cancelar', mode_transport_deadlines_path,  class:"form-control btn btn-danger" %>  
+            </div>
+        </div>
+
+
+
+<% end %>

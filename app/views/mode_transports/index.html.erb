@@ -3,7 +3,7 @@
 <div class="d-flex justify-content-between ">
     <p><%= link_to 'Cadastrar nova Modalidade', new_mode_transport_path %> </p>
 </div>
-</div>
+<br>
 <div>
     <% if @mode_transports.any? %>
         <table class="table">
@@ -16,7 +16,7 @@
                     <th scope="col">Peso Maximo</th>
                     <th scope="col">Taxa de Entrega</th>
                     <th scope="col">Status</th>
-                    <th scope="col"> </th>
+                    <th scope="col">Configurar </th>
                         
                 </tr>
             </thead>
@@ -30,6 +30,7 @@
                         <td > <%= mt.maximum_weight %> Kg </td>
                         <td> <%= mt.delivery_fee %> </td>
                         <td> <%= I18n.translate(mt.status) %> </td>
+                        <td> <%= link_to 'Prazos', mode_transport_deadlines_path(mode_transport_id: mt.id) %> </td>
                         <td> <%= link_to 'Editar', edit_mode_transport_path(mt.id) %> </td>
                     </tr>
                 <% end %>
@@ -39,4 +40,8 @@
                     "Não ha Modalidades Cadastradas !!!" %> </p> 
     <% end%>
    
+</div>
+
+<div>
+    <p> <%= link_to 'Voltar', root_path %> </p>
 </div>

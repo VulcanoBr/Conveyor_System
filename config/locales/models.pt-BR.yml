@@ -11,6 +11,7 @@ pt-BR:
       category: Categoria
       vehicle: Veiculo
       mode_transport: Modalidade
+      deadline: Prazo
     attributes:
       user:
         name: Nome
@@ -36,5 +37,9 @@ pt-BR:
         maximum_weight: Peso Maximo
         delivery_fee: Taxa de Entrega
         status: Status
+      deadline:
+        start_distance: Distancia Inicio
+        final_distance: Distancia Final
+        deadline_hours: Prazo
         
 

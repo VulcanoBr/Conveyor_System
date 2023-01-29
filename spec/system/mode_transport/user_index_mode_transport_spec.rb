@@ -40,16 +40,6 @@ describe 'Usuario ve Modalidades' do
         expect(page).to have_content('10.0')
         expect(page).to have_content('0')
 
-        expect(page).to have_content('Modalidades de Transporte')
-        expect(page).not_to have_content('Não ha Modalidades Cadastradas !!!')
-        expect(page).to have_content('Entrega Rapida')
-        expect(page).to have_content('0')
-        expect(page).to have_content('500')
-        expect(page).to have_content('0')
-        expect(page).to have_content('200')
-        expect(page).to have_content('10.0')
-        expect(page).to have_content('0')
-
         expect(page).to have_content('Entrega Expressa')
         expect(page).to have_content('0')
         expect(page).to have_content('100')

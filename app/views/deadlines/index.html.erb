@@ -1,0 +1,43 @@
+<h1>Configuração de Prazos</h1>
+<br>
+<div class="d-flex  ">
+    <p><%= link_to 'Cadastrar novo Prazo', new_mode_transport_deadline_path(mode_transport_id: params[:mode_transport_id]) %> </p>
+</div>
+<br>
+<div>
+    <% if @deadlines.any? %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Distancia Inicial</th>
+                    <th scope="col" >Distancia Final</th>
+                    <th scope="col">Prazo</th>
+                    
+                    <th scope="col"></th>
+                        
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <% @deadlines.each do |d| %>
+                    <tr >Km
+                        <td> <%= d.start_distance %> Km</td>
+                        <td> <%= d.final_distance %> Km</td>
+                        <td> <%= d.deadline_hours %> Hs</td>
+                    
+                        <td> <%= link_to 'Editar', 
+                            edit_mode_transport_deadline_path(mode_transport_id: d.mode_transport_id, id: d.id) %> </td>
+                        <td> <%= button_to 'OUTRONOME', mode_transport_deadline_path(mode_transport_id: d.mode_transport_id, id: d.id), method: :delete, class: 'btn btn-sm btn-danger'  %>  </td>
+                        
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    <% else %>
+            "Não ha Prazos Cadastrados !!!" %> </p> 
+    <% end%>
+   
+</div>
+
+<div>
+    <p> <%= link_to 'Voltar', mode_transports_path %> </p>
+</div>
