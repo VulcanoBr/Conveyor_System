@@ -1,11 +1,12 @@
 class DeadlinesController < ApplicationController
 
 
-   # before_action :authenticate_user!
+    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
     before_action :set_deadline, only: [:edit, :update, :destroy]
 
     def index 
+        @mode_transport = ModeTransport.find(params[:mode_transport_id])
         @deadlines = Deadline.where(mode_transport_id: params[:mode_transport_id])
     end
 

@@ -37,7 +37,7 @@ describe 'Usuario ve Modalidades' do
         expect(page).to have_content('500')
         expect(page).to have_content('0')
         expect(page).to have_content('200')
-        expect(page).to have_content('10.0')
+        expect(page).to have_content('R$ 10,00')
         expect(page).to have_content('0')
 
         expect(page).to have_content('Entrega Expressa')
@@ -45,7 +45,7 @@ describe 'Usuario ve Modalidades' do
         expect(page).to have_content('100')
         expect(page).to have_content('0')
         expect(page).to have_content('10')
-        expect(page).to have_content('50.0')
+        expect(page).to have_content('R$ 50,00')
         expect(page).to have_content('0')
 
     end

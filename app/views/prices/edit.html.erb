@@ -1,0 +1,44 @@
+<br>
+<h1>Editar Preço, Modalidade: <%= @mode_transport.name %></h1>
+
+<br>
+<% if @price.errors.any? %>
+    <p>Verifique os erros abaixo</p>
+    <ul>
+        <% @price.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+<br>
+<%= form_with(model: [@mode_transport, @price], class:"row g-3") do |d| %>
+
+    <div class="col-auto mb-3">
+        <%= d.label :start_weight, class:"form-label" %>
+        <%= d.number_field :start_weight, class:"form-control" ,  placeholder:"Peso Inicial em Kg" %>
+    </div>
+
+    <div class="col-auto mb-3">
+        <%= d.label :final_weight, class:"form-label" %>
+        <%= d.number_field :final_weight, class:"form-control" ,  placeholder:"Peso Final em Kg" %>
+    </div>
+
+    <div class="col-auto mb-3">
+        <%= d.label :km_price, class:"form-label" %>
+        <%= d.text_field :km_price, class:"form-control" ,  placeholder:"Preço 999.99" %>
+    </div>
+
+    <br>
+    <div class="d-flex  mb-5">
+            <div>
+                <%= d.submit 'Salvar',  class:"form-control btn btn-primary" %>
+            </div>
+
+            <div>
+                <%= link_to 'Cancelar', mode_transport_prices_path,  class:"form-control btn btn-danger" %>  
+            </div>
+        </div>
+
+
+
+<% end %>

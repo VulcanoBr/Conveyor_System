@@ -1,4 +1,5 @@
-<h1>Configuração de Prazos</h1>
+<br>
+<h1>Configuração de Prazos, Modalidade: <%= @mode_transport.name %></h1>
 <br>
 <div class="d-flex  ">
     <p><%= link_to 'Cadastrar novo Prazo', new_mode_transport_deadline_path(mode_transport_id: params[:mode_transport_id]) %> </p>
@@ -19,7 +20,7 @@
             </thead>
             <tbody class="table-group-divider">
                 <% @deadlines.each do |d| %>
-                    <tr >Km
+                    <tr >
                         <td> <%= d.start_distance %> Km</td>
                         <td> <%= d.final_distance %> Km</td>
                         <td> <%= d.deadline_hours %> Hs</td>

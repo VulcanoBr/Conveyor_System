@@ -1,3 +1,4 @@
+<br>
 <h1>Modalidades de Transporte</h1>
 <br>
 <div class="d-flex justify-content-between ">
@@ -17,6 +18,7 @@
                     <th scope="col">Taxa de Entrega</th>
                     <th scope="col">Status</th>
                     <th scope="col">Configurar </th>
+                    <th scope="col">Configurar </th>
                         
                 </tr>
             </thead>
@@ -28,9 +30,10 @@
                         <td> <%= mt.maximum_distance %> Km</td>
                         <td > <%= mt.minimum_weight %> Kg</td>
                         <td > <%= mt.maximum_weight %> Kg </td>
-                        <td> <%= mt.delivery_fee %> </td>
+                        <td> <%= number_to_currency(mt.delivery_fee) %> </td>
                         <td> <%= I18n.translate(mt.status) %> </td>
                         <td> <%= link_to 'Prazos', mode_transport_deadlines_path(mode_transport_id: mt.id) %> </td>
+                        <td> <%= link_to 'Preços', mode_transport_prices_path(mode_transport_id: mt.id) %> </td>
                         <td> <%= link_to 'Editar', edit_mode_transport_path(mt.id) %> </td>
                     </tr>
                 <% end %>

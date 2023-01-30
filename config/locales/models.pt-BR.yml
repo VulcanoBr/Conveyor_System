@@ -12,6 +12,7 @@ pt-BR:
       vehicle: Veiculo
       mode_transport: Modalidade
       deadline: Prazo
+      price: Preço
     attributes:
       user:
         name: Nome
@@ -38,8 +39,12 @@ pt-BR:
         delivery_fee: Taxa de Entrega
         status: Status
       deadline:
-        start_distance: Distancia Inicio
+        start_distance: Distancia Inicial
         final_distance: Distancia Final
         deadline_hours: Prazo
+      price   : 
+        start_weight: Peso Inicial
+        final_weight: Peso Final
+        km_price: Preço
         
 

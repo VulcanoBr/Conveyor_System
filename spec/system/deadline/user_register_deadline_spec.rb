@@ -32,7 +32,7 @@ describe 'Usuario Cadastra Prazos' do
 
         # Assert
         expect(*page).to have_content('Cadastra novo Prazo')
-        expect(page).to have_content('Distancia Inicio')
+        expect(page).to have_content('Distancia Inicial')
         expect(page).to have_content('Distancia Final')
         expect(page).to have_content('Prazo')
        
@@ -52,7 +52,7 @@ describe 'Usuario Cadastra Prazos' do
         click_on 'CadMod'
         click_on 'Prazos'
         click_on 'Cadastrar novo Prazo'
-        fill_in 'Distancia Inicio', with: 0
+        fill_in 'Distancia Inicial', with: 0
         fill_in 'Distancia Final', with: 100
         fill_in 'Prazo', with: 24
         click_on 'Salvar'
@@ -82,7 +82,7 @@ describe 'Usuario Cadastra Prazos' do
         click_on 'CadMod'
         click_on 'Prazos'
         click_on 'Cadastrar novo Prazo'
-        fill_in 'Distancia Inicio', with: ''
+        fill_in 'Distancia Inicial', with: ''
         fill_in 'Distancia Final', with: ''
         fill_in 'Prazo', with: ''
         click_on 'Salvar'
@@ -92,7 +92,7 @@ describe 'Usuario Cadastra Prazos' do
         expect(*page).to have_content('Prazo NÃO cadastrado !!!')    
         expect(page).to have_content('Cadastra novo Prazo')
         expect(page).not_to have_content('Não ha Prazos Cadastrados !!!')
-        expect(page).to have_content('Distancia Inicio não pode ficar em branco')
+        expect(page).to have_content('Distancia Inicial não pode ficar em branco')
         expect(page).to have_content('Distancia Final não pode ficar em branco')
         expect(page).to have_content('Prazo não pode ficar em branco')
        

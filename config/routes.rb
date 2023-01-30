@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :mode_transports, only: [:index, :new, :create, :show, :edit, :update] do
     resources :deadlines, only: [:index, :new, :create, :edit, :update, :destroy]
+    resources :prices, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
   

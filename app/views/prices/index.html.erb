@@ -1,0 +1,45 @@
+
+<br>
+<h1>Configuração de Preços, Modalidade: <%= @mode_transport.name %></h1>
+<br>
+<div class="d-flex  ">
+    <p><%= link_to 'Cadastrar novo Preço', new_mode_transport_price_path(mode_transport_id: params[:mode_transport_id]) %> </p>
+</div>
+<br>
+<div>
+    <% if @prices.any? %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Peso Inicial</th>
+                    <th scope="col" >Peso Final</th>
+                    <th scope="col">Preço</th>
+                    
+                    <th scope="col"></th>
+                        
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <% @prices.each do |p| %>
+                    <tr >
+                        <td> <%= p.start_weight %> Kg</td>
+                        <td> <%= p.final_weight %> Kg</td>
+                        <td> <%= number_to_currency(p.km_price) %> </td>
+                    
+                        <td> <%= link_to 'Editar', 
+                            edit_mode_transport_price_path(mode_transport_id: p.mode_transport_id, id: p.id) %> </td>
+                        <td> <%= button_to 'OUTRONOME', mode_transport_price_path(mode_transport_id: p.mode_transport_id, id: p.id), method: :delete, class: 'btn btn-sm btn-danger'  %>  </td>
+                        
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    <% else %>
+            "Não ha Preços Cadastrados !!!" %> </p> 
+    <% end%>
+   
+</div>
+
+<div>
+    <p> <%= link_to 'Voltar', mode_transports_path %> </p>
+</div>
