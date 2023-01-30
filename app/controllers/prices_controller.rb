@@ -1,6 +1,6 @@
 class PricesController < ApplicationController
 
-    #before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
     before_action :set_price, only: [:edit, :update, :destroy]
 
