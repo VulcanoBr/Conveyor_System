@@ -1,0 +1,70 @@
+<h1>Consulta Modalidade</h1>
+<br>
+<% if (@mode_transports_active.blank?) && (@mode_transports_disabled.blank?) %>
+    <p>Não ha Modalidades cadastradas !!!>
+<% end %>
+<br> 
+<div>
+    <% if  @mode_transports_active.any? %> 
+            <div>
+                <h3>Modalidades Ativas</h3>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col" >Distancia Minima</th>
+                        <th scope="col">Distancia Maxima</th>
+                        <th scop="col"> </th>
+                            
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <% @mode_transports_active.each do |mta| %>
+                        <tr >
+                            <td> <%= mta.name %> </td>
+                            <td> <%= mta.minimum_distance %> Km</td>
+                            <td> <%= mta.maximum_distance %> Km</td>
+                            
+                            <td> <%= link_to 'Ver Detalhes', details_mode_transport_path(mta.id) %> </td>
+                            
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+   <% end %> 
+</div>
+<hr hr size="6" width="50%" align="left" color="blue">
+<div>
+    <% if  @mode_transports_disabled.any? %> 
+            <div>
+                <h3>Modalidades Inativas</h3>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col" >Distancia Minima</th>
+                        <th scope="col">Distancia Maxima</th>
+                        <th scop="col"> </th>
+                            
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <% @mode_transports_disabled.each do |mta| %>
+                        <tr >
+                            <td> <%= mta.name %> </td>
+                            <td> <%= mta.minimum_distance %> Km</td>
+                            <td> <%= mta.maximum_distance %> Km</td>
+                            
+                            <td id="details"> <%= link_to 'Ver Detalhes', details_mode_transport_path(mta.id) %> </td>
+                            
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+   <% end %> 
+</div>
+<div>
+    <p> <%= link_to 'Voltar', root_path %> </p>
+</div>

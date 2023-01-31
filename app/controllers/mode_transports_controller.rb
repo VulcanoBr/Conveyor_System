@@ -8,6 +8,20 @@ class ModeTransportsController < ApplicationController
         @mode_transports = ModeTransport.all
     end
 
+    def consult 
+        @mode_transports_active = ModeTransport.active
+        @mode_transports_disabled = ModeTransport.disabled
+    end
+
+    def details 
+        @mode_transport = ModeTransport.find(params[:id])
+    #    @prices = Price.where(mode_transport_id: params[:id])
+        @prices = @mode_transport.prices
+    #     @deadlines = Deadline.where(mode_transport_id: params[:id])
+        @deadlines = @mode_transport.deadlines
+    
+    end
+
     def new
         @mode_transport = ModeTransport.new
     end

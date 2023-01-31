@@ -1,0 +1,78 @@
+<br>
+<h1>Modalidade <%= @mode_transport.name %> </h1>
+<br>
+<div>
+    <table class="table-responsive-md table-bordered" >
+                <thead>
+                    <tr>
+                        
+                        <th scope="col" > Distancia Minima </th>
+                        <th scope="col"> Distancia Maxima </th>
+                        <th scope="col" > Peso Minimo </th>
+                        <th scope="col"> Peso Maximo </th>
+                        <th scop="col"> Taxa de Entrega </th>
+                            
+                    </tr>
+                </thead>
+                    <tr >
+                        <td class="text-center"> <%= @mode_transport.minimum_distance %> Km</td>
+                        <td class="text-center"> <%= @mode_transport.maximum_distance %> Km</td>
+                        <td class="text-center"> <%= @mode_transport.minimum_weight %> Kg</td>
+                        <td class="text-center"> <%= @mode_transport.maximum_weight %> Kg</td>
+                        <td class="text-center"> <%= number_to_currency(@mode_transport.delivery_fee) %></td>  
+                    </tr>
+                </tbody>
+            </table>
+</div>
+<br>
+<div class="d-flex justify-content">
+    <div class="me-4">
+        <% if @prices.any? %>
+            <h5>Tabela de Preço</h5>
+            <table class="table-responsive-md  table-bordered">
+                <thead>
+                    <tr>         
+                        <th class="text-center"colspan="2" scope="col" > Intervalo </th>
+                        <th scope="col"> Valor Por KM </th>         
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @prices.each do |p| %>
+                        <tr >
+                            <td> <%= p.start_weight %> Kg</td>
+                            <td> <%= p.final_weight %> Kg</td>
+                            <td class="text-center"> <%= number_to_currency(p.km_price) %> </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        <% end %>
+    </div>
+    <div></div>
+    <div class="">
+        <% if @deadlines.any? %>
+            <h5>Tabela de Prazo</h5>
+            <table class="table-responsive-md table-bordered" >
+                <thead>
+                    <tr>       
+                        <th class="text-center" colspan="2" scope="col" > Intervalo </th>
+                        <th scope="col"> Prazo </th>    
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @deadlines.each do |d| %>
+                        <tr >
+                            <td> <%= d.start_distance %> Km</td>
+                            <td> <%= d.final_distance %> Km</td>
+                            <td> <%= d.deadline_hours %> Hs</td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        <% end %>
+    </div>
+</div>
+<br>
+<div>
+    <p> <%= link_to 'Voltar', consult_mode_transports_path %> </p>
+</div>

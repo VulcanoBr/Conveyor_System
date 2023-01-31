@@ -1,5 +1,9 @@
 class ModeTransport < ApplicationRecord
 
+    has_many :prices
+
+    has_many :deadlines
+
     enum status: {active: 0, disabled: 1}
 
     validates :name, :minimum_distance, :maximum_distance, :minimum_weight,
