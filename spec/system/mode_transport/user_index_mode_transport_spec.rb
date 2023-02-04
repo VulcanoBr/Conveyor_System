@@ -19,7 +19,7 @@ describe 'Usuario ve Modalidades' do
     it 'e com sucesso' do
         # Arrange
         mod1 = ModeTransport.create!(name: 'Entrega Rapida', minimum_distance: 0, maximum_distance: 500, 
-                        minimum_weight: 0, maximum_weight: 200, delivery_fee: 10.0, status: 0)
+                        minimum_weight: 0, maximum_weight: 200, delivery_fee: 10.0, status: :active)
         mod2 = ModeTransport.create!(name: 'Entrega Expressa', minimum_distance: 0, maximum_distance: 100, 
                             minimum_weight: 0, maximum_weight: 10, delivery_fee: 50.0, status: :active)
 

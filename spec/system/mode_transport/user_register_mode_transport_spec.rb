@@ -66,7 +66,7 @@ describe 'Usuario Cadastra Modalidade' do
         expect(page).to have_content('Distancia Maxima: 200')
         expect(page).to have_content('Peso Minimo: 0')
         expect(page).to have_content('Peso Maximo: 450')
-        expect(page).to have_content('Taxa de Entrega: 100.0')
+        expect(page).to have_content('Taxa de Entrega: R$ 100,00')
         expect(page).to have_content('Status: Ativo')
         expect(*page).to have_content('Voltar')
     end

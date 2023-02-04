@@ -1,0 +1,41 @@
+<br>
+<h1>Lista de Ordem de Entrgas de <%= current_user.name %></h1>
+<br>
+
+<div>
+    <% if @orders.any? %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Codigo da Ordem</th>
+                    <th scope="col" >Produto</th>
+                    <th scope="col">Peso</th>
+                    <th scope="col">Distancia </th>
+                    <th scope="col">Status</th>
+                        
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <% @orders.each do |o| %>
+                    <tr >
+                        <td> <%= o.code %> </td>
+                        <td> <%= o.product_code %> </td>
+                        <td> <%= o.weight %> Kg</td>
+                        <td > <%= o.distance %> Km</td>
+                        <td> <%= I18n.translate(o.status) %> </td>
+                        <td> <%= link_to 'Calcular Orçamento', budget_order_path(o.id) %> </td>
+                        
+                        <td> <%= link_to 'Editar', edit_order_path(o.id) %> </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    <% else %>
+                <p> "Não ha Ordem de Entrega para orçamento !!!"  </p> 
+    <% end%>
+   
+</div>
+
+<div>
+    <p> <%= link_to 'Sair', root_path %> </p>
+</div>

@@ -5,6 +5,7 @@ pt-BR:
   under_maintenance: Em Manutenção
   disabled: Desativado
   active: Ativo
+  pending: Pendente
   activerecord:
     models:
       user: Usuario
@@ -13,6 +14,8 @@ pt-BR:
       mode_transport: Modalidade
       deadline: Prazo
       price: Preço
+      order: Pedido
+      order_address: Endereço
     attributes:
       user:
         name: Nome
@@ -46,5 +49,31 @@ pt-BR:
         start_weight: Peso Inicial
         final_weight: Peso Final
         km_price: Preço
+      order:
+        code: Codigo do Pedido
+        product_code: Codigo Produto
+        description: Descrição
+        height: Altura
+        width: Largura
+        weight: Peso
+        depth: Profundidade
+        distance: Distancia
+        status: Status
+        sender_name: Nome Remetente
+        sender_identification: CPF Remetente
+        sender_email: Email Remetente
+        sender_phone: Telefone Remetente
+        sender_address: Endereço Remetente
+        sender_city: Cidade Remetente
+        sender_state: Estado Remetente
+        sender_zipcode: Cep Remetente
+        recipient_name: Nome Destinatario
+        recipient_identification: CPF Destinatario
+        recipient_email: Email Destinatario
+        recipient_phone: Telefone Destinatario
+        recipient_address: Endereço Destinatario
+        recipient_city: Cidade Destinatario
+        recipient_state: Estado Destinatario
+        recipient_zipcode: Cep Destinatario
         
 

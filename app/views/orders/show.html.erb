@@ -1,0 +1,117 @@
+<br>
+<h1><%= Order.model_name.human %> criado/atualizado</h1>
+<br>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:code) %>:</strong> <%= @order.code %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:product_code) %>:</strong> <%= @order.product_code %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:description) %>:</strong> <%= @order.description %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:weight) %>:</strong> <%= @order.weight %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:height) %>:</strong> <%= @order.height %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:width) %>:</strong> <%= @order.width %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:depth) %>:</strong> <%= @order.depth %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:sender_name) %>:</strong> <%= @order.sender_name %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:sender_identification) %>:</strong> <%= @order.sender_identification %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:sender_email) %>:</strong> <%= @order.sender_email %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:sender_phone) %>:</strong> <%= @order.sender_phone %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:sender_address) %>:</strong> <%= @order.sender_address %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:sender_city) %>:</strong> <%= @order.sender_city %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:sender_state) %>:</strong> <%= @order.sender_state %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:sender_zipcode) %>:</strong> <%= @order.sender_zipcode %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:recipient_name) %>:</strong> <%= @order.recipient_name %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:recipient_identification) %>:</strong> <%= @order.recipient_identification %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:recipient_email) %>:</strong> <%= @order.recipient_email %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:recipient_phone) %>:</strong> <%= @order.recipient_phone %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:recipient_address) %>:</strong> <%= @order.recipient_address %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:recipient_city) %>:</strong> <%= @order.recipient_city %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:recipient_state) %>:</strong> <%= @order.recipient_state %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:recipient_zipcode) %>:</strong> <%= @order.recipient_zipcode %> </p>
+</div>
+
+
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:distance) %>:</strong> <%= @order.distance %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:status) %>:</strong> <%= I18n.translate(@order.status) %> </p>
+</div>
+
+<br>
+
+<div class="d-flex  mb-5">
+    <div>
+        <%= link_to 'Voltar', root_path, class:"form-control btn btn-secundary" %>
+    </div>
+
+    <div>
+        <%= link_to 'Editar', edit_order_path(@order),  class:"form-control btn btn-success" %>  
+    </div>
+</div>

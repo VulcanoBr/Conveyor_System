@@ -71,7 +71,7 @@ describe 'Usuario Edita Modalidade' do
         expect(page).to have_content('Distancia Maxima: 150')
         expect(page).to have_content('Peso Minimo: 0')
         expect(page).to have_content('Peso Maximo: 350')
-        expect(page).to have_content('Taxa de Entrega: 200.0')
+        expect(page).to have_content('Taxa de Entrega: R$ 200,00')
         expect(page).to have_content('Status: Ativo')
         expect(*page).to have_content('Voltar')
     end

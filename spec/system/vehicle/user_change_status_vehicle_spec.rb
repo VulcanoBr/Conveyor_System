@@ -37,7 +37,7 @@ describe 'Usuario altera status do veiculo' do
         expect(page).to have_content('Veiculo passado para Manutenção com sucesso !!!')
         expect(page).to have_content('Status: Em Manutenção')
         expect(page).to have_content('Voltar')
-      #  expect(page).not_to have_button ('Em Manutenção')
+     
 
     end
 
@@ -63,7 +63,7 @@ describe 'Usuario altera status do veiculo' do
         expect(page).to have_content('Veiculo passado para Operação com sucesso !!!')
         expect(page).to have_content('Status: Em Operação')
         expect(page).to have_content('Voltar')
-      #  expect(page).not_to have_button ('Em Manutenção')
+     
 
     end
 

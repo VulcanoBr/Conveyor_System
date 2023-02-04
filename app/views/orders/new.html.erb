@@ -1,0 +1,159 @@
+<br>
+<h1>Nova Ordem de Entrega</h1>
+<br>
+<% if @order.errors.any? %>
+    <p>Verifique os erros abaixo</p>
+    <ul>
+        <% @order.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+<br>
+<%= form_with(model: @order) do |o| %>
+
+    <div>
+        <div class="mb-3">
+            <%= o.label :product_code, class:"form-label" %>
+            <%= o.text_field :product_code, class:"form-control" ,  placeholder:"Codigo Produto" %>
+        </div>
+
+        <div class="mb-3">
+            <%= o.label :description, class:"form-label" %>
+            <%= o.text_field :description, class:"form-control" ,  placeholder:"Descrição" %>
+        </div>
+
+        <div class="mb-3">
+            <%= o.label :weight, class:"form-label" %>
+            <%= o.number_field :weight, class:"form-control" ,  placeholder:"Peso kg" %>
+        </div>
+
+        <div class="col_auto mb-3">
+            <%= o.label :height, class:"form-label" %>
+            <%= o.number_field :height, class:"form-control" ,  placeholder:"Altura em cm" %>
+        </div>
+
+        <div class="mb-3">
+            <%= o.label :width, class:"form-label" %>
+            <%= o.number_field :width, class:"form-control" ,  placeholder:"Largura em cm" %>
+        </div>
+
+        <div class="mb-3">
+            <%= o.label :depth, class:"form-label" %>
+            <%= o.text_field :depth, class:"form-control" ,  placeholder:"Profundidade em cm" %>
+        </div>
+
+        
+
+    </div>
+
+    <div class="nested-fields">
+       
+            <div>
+                <div class="mb-3">
+                    <%= o.label :sender_name, class:"form-label" %>
+                    <%= o.text_field :sender_name, class:"form-control" ,  placeholder:"Nome " %>
+                </div>
+
+                <div class="mb-3">
+                    <%= o.label :sender_identification, class:"form-label" %>
+                    <%= o.number_field :sender_identification, class:"form-control" ,  placeholder:"CPF somente numeros" %>
+                </div>
+
+                <div class="mb-3">
+                    <%= o.label :sender_email, class:"form-label" %>
+                    <%= o.email_field :sender_email, class:"form-control" ,  placeholder:"Email" %>
+                </div>
+
+                <div class="mb-3">
+                    <%= o.label :sender_phone, class:"form-label" %>
+                    <%= o.text_field :sender_phone, class:"form-control" ,  placeholder:"Telefone" %>
+                </div>
+
+                <div class="mb-3">
+                    <%= o.label :sender_address, class:"form-label" %>
+                    <%= o.text_field :sender_address, class:"form-control" ,  placeholder:"Endereço Completo" %>
+                </div>
+
+                <div class="mb-3">
+                    <%= o.label :sender_city, class:"form-label" %>
+                    <%= o.text_field :sender_city, class:"form-control" ,  placeholder:"Cidade" %>
+                </div>
+
+                <div class="mb-3">
+                    <%= o.label :sender_state, class:"form-label" %>
+                    <%= o.text_field :sender_state, class:"form-control" ,  placeholder:"Estado" %>
+                </div>
+
+                <div class="mb-3">
+                    <%= o.label :sender_zipcode, class:"form-label" %>
+                    <%= o.text_field :sender_zipcode, class:"form-control" ,  placeholder:"Cep 99999-999" %>
+                </div>
+            </div>
+
+            <div>
+
+                <div class="mb-3">
+                    <%= o.label :recipient_name, class:"form-label" %>
+                    <%= o.text_field :recipient_name, class:"form-control" ,  placeholder:"Nome " %>
+                </div>
+
+                <div class="mb-3">
+                    <%= o.label :recipient_identification, class:"form-label" %>
+                    <%= o.number_field :recipient_identification, class:"form-control" ,  placeholder:"CPF somente numeros" %>
+                </div>
+
+                <div class="mb-3">
+                    <%= o.label :recipient_email, class:"form-label" %>
+                    <%= o.email_field :recipient_email, class:"form-control" ,  placeholder:"Email" %>
+                </div>
+
+                <div class="mb-3">
+                    <%= o.label :recipient_phone, class:"form-label" %>
+                    <%= o.text_field :recipient_phone, class:"form-control" ,  placeholder:"Telefone" %>
+                </div>
+
+                <div class="mb-3">
+                    <%= o.label :recipient_address, class:"form-label" %>
+                    <%= o.text_field :recipient_address, class:"form-control" ,  placeholder:"Endereço Completo" %>
+                </div>
+
+                <div class="mb-3">
+                    <%= o.label :recipient_city, class:"form-label" %>
+                    <%= o.text_field :recipient_city, class:"form-control" ,  placeholder:"Cidade" %>
+                </div>
+
+                <div class="mb-3">
+                    <%= o.label :recipient_state, class:"form-label" %>
+                    <%= o.text_field :recipient_state, class:"form-control" ,  placeholder:"Estado" %>
+                </div>
+
+                <div class="mb-3">
+                    <%= o.label :recipient_zipcode, class:"form-label" %>
+                    <%= o.text_field :recipient_zipcode, class:"form-control" ,  placeholder:"Cep 99999-999" %>
+                </div>
+            </div>
+
+        
+
+        <div class="mb-3">
+            <%= o.label :distance, class:"form-label" %>
+            <%= o.number_field :distance, class:"form-control" ,  placeholder:"Distancia KM" %>
+        </div>
+        
+    </div>
+
+    <br>
+
+    <div class="d-flex  mb-5">
+            <div>
+                <%= o.submit 'Salvar',  class:"form-control btn btn-primary" %>
+            </div>
+
+            <div>
+                <%= link_to 'Cancelar', root_path,  class:"form-control btn btn-danger" %>  
+            </div>
+    </div>
+
+
+<% end %>

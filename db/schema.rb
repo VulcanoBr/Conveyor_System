@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_29_213228) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_01_180946) do
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -37,6 +37,38 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_213228) do
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "code"
+    t.string "product_code"
+    t.integer "height"
+    t.integer "width"
+    t.integer "depth"
+    t.integer "weight"
+    t.string "description"
+    t.integer "distance"
+    t.string "sender_name"
+    t.integer "sender_identification"
+    t.string "sender_email"
+    t.string "sender_phone"
+    t.string "sender_address"
+    t.string "sender_city"
+    t.string "sender_state"
+    t.string "sender_zipcode"
+    t.string "recipient_name"
+    t.integer "recipient_identification"
+    t.string "recipient_email"
+    t.string "recipient_phone"
+    t.string "recipient_address"
+    t.string "recipient_city"
+    t.string "recipient_state"
+    t.string "recipient_zipcode"
+    t.integer "status", default: 0
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "prices", force: :cascade do |t|
@@ -76,6 +108,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_213228) do
   end
 
   add_foreign_key "deadlines", "mode_transports"
+  add_foreign_key "orders", "users"
   add_foreign_key "prices", "mode_transports"
   add_foreign_key "vehicles", "categories"
 end

@@ -33,7 +33,7 @@
 
 <div>
     <p><strong> <%= ModeTransport.human_attribute_name(:delivery_fee) %>:</strong>
-                 <%= @mode_transport.delivery_fee %> 
+                 <%= number_to_currency(@mode_transport.delivery_fee) %> 
     </p>
 </div>
 
