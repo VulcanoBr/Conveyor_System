@@ -2,7 +2,7 @@ class VehiclesController < ApplicationController
 
     before_action :authenticate_user!, only:[:new, :create, :show, :edit, :update, :destroy, :maintenance, :operation]
 
-    before_action :set_vehicle, only: [:show, :edit, :update, :maintenance, :operation]
+    before_action :set_vehicle, only: [:show, :edit, :update, :maintenance, :operation, :indelivery]
 
     before_action :set_category, only: [:new, :create, :edit, :update]
 
@@ -64,6 +64,11 @@ class VehiclesController < ApplicationController
     def operation
         @vehicle.in_operation!
         redirect_to @vehicle, notice: 'Veiculo passado para Operação com sucesso !!!'
+    end
+
+    def indelivery 
+        
+        @vehicle.In_delivery!
     end
 
 

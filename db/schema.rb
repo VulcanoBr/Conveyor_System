@@ -36,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_04_215059) do
     t.date "delivery_forecast"
     t.date "delivery_date"
     t.string "delivery_reason"
-    t.integer "status", default: 0
+    t.integer "status", default: 1
     t.integer "closure_status"
     t.integer "order_id", null: false
     t.integer "mode_transport_id", null: false

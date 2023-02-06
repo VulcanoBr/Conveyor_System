@@ -11,7 +11,7 @@ class DeliveryOrderController < ApplicationController
     end
 
     def start_budget
-        
+        order = Order.find(params[:delivery_order][:order_id])
         vehicle = Vehicle.find_by("maximum_load >= ? AND status = ?", params[:maximum_load], 0)
         if !vehicle.blank?
             @delivery_order = DeliveryOrder.new(delivery_order_params)
@@ -19,6 +19,8 @@ class DeliveryOrderController < ApplicationController
             @delivery_order.amount =  (params[:maximum_load].to_i * @delivery_order.km_price) + @delivery_order.delivery_fee
             @delivery_order.delivery_forecast = Date.today + ((@delivery_order.deadline_hours / 24) + 1)
             if @delivery_order.save 
+                vehicle.in_delivery!
+                order.in_delivery!
                 redirect_to @delivery_order, notice: "Serviço de entrega para ordem contratado com sucesso !!!"
             else
                 flash.now[:notice] = "Serviço de entrega para ordem  NÃO contratado  !!!"

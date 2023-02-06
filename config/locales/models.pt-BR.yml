@@ -6,6 +6,7 @@ pt-BR:
   disabled: Desativado
   active: Ativo
   pending: Pendente
+  closed: Encerrada
   activerecord:
     models:
       user: Usuario

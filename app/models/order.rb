@@ -3,7 +3,7 @@ class Order < ApplicationRecord
    # has_one :order_address, dependent: :destroy
    # accepts_nested_attributes_for :order_address, reject_if: :all_blank, allow_destroy: true
 
-   enum status: {pending: 0}
+   enum status: {pending: 0, in_delivery: 1, closed: 2}
 
     validates :product_code, :description, :weight, :height, :width, :depth, :distance, presence: true
     

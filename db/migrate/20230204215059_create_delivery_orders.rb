@@ -9,7 +9,7 @@ class CreateDeliveryOrders < ActiveRecord::Migration[7.0]
       t.date :delivery_forecast
       t.date :delivery_date
       t.string :delivery_reason
-      t.integer :status, default: 0
+      t.integer :status, default: 1
       t.integer :closure_status
       t.references :order, null: false, foreign_key: true
       t.references :mode_transport, null: false, foreign_key: true
