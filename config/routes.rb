@@ -20,7 +20,10 @@ Rails.application.routes.draw do
 
   resources :orders, only: [ :index, :new, :create, :show, :edit, :update  ] do
     get 'budget', on: :member
-    post 'start_delivery', on: :member
+  end
+
+  resources :delivery_order, only: [:show] do
+    post 'start_budget', on: :member
   end
   
 end

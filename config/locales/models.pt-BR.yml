@@ -15,7 +15,7 @@ pt-BR:
       deadline: Prazo
       price: Preço
       order: Pedido
-      order_address: Endereço
+      delivery_order: Ordem de Entrega
     attributes:
       user:
         name: Nome
@@ -75,5 +75,19 @@ pt-BR:
         recipient_city: Cidade Destinatario
         recipient_state: Estado Destinatario
         recipient_zipcode: Cep Destinatario
+      delivery_order:
+        code: Codigo do Pedido
+        deadline_hours: Estimativa de Entrega
+        delivery_fee: Taxa de Entrega
+        km_price: Valor por Km
+        amount: Valor Total
+        delivery_forecast: Previsão de Entrega
+        delivery_date: Data da Entrega
+        delivery_reason: Motivo do Atraso
+        status: Status
+        closure_status: Status de Encerramento
+        mode_transport_id: Modalidade
+        vehicle_id: Veiculo
+        order_id: Pedido
         
 

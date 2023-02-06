@@ -1,9 +1,7 @@
 require 'rails_helper'
 
-describe 'Usaurio cadastra Pedido de Entrega' do
-
-    
-    it 'deve estar autenticado' do
+describe 'Usuario Edita Pedido de Entrega' do
+    it 'de estar autenticado' do
     
         # Arrange
 
@@ -20,12 +18,21 @@ describe 'Usaurio cadastra Pedido de Entrega' do
 
         #Arrange
         usuario = User.create!(name: 'Vulcano', email: 'vulcano@email.com', password: 'password')
-        allow(SecureRandom).to receive(:alphanumeric).and_return("XXX1234567890XX")
+        order = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
+            height: 15, width: 20, depth: 5, weight: 10, distance: 1200, user_id: usuario.id,
+            sender_name: 'Joaqui Severo', sender_identification: 12345678901, sender_email: 'joaquim@email.com',
+            sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
+            sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
+            recipient_identification: 62429965704, recipient_email: 'lili@email.com', recipient_phone: '21988887676',
+            recipient_address: 'Avenida Silçva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_zipcode: '76987-345', status: :pending)
+        codigo_atual = order.code
         # Act
         login_as(usuario)
         visit root_path
         click_on 'Pedidos'
-        click_on 'Criar Ordem de Entrega'
+        click_on 'Consulta Orçamento'
+        click_on 'Editar'
 
         fill_in 'Codigo Produto', with: 'Codigo produto'
         fill_in 'Descrição', with: 'Descrição'
@@ -56,8 +63,8 @@ describe 'Usaurio cadastra Pedido de Entrega' do
         click_on 'Salvar'
 
         # Assert
-        expect(page).to have_content('Ordem de Entrega criado com sucesso !!!')
-        expect(page).to have_content('Codigo do Pedido: XXX1234567890XX')
+        expect(page).to have_content('Ordem de Entrega atualizada com sucesso !!!')
+        expect(page).to have_content("Codigo do Pedido: #{codigo_atual}")
         expect(page).to have_content('Codigo Produto: Codigo produto')
         expect(page).to have_content('Descrição: Descrição')
         expect(page).to have_content('Peso: 40')
@@ -83,18 +90,29 @@ describe 'Usaurio cadastra Pedido de Entrega' do
         expect(page).to have_content('Cep Destinatario: 22755-200')
       
         expect(page).to have_content('Distancia: 959')
-        expect(page).to have_content('Voltar')    
+        expect(page).to have_content('Voltar') 
+        expect(page).to have_content('Editar')    
     end
 
-    it 'e sem sucesso, campos obrigatorios' do 
+    it 'e edição sem sucesso, campos obrigatorios' do 
 
         #Arrange
         usuario = User.create!(name: 'Vulcano', email: 'vulcano@email.com', password: 'password')
+        order = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
+            height: 15, width: 20, depth: 5, weight: 10, distance: 1200, user_id: usuario.id,
+            sender_name: 'Joaqui Severo', sender_identification: 12345678901, sender_email: 'joaquim@email.com',
+            sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
+            sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
+            recipient_identification: 62429965704, recipient_email: 'lili@email.com', recipient_phone: '21988887676',
+            recipient_address: 'Avenida Silçva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_zipcode: '76987-345', status: :pending)
+        
         # Act
         login_as(usuario)
         visit root_path
         click_on 'Pedidos'
-        click_on 'Criar Ordem de Entrega'
+        click_on 'Consulta Orçamento'
+        click_on 'Editar'
 
         fill_in 'Codigo Produto', with: ''
         fill_in 'Peso', with: ''
@@ -117,13 +135,12 @@ describe 'Usaurio cadastra Pedido de Entrega' do
         fill_in 'Endereço Destinatario', with: ''
         fill_in 'Cidade Destinatario', with: ''
         fill_in 'Estado Destinatario', with: ''
-        fill_in 'Cep Destinatario', with: ''       
-        
-        fill_in 'Distancia', with: ''
+        fill_in 'Cep Destinatario', with: '' 
+        fill_in 'Distancia', with: ''  
         click_on 'Salvar'
 
         # Assert
-        expect(page).to have_content('Ordem de Entrega NÃO criado !!!')
+        expect(page).to have_content('Ordem de Entrega NÃO atualizada !!!')
         expect(page).to have_content('Codigo Produto não pode ficar em branco')
         expect(page).to have_content('Peso não pode ficar em branco')
         expect(page).to have_content('Altura não pode ficar em branco')
@@ -147,27 +164,38 @@ describe 'Usaurio cadastra Pedido de Entrega' do
         expect(page).to have_content('Estado Destinatario não pode ficar em branco')
         expect(page).to have_content('Cep Destinatario não pode ficar em branco')
       
-        expect(page).to have_content('Distancia não pode ficar em branco')        
-           
+        expect(page).to have_content('Distancia não pode ficar em branco')
+          
     end
 
     it 'e cancelou cadastramento' do
     
         # Arrange
         usuario = User.create!(name: 'Vulcano', email: 'vulcano@email.com', password: 'password')
+        order = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
+            height: 15, width: 20, depth: 5, weight: 10, distance: 1200, user_id: usuario.id,
+            sender_name: 'Joaqui Severo', sender_identification: 12345678901, sender_email: 'joaquim@email.com',
+            sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
+            sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
+            recipient_identification: 62429965704, recipient_email: 'lili@email.com', recipient_phone: '21988887676',
+            recipient_address: 'Avenida Silçva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_zipcode: '76987-345', status: :pending)
 
         # Act
         login_as(usuario)
         visit root_path
         click_on 'Pedidos'
-        click_on 'Criar Ordem de Entrega'
+        click_on 'Consulta Orçamento'
+        click_on 'Editar'
         
         click_on 'Cancelar'
 
 
         # Assert
-        expect(current_path).to eq root_path
+        expect(current_path).to eq orders_path
         
     end
 
-end 
+
+
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_01_180946) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_04_215059) do
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -25,6 +25,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_01_180946) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["mode_transport_id"], name: "index_deadlines_on_mode_transport_id"
+  end
+
+  create_table "delivery_orders", force: :cascade do |t|
+    t.string "code"
+    t.integer "deadline_hours"
+    t.decimal "delivery_fee"
+    t.decimal "km_price"
+    t.decimal "amount"
+    t.date "delivery_forecast"
+    t.date "delivery_date"
+    t.string "delivery_reason"
+    t.integer "status", default: 0
+    t.integer "closure_status"
+    t.integer "order_id", null: false
+    t.integer "mode_transport_id", null: false
+    t.integer "vehicle_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mode_transport_id"], name: "index_delivery_orders_on_mode_transport_id"
+    t.index ["order_id"], name: "index_delivery_orders_on_order_id"
+    t.index ["vehicle_id"], name: "index_delivery_orders_on_vehicle_id"
   end
 
   create_table "mode_transports", force: :cascade do |t|
@@ -108,6 +129,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_01_180946) do
   end
 
   add_foreign_key "deadlines", "mode_transports"
+  add_foreign_key "delivery_orders", "mode_transports"
+  add_foreign_key "delivery_orders", "orders"
+  add_foreign_key "delivery_orders", "vehicles"
   add_foreign_key "orders", "users"
   add_foreign_key "prices", "mode_transports"
   add_foreign_key "vehicles", "categories"

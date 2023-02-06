@@ -1,0 +1,44 @@
+<h1>Serviço Contratado</h1>
+<br>
+<div>
+    <p><strong> <%= DeliveryOrder.human_attribute_name(:code) %>:</strong> <%= @delivery_order.code %> </p>
+</div>
+
+<div>
+    <p><strong> <%= DeliveryOrder.human_attribute_name(:mode_transport_id) %>:</strong> <%= @delivery_order.mode_transport.name %> </p>
+</div>
+
+<div>
+    <p><strong> <%= DeliveryOrder.human_attribute_name(:deadline_hours) %>:</strong> <%= @delivery_order.deadline_hours %> Hs</p>
+</div>
+
+<div>
+    <p><strong> <%= DeliveryOrder.human_attribute_name(:delivery_forecast) %>:</strong> 
+                <%= @delivery_order.delivery_forecast.strftime('%d/%m/%Y') %> </p>
+</div>
+
+<div>
+    <p><strong> <%= DeliveryOrder.human_attribute_name(:km_price) %>:</strong> 
+                <%= number_to_currency(@delivery_order.km_price) %> </p>
+</div>
+
+<div>
+    <p><strong> <%= DeliveryOrder.human_attribute_name(:delivery_fee) %>:</strong> 
+                <%= number_to_currency(@delivery_order.delivery_fee) %> </p>
+</div>
+
+<div>
+    <p><strong> <%= DeliveryOrder.human_attribute_name(:amount) %>:</strong> 
+                <%= number_to_currency(@delivery_order.amount) %> </p>
+</div>
+
+<div>
+    <p><strong> <%= DeliveryOrder.human_attribute_name(:status) %>:</strong> 
+                <%= I18n.translate(@delivery_order.status) %> </p>
+</div>
+
+<br>
+<div>
+    <%= link_to 'Voltar', orders_path, class:"btn btn-secundary" %>
+</div>
+

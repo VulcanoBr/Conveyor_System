@@ -2,6 +2,8 @@ class OrdersController < ApplicationController
     
     before_action :authenticate_user! 
 
+    before_action :set_order, only: [:show, :edit, :update]
+
     def index 
         @orders = Order.where(user_id: current_user.id).pending
     end
@@ -32,14 +34,30 @@ class OrdersController < ApplicationController
             flash.now[:notice] = 'Ordem de Entrega NÃO criado !!!'
             render 'new'
         end
-
     end
 
     def show  
-        @order = Order.find(params[:id])
+        
+    end
+
+    def edit 
+
+    end
+
+    def update 
+        if @order.update(order_params)
+            redirect_to @order, notice: 'Ordem de Entrega atualizada com sucesso !!!'
+        else  
+            flash.now[:notice] = 'Ordem de Entrega NÃO atualizada !!!'
+            render 'edit'
+        end
     end
 
     private
+
+    def set_order
+        @order = Order.find(params[:id])
+    end
 
     def order_params 
         params.require(:order).permit(:code, :product_code, :description, :height, :width, :depth, :weight, 
