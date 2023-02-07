@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   resources :delivery_order, only: [:show] do
     post 'start_budget', on: :member
+    get 'pesq_budget', on: :collection
   end
   
 end

@@ -78,7 +78,9 @@ describe 'Usuario ve Veiculos' do
         click_on 'Cadastros'
         click_on 'Veiculos'
         click_on 'Cadastro'
-        fill_in 'Placa Identificação', with: vehicle.nameplate
+        within('div#veiculo') do
+            fill_in 'Placa Identificação', with: vehicle.nameplate
+        end
         click_on 'Buscar'
 
         # Assert
@@ -107,7 +109,9 @@ describe 'Usuario ve Veiculos' do
         click_on 'Cadastros'
         click_on 'Veiculos'
         click_on 'Cadastro'
-        fill_in 'Placa Identificação', with: 'FRT-5656'
+        within('div#veiculo') do
+            fill_in 'Placa Identificação', with: 'FRT-5656'
+        end
         click_on 'Buscar'
 
         # Assert

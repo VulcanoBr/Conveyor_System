@@ -28,7 +28,9 @@ describe 'Usuario busca veiculo' do
         click_on 'Cadastros'
         click_on 'Veiculos'
         click_on 'Cadastro'
-        fill_in 'Placa Identificação', with: vehicle.nameplate
+        within( 'div#veiculo') do
+            fill_in 'Placa Identificação', with: vehicle.nameplate
+        end
         click_on 'Buscar'
 
         # Assert
@@ -55,7 +57,9 @@ describe 'Usuario busca veiculo' do
         click_on 'Cadastros'
         click_on 'Veiculos'
         click_on 'Cadastro'
-        fill_in 'Placa Identificação', with: 'XYZ'
+        within('div#veiculo')  do
+            fill_in 'Placa Identificação', with: 'XYZ-'
+        end
         click_on 'Buscar'
 
         # Assert

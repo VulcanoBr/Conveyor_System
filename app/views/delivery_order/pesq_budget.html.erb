@@ -1,0 +1,80 @@
+<h1>  </h1>
+
+<br>
+
+<div>
+    <%= form_with(url: pesq_budget_delivery_order_index_path, method: :get, class: "d-flex" ) do |f| %>                 
+        <%= f.text_field :query, class:" me-2", type:"search",                          placeholder:"Codigo de Rastreio" %>
+        <%= f.submit 'Pesquisar', class:"btn btn-outline-success" %>
+    <% end %>
+</div>
+<br>
+
+<div>
+    <% if !@delivery_order.blank? %>
+        <% @delivery_order.each do |dvo| %>
+            <div>
+                <H4>Codigo do Rastreio: <%= dvo.code %> </H4>
+            </div>
+            <div class="d-flex justify-content">
+                <div class="me-4">
+                        <h5>Remetente</h5>
+                        <table class="table-responsive-md  table-bordered">
+                            <thead>
+                                <tr>         
+                                    <th scope="col" > Endereço </th>   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <tr >
+                                        <td> <%= dvo.order.full_sender_address %> </td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                </div>
+                <div></div>
+                <div class="">
+                        <h5>Destinatario</h5>
+                        <table class="table-responsive-md table-bordered" >
+                            <thead>
+                                <tr>         
+                                    <th scope="col" > Endereço </th>        
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <tr >
+                                        <td> <%= dvo.order.full_recipient_address %> </td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    
+                </div>
+            </div>
+            <br>
+            <div class="mb-3">
+                <h5>Veiculo</h5>
+                <p> <%= dvo.vehicle.full_description %> </p>   
+            </div>
+
+            <div class="mb-3">
+                <h5>Previsão de Entrega</h5>
+                <p> <%= I18n.localize(dvo.delivery_forecast) %> </p>    
+            </div>
+
+            <br>
+            <div>
+                <% if dvo.delivery_date.present? %>
+                    <h5>Data da Entrega</h5>
+                    <p> <%= I18n.localize(dvo.delivery_date) %> </p>
+                <% end %>
+            </div>
+        <% end %>
+    <% else %>
+        <p> <%= "Codigo de Rastreio #{@pesq_delivery} não encontrado !!!" %> </p> 
+    <% end %>
+</div>
+<br>
+
+<div class="mb-3">
+    <p> <%= link_to 'Sair', root_path %> </p>    
+</div>

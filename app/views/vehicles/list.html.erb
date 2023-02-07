@@ -2,7 +2,7 @@
 <h1>Lista da Frota de Veiculos</h1>
 
     
-<div >
+<div id="listveiculo">
     <%= form_with(url: list_vehicles_path, method: :get ) do |f| %>
         <%= f.label :query, 'Placa Identificação' %>
         <%= f.text_field :query %>

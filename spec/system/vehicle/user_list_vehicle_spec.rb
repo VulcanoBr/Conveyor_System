@@ -63,7 +63,9 @@ describe 'Usuario ve Lista ' do
         click_on 'Cadastros'
         click_on 'Veiculos'
         click_on 'Lista Frota'
-        fill_in 'Placa Identificação', with: vehicle.nameplate
+        within('div#listveiculo') do
+            fill_in 'Placa Identificação', with: vehicle.nameplate
+        end
         click_on 'Buscar'
 
         # Assert
@@ -92,7 +94,9 @@ describe 'Usuario ve Lista ' do
         click_on 'Cadastros'
         click_on 'Veiculos'
         click_on 'Lista Frota'
-        fill_in 'Placa Identificação', with: 'XYZ'
+        within('div#listveiculo')  do
+            fill_in 'Placa Identificação', with: 'XYZ'
+        end
         click_on 'Buscar'
         # Assert
         expect(page).not_to have_content('Não ha Veiculos Cadastrados !!!')
@@ -127,7 +131,9 @@ describe 'Usuario ve Lista ' do
         click_on 'Cadastros'
         click_on 'Veiculos'
         click_on 'Lista Frota'
-        fill_in 'Placa Identificação', with: 'FRT-5656'
+        within('div#listveiculo')  do
+            fill_in 'Placa Identificação', with: 'FRT-5656'
+        end
         click_on 'Buscar'
 
         # Assert

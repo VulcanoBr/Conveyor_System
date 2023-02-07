@@ -6,8 +6,22 @@ class DeliveryOrderController < ApplicationController
 
     end
 
-    def new 
+    def index  
+        @pesq_delivery = params[:query]
+        if params[:query].present?
+            @delivery_order = DeliveryOrder.where(code: params[:query])
+        else
+            @delivery_order = ''
+        end
+    end
 
+    def pesq_budget  
+        @pesq_delivery = params[:query]
+        if params[:query].present?
+            @delivery_order = DeliveryOrder.where(code: params[:query])
+        else
+            @delivery_order = ''
+        end
     end
 
     def start_budget

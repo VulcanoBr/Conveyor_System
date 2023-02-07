@@ -21,4 +21,9 @@ class Vehicle < ApplicationRecord
 
   validates :maximum_load, numericality: { only_integer: true }
 
+  
+  def full_description
+    "#{vehicle_model} - #{brand} / #{year_manufacture}      placa: #{nameplate}"
+end
+
 end

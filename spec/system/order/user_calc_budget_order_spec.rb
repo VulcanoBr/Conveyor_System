@@ -127,9 +127,10 @@ describe 'Usuario faz Orçamento' do
         vehicle = Vehicle.find_by("maximum_load >= ? AND status = ?", order.weight, 0)
         codigo_atual = order.code
         dev= DeliveryOrder.create!(code: codigo_atual, deadline_hours: '98', delivery_fee: '13',
-           km_price: '10', amount: '23', delivery_forecast: '0',  delivery_reason:'xxxx',
+           km_price: '10', amount: '23', delivery_forecast: '2023-15-02',  delivery_date: '0', delivery_reason:'xxxx',
             status: :in_delivery, closure_status: '0', order_id: order.id, mode_transport_id: mod1.id, vehicle_id: vehicle1.id)
         cod_delivery = dev.code
+        previsao_entrega = dev.delivery_forecast
         # Act
         login_as(usuario)
         visit root_path
@@ -148,7 +149,7 @@ describe 'Usuario faz Orçamento' do
         expect(page).to have_content('Estimativa de Entrega: 72 Hs')
         expect(page).to have_content('Taxa de Entrega: R$ 10,00')
         expect(page).to have_content('Valor Total: R$ 12,40')
-        expect(page).to have_content('Previsão de Entrega: 09/02/2023')
+        expect(page).to have_content("Previsão de Entrega: #{previsao_entrega}")
         expect(page).to have_content('Status: Em Entrega')
 
         

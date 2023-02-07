@@ -4,7 +4,7 @@
 <div class="d-flex justify-content-between ">
     <p><%= link_to 'Cadastrar novo Veiculo', new_vehicle_path %> </p>
 
-    <div >
+    <div  id="veiculo" >
     <%= form_with(url: vehicles_path, method: :get ) do |f| %>
               <%= f.label :query, 'Placa Identificação' %>
               <%= f.text_field :query %>

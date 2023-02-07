@@ -69,8 +69,8 @@
 
                     
                 </ul>
-
-                <a class="d-flex">
+                <div class="d-flex me-5">
+                <a >
                             <% if user_signed_in? %>
                                 <%= current_user.name %>  |
                                 <%= button_to 'Sair', destroy_user_session_path, method: :delete  %>
@@ -78,14 +78,20 @@
                                 <%= link_to 'Login', new_user_session_path %>
                             <% end %>
                 </a>
+                </div>
                 
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Ordem de Entrega" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Pesquisar</button>
-                </form>
+              
+                <%= form_with(url: pesq_budget_delivery_order_index_path, method: :get, class: "d-flex", id:"pesq" ) do |f| %>
+                            
+                            <%= f.text_field :query, class:"form-control me-2", type:"search", 
+                                        placeholder:"Codigo de Rastreio" %>
+                            <%= f.submit 'Pesquisar', class:"btn btn-outline-success" %>
+                <% end %>
+               
             </div>
         </div>
         
     </nav>
 
 </header>
+
