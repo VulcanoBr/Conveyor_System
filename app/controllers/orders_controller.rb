@@ -19,10 +19,10 @@ class OrdersController < ApplicationController
         
         @res = Price.where(mode_transport_id:  @calc.ids )
         .and(Price.where("start_weight <= #{@order.weight} AND final_weight >= #{@order.weight}" ))
-       
+        
         @des = Deadline.where(mode_transport_id:  @calc.ids )
         .and(Deadline.where("start_distance <= #{@order.distance} AND final_distance >= #{@order.distance}" ))
-
+       
     end
 
     def create

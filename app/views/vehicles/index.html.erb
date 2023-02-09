@@ -26,6 +26,8 @@
                     <th scope="col">Categoria</th>
                     <th scope="col">Status</th>
                     <th scope="col">Alterar</th>
+                    <th scop="col"> </th>
+                    <th scop="col"> </th>
                         
                 </tr>
             </thead>
@@ -44,6 +46,8 @@
                         <% else %>
                             <% if v.under_maintenance? %>
                                 <td> <%= button_to 'Em Operação', operation_vehicle_path(v.id), class: "btn btn-success" %> </td>
+                            <% else %>
+                                <td>  </td>
                             <% end %>
                         <% end %>
                         <td> <%= link_to 'Editar', edit_vehicle_path(v.id) %> </td>

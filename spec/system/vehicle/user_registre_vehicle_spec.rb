@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Usuario cadastra veiculo' do
 
-    it 'de estar autenticado' do
+    it 'deve estar autenticado' do
     
         # Arrange
 

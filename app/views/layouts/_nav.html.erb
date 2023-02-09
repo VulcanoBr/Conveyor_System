@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="./assets/transp2.png" alt="Logo" width="36" height="30" class="d-inline-block align-text-top">
+                <img alt="Logo" width="36" height="30" class="d-inline-block align-text-top" <%=image_tag("transp2.png")%> 
                 Vulcan Transportadora
             </a>
 
@@ -25,9 +25,9 @@
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="<%= orders_path %>">Consulta Orçamento</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Consulta Ordem de Entrega</a></li>
+                            <li><a class="dropdown-item" href="<%= pesq_budget_delivery_order_index_path %>">Consulta Ordem de Entrega </a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Finalizar Ordem de Entrega</a></li>
+                            <li><a class="dropdown-item" href="<%= delivery_order_index_path %>" >Encerrar Ordem de Entrega</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -69,16 +69,16 @@
 
                     
                 </ul>
-                <div class="d-flex me-5">
-                <a >
-                            <% if user_signed_in? %>
-                                <%= current_user.name %>  |
-                                <%= button_to 'Sair', destroy_user_session_path, method: :delete  %>
-                            <% else %>
-                                <%= link_to 'Login', new_user_session_path %>
-                            <% end %>
+                
+                <a class="d-flex me-5">
+                    <% if user_signed_in? %>
+                        <%= current_user.name %>  |
+                        <%= button_to 'Sair', destroy_user_session_path, method: :delete  %>
+                    <% else %>
+                        <%= link_to 'Login', new_user_session_path %>
+                    <% end %>
                 </a>
-                </div>
+                
                 
               
                 <%= form_with(url: pesq_budget_delivery_order_index_path, method: :get, class: "d-flex", id:"pesq" ) do |f| %>

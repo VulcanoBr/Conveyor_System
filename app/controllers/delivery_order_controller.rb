@@ -1,18 +1,21 @@
 class DeliveryOrderController < ApplicationController 
 
-    before_action :set_delivery_order, only: [:show]
+    before_action :set_delivery_order, only: [:show, :edit, :update, :closed_budget]
 
     def show 
 
     end
 
+    def closed_budget 
+        
+    end
+
     def index  
-        @pesq_delivery = params[:query]
-        if params[:query].present?
-            @delivery_order = DeliveryOrder.where(code: params[:query])
-        else
-            @delivery_order = ''
-        end
+        @delivery_orders = DeliveryOrder.all.in_delivery
+    end
+
+    def edit
+        
     end
 
     def pesq_budget  
@@ -43,6 +46,16 @@ class DeliveryOrderController < ApplicationController
         else
             flash.now[:notice] = "Serviço de entrega para ordem  NÃO contratado  !!!"
             redirect_to orders_path
+        end
+    end
+
+    def update
+        if @delivery_order.update(delivery_order_params)
+            redirect_to closed_budget_delivery_order_index_path(id: @delivery_order.id),
+                notice: 'Ordem de Entrega encerrada com sucesso!!!'
+        else  
+            flash.now[:notice] = 'Ordem de Entrega NÃO encerrada !!!'
+            render 'edit'
         end
     end
 

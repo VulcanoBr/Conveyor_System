@@ -23,9 +23,9 @@
                         <td> <%= o.weight %> Kg</td>
                         <td > <%= o.distance %> Km</td>
                         <td> <%= I18n.translate(o.status) %> </td>
-                        <td> <%= link_to 'Calcular Orçamento', budget_order_path(o.id) %> </td>
+                        <td id="<%= dom_id(o) %>"> <%= link_to 'Calcular Orçamento', budget_order_path(o.id) %> </td>
                         
-                        <td> <%= link_to 'Editar', edit_order_path(o.id) %> </td>
+                        <td > <%= link_to 'Editar', edit_order_path(o.id) %> </td>
                     </tr>
                 <% end %>
             </tbody>

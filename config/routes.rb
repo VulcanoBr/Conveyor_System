@@ -22,9 +22,10 @@ Rails.application.routes.draw do
     get 'budget', on: :member
   end
 
-  resources :delivery_order, only: [:show] do
+  resources :delivery_order, only: [:show, :index, :edit, :update] do
     post 'start_budget', on: :member
     get 'pesq_budget', on: :collection
+    get 'closed_budget', on: :collection
   end
   
 end

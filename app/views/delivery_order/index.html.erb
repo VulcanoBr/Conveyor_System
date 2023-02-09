@@ -1,0 +1,43 @@
+<br>
+<h1>Relação Ordem de Entrega </h1>
+<br>
+
+<div >
+    <% if !@delivery_orders.blank? %>
+        
+        <div >
+            <div >
+                <table class="table">
+                    <thead>
+                        <tr>         
+                            <th scope="col" > Ordem de Entrega </th>  
+                            <th scope="col" > Previsão de Entrega </th> 
+                            <th scope="col" > Status </th>
+                            <th scop="col">  </th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <% @delivery_orders.each do |dvo| %>
+                            <tr  >
+                                <td> <%= dvo.code %> </td>
+                                <td> <%= I18n.localize(dvo.delivery_forecast) %> </td>
+                                <td> <%= I18n.translate(dvo.status) %> </td>
+                                <td id="<%= dom_id(dvo) %>" > <%= link_to 'Encerrar', edit_delivery_order_path(dvo.id), class:"btn btn-primary" %>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+            
+    <% else %>
+    
+            <p> <%= "Não ha Ordem de Entrega !!!" %> </p> 
+        
+    <% end %>
+</div>
+<br>
+
+<div class="mb-3">
+    <p> <%= link_to 'Sair', root_path %> </p>    
+</div>

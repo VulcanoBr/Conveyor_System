@@ -70,7 +70,9 @@
             </div>
         <% end %>
     <% else %>
-        <p> <%= "Codigo de Rastreio #{@pesq_delivery} não encontrado !!!" %> </p> 
+        <% if @pesq_delivery.present?%>
+            <p> <%= "Codigo de Rastreio #{@pesq_delivery} não encontrado !!!" %> </p> 
+        <% end %>
     <% end %>
 </div>
 <br>

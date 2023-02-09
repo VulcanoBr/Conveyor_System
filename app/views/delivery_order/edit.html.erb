@@ -1,0 +1,61 @@
+<br>
+<h1>Encerrar Ordem de Entrega</h1>
+
+<br>
+<% if @delivery_order.errors.any? %>
+    <p>Verifique os erros abaixo</p>
+    <ul>
+        <% @delivery_order.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+<br>
+
+<div>
+    <p><strong> <%= DeliveryOrder.human_attribute_name(:code) %>:</strong> 
+                <%= @delivery_order.code %> </p>
+</div>
+
+<div>
+    <p><strong> <%= DeliveryOrder.human_attribute_name(:delivery_forecast) %>:</strong> 
+                <%= I18n.localize(@delivery_order.delivery_forecast) %> </p>
+</div>
+
+<div>
+    <p><strong> <%= DeliveryOrder.human_attribute_name(:status) %>:</strong> 
+                <%= I18n.translate(@delivery_order.status) %> </p>
+</div>
+
+<%= form_with(model: @delivery_order) do |dvo| %>
+
+    <div class="mb-3">
+        <%= dvo.label :delivery_date, class:"form-label" %>
+        <%= dvo.date_field :delivery_date, class:"form-control"  %>
+    </div>
+
+    <div class="mb-3">
+        <%= dvo.label :closure_status, class:"form-label" %>  
+        <%= dvo.select :closure_status, DeliveryOrder.closure_statuses.keys.map{ |key, value| [key.humanize, key] }, 
+             include_blank: "Selecione o status de encerramento", class:"form-control"  %>
+    </div>
+
+
+    <div class="mb-3">
+        <%= dvo.label :delivery_reason, class:"form-label" %>
+        <%= dvo.text_field :delivery_reason, class:"form-control", placeholder:"Motivo do atraso"  %>
+    </div>
+
+    <div class="d-flex  mb-5">
+            <div>
+                <%= dvo.submit 'Salvar',  class:"form-control btn btn-primary" %>
+            </div>
+
+            <div>
+                <%= link_to 'Cancelar', delivery_order_index_path,  class:"form-control btn btn-danger" %>  
+            </div>
+    </div>
+
+
+
+<% end %>

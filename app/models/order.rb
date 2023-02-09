@@ -1,7 +1,6 @@
 class Order < ApplicationRecord
 
-   # has_one :order_address, dependent: :destroy
-   # accepts_nested_attributes_for :order_address, reject_if: :all_blank, allow_destroy: true
+    before_validation :generate_code_order, on: :create
 
    enum status: {pending: 0, in_delivery: 1, closed: 2}
 
@@ -19,8 +18,6 @@ class Order < ApplicationRecord
     validates :sender_identification, :recipient_identification,  length: { maximum: 11 }
 
     validates :code,  length: { is: 15 }
-
-    before_validation :generate_code_order, on: :create
 
     def full_sender_address
         "#{sender_address} - #{sender_city} - #{sender_state} - #{sender_zipcode}"
