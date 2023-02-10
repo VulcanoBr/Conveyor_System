@@ -146,16 +146,16 @@ Order.destroy_all
 User.destroy_all
 Usuario()
 
-#Category.destroy_all
-#Categoria()
+Vehicle.destroy_all
+Category.destroy_all
+Categoria()
 
-#Vehicle.destroy_all
-#Car()
+
+Car()
 
 Deadline.destroy_all
 Price.destroy_all
 ModeTransport.destroy_all
 Modalidade()
-
 
 Order()

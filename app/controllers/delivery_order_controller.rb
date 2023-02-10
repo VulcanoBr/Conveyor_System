@@ -51,12 +51,21 @@ class DeliveryOrderController < ApplicationController
 
     def update
         if @delivery_order.update(delivery_order_params)
+            order = Order.find(@delivery_order.order_id)
+            vehicle = Vehicle.find(@delivery_order.vehicle_id)
+            vehicle.in_operation!
+            order.closed!
+            closed
             redirect_to closed_budget_delivery_order_index_path(id: @delivery_order.id),
                 notice: 'Ordem de Entrega encerrada com sucesso!!!'
         else  
             flash.now[:notice] = 'Ordem de Entrega NÃO encerrada !!!'
             render 'edit'
         end
+    end
+
+    def closed 
+        @delivery_order.closed!
     end
 
     private
