@@ -8,7 +8,7 @@
 <br>
 <div>
     <% if @categories.any? %>
-        <table>
+        <table class="table">
             <thead>
                 <tr>
                     <th>Codigo</th>
@@ -18,13 +18,13 @@
                         
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="table-group-divider">
                 <% @categories.each do |c| %>
                     <tr>
                         <td align="center"><%= c.id %>   </td>
                         <td> <%= c.name %> </td>
                         <td> <%= link_to 'Editar', edit_category_path(c.id) %> </td>
-                        <td> <%= button_to 'Remover', category_path(c.id), method: :delete, class: 'btn btn-sm btn-danger'  %>  </td>
+                        <td id="<%= dom_id(c) %>" > <%= button_to 'Remover', category_path(c.id), method: :delete, class: 'btn btn-sm btn-danger'  %>  </td>
                         
                     </tr>
                 <% end %>
