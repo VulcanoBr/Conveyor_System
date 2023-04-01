@@ -12,11 +12,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Home</a>
-                    </li>
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                        <a class="nav-link dropdown-toggle active rounded-5 mx-3" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                             Pedidos
                         </a>
                         
@@ -31,7 +29,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                        <a class="nav-link dropdown-toggle active rounded-5 mx-3" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                             Cadastros
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
@@ -54,7 +52,7 @@
                                 <ul class="dropdown-menu shadow ">
                                     <li><a id="modalidade" class="dropdown-item" href="<%= mode_transports_path %>">CadMod</a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="<%= consult_mode_transports_path %>">Consulta Modalidades</a></li>
+                                    <li><a class="dropdown-item " href="<%= consult_mode_transports_path %>">Consulta Modalidades</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="#"></a></li>
                                 </ul>
@@ -63,24 +61,20 @@
                             <li><a class="dropdown-item" href="<%= categories_path %>">Categorias</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" >Home</a>
-                    </li>
 
-                    
                 </ul>
+
+                <div class="d-flex align-items-center">
+                        <a class="d-flex btn btn-primary me-5">
+                            <% if user_signed_in? %>
+                                <%= current_user.name %>
+                                <%= button_to 'Sair', destroy_user_session_path, method: :delete, class:"mx-3"  %>
+                            <% else %>
+                                <%= link_to 'Login', new_user_session_path, class:"btn btn-primary px-3 me-5" %>
+                            <% end %>
+                        </a>
+                </div>
                 
-                <a class="d-flex me-5">
-                    <% if user_signed_in? %>
-                        <%= current_user.name %>  |
-                        <%= button_to 'Sair', destroy_user_session_path, method: :delete  %>
-                    <% else %>
-                        <%= link_to 'Login', new_user_session_path %>
-                    <% end %>
-                </a>
-                
-                
-              
                 <%= form_with(url: pesq_budget_delivery_order_index_path, method: :get, class: "d-flex", id:"pesq" ) do |f| %>
                             
                             <%= f.text_field :query, class:"form-control me-2", type:"search", 
