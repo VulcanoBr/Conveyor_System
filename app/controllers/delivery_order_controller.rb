@@ -40,13 +40,13 @@ class DeliveryOrderController < ApplicationController
             if @delivery_order.save 
                 vehicle.in_delivery!
                 order.in_delivery!
-                redirect_to @delivery_order, notice: "Serviço de entrega para ordem contratado com sucesso !!!"
+                redirect_to @delivery_order, notice: "Serviço de entrega para ordem #{order.code} contratado com sucesso !!!"
             else
-                flash.now[:notice] = "Serviço de entrega para ordem  NÃO contratado  !!!"
+                flash.now[:notice] = "Serviço de entrega para ordem #{order.code}  NÃO contratado  !!!"
                 redirect_to orders_path
             end
         else
-            flash.now[:notice] = "Serviço de entrega para ordem  NÃO contratado  !!!"
+            flash.now[:notice] = "Serviço de entrega para ordem #{order.code}  NÃO contratado  !!!"
             redirect_to orders_path
         end
     end

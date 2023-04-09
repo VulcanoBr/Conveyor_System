@@ -53,43 +53,80 @@
     </div>
 </div>
 <br>
+<div class="d-flex justify-content">
+    <div class="me-4">
+        <h5>Produto a ser entregue</h5>
+        <table class="table-responsive-md  table-bordered">
+            <thead>
+                <tr>         
+                    <th scope="col" > Codigo </th>
+                    <th scope="col"> Descrição </th> 
+                    <th scope="col" > Peso </th>
+                    <th scope="col" > Altura </th>
+                    <th scope="col"> Largura </th>
+                    <th scope="col"> Profundidade </th> 
+                    <th scope="col"> Distancia </th>         
+                </tr>
+            </thead>
+            <tbody>
+                <tr >
+                    <td class="text-center"> <%= @order.product_code %> </td>
+                    <td class="text-center"> <%= @order.description %> </td>
+                    <td class="text-center"> <%= @order.weight %> Kg</td>
+                    <td class="text-center"> <%= @order.height %> cm</td>
+                    <td class="text-center"> <%= @order.width %> cm</td>
+                    <td class="text-center"> <%= @order.depth %> cm</td>
+                    <td class="text-center"> <%= @order.distance %> Km</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>
 <div>
         
-            <h5>Opções de Orçamento</h5>
-            <table class="table-responsive-md table-bordered" >
-                <thead>
-                    <tr>     
-                        <th scope="col" > Modalidade </th>    
-                        <th scope="col" > Peso </th>
-                        <th scope="col"> Distancia </th> 
-                        <th scope="col" > Estimativa da Entrega </th>
-                        <th scope="col" > Taxa de Entrega </th>
-                        <th scope="col" > Valor por Km </th>
-                        <th scope="col"> Valor da Entrega </th> 
-                        <th scope="col">  </th>          
-                    </tr>
-                </thead>
-                <tbody>
-                    <% @calc.each_with_index do |c, i| %>
-                        <tr>
-                            <td class="text-center"> <%= c.name %> </td>
-                            <td class="text-center"> <%= @order.weight %> Kg</td>
-                            <td class="text-center"> <%= @order.distance %> Km</td>
-                            <td class="text-center"> <%= @des[i]['deadline_hours'] %> Hs</td>
-                            <td class="text-center"> <%= number_to_currency(c.delivery_fee) %> </td>
-                            <td class="text-center"> <%= number_to_currency(@res[i]['km_price']) %> </td>
-                            <td class="text-center"> <%= number_to_currency((@res[i]['km_price'] * @order.distance) + c.delivery_fee)  %> </td>
-                            <td id="<%= dom_id(c) %>"> <%= button_to 'Contratar Serviço', 
-                                start_budget_delivery_order_path,  params: {delivery_order: {
-                                    order_id: @order.id, km_price: @res[i]['km_price'], delivery_fee: c.delivery_fee,
-                                    deadline_hours: @des[i]['deadline_hours'], mode_transport_id: c.id, code: @order.code}, 
-                                    maximum_load: @order.weight}, 
-                                    class:"form-control btn btn-primary" %> </td>
+    <h5>Opções de Orçamento</h5>
+    <% if @result.length > 0 %>
+        <table class="table-responsive-md table-bordered" >
+            <thead>
+                <tr>     
+                    <th scope="col" > Modalidade </th>    
+                    <th scope="col" > Peso </th>
+                    <th scope="col"> Distancia </th> 
+                    <th scope="col" > Estimativa da Entrega </th>
+                    <th scope="col" > Taxa de Entrega </th>
+                    <th scope="col" > Valor por Km </th>
+                    <th scope="col"> Valor da Entrega </th> 
+                    <th scope="col">  </th>          
+                </tr>
+            </thead>
+            <tbody>
+                <% @result.each_with_index do |r, i| %>
+                    <tr>
+                        <td class="text-center"> <%= r['name'] %> </td>
+                        <td class="text-center"> <%= @order.weight %> Kg</td>
+                        <td class="text-center"> <%= @order.distance %> Km</td>
+                        <td class="text-center"> <%= r['deadline_hours'] %> Hs</td>
+                        <td class="text-center"> <%= number_to_currency(r['delivery_fee']) %> </td>
+                        <td class="text-center"> <%= number_to_currency(r['km_price']) %> </td>
+                        <td class="text-center"> <%= number_to_currency((r['km_price'] * @order.distance) + r['delivery_fee'])  %> </td>
+                        <td id="<%= dom_id(r) %>"> <%= button_to 'Contratar Serviço', 
+                            start_budget_delivery_order_path,  params: {delivery_order: {
+                                order_id: @order.id, km_price: r['km_price'], delivery_fee: r['delivery_fee'],
+                                deadline_hours: r['deadline_hours'], mode_transport_id: r['id'], code: @order.code}, 
+                                maximum_load: @order.weight}, 
+                                class:"form-control btn btn-primary" %> </td>
 
-                        </tr>
-                    <% end %> 
-                </tbody>
-            </table>
+                    </tr>
+                <% end %> 
+            </tbody>
+        </table>
+    <% else %>
+        <div>
+            <p>No momento não temos como orçar sua Ordem de Entrega !!!</p>
+            <p>Por favor, entrar em contato com a nossa central  0800 9999-5959 !!!</p>
+        </div>
+    <% end %>
 
     </div>
 

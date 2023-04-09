@@ -14,15 +14,19 @@ class OrdersController < ApplicationController
 
     def budget  
         @order = Order.find(params[:id])
-        @calc = ModeTransport.where("minimum_distance <= #{@order.distance} AND maximum_distance >= #{@order.distance}")
-        .and(ModeTransport.where("minimum_weight <= #{@order.weight} AND maximum_weight >= #{@order.weight}" ))
         
-        @res = Price.where(mode_transport_id:  @calc.ids )
-        .and(Price.where("start_weight <= #{@order.weight} AND final_weight >= #{@order.weight}" ))
-        
-        @des = Deadline.where(mode_transport_id:  @calc.ids )
-        .and(Deadline.where("start_distance <= #{@order.distance} AND final_distance >= #{@order.distance}" ))
-       
+        @result = ModeTransport.joins(:prices, :deadlines)
+            .where("mode_transports.minimum_distance <= #{@order.distance} 
+                    AND mode_transports.maximum_distance >= #{@order.distance} 
+                    AND mode_transports.minimum_weight <= #{@order.weight}
+                    AND mode_transports.maximum_weight >= #{@order.weight} 
+                    AND prices.start_weight <= #{@order.weight} 
+                    AND prices.final_weight >= #{@order.weight} 
+                    AND deadlines.start_distance <= #{@order.distance} 
+                    AND deadlines.final_distance >= #{@order.distance} ")
+            .select("mode_transports.id, mode_transports.delivery_fee, 
+                     mode_transports.name, prices.km_price, deadlines.deadline_hours")
+      
     end
 
     def create

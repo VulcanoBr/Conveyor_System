@@ -2,6 +2,19 @@ require 'rails_helper'
 
 describe 'Usuario consulta Codigo de Rastreio' do
 
+    it 'deve estar autenticado' do
+    
+        # Arrange
+
+        # Act
+        visit root_path
+        click_on 'Login'
+
+        # Assert
+        expect(current_path).to eq new_user_session_path
+
+    end
+
     it 'pesquisa codigo de rastreamento com sucesso e sem data de entrega' do
 
         # Arrange
@@ -34,6 +47,7 @@ describe 'Usuario consulta Codigo de Rastreio' do
         dev = DeliveryOrder.where(code: "XXX1234567890XX")
 
         # Act
+        login_as(usuario)
         visit root_path
         fill_in 'Codigo de Rastreio', with: 'XXX1234567890XX'
         click_on 'Pesquisar'
@@ -90,6 +104,7 @@ describe 'Usuario consulta Codigo de Rastreio' do
         dev = DeliveryOrder.where(code: "XXX1234567890XX")
 
         # Act
+        login_as(usuario)
         visit root_path
         fill_in 'Codigo de Rastreio', with: 'XXX1234567890XX'
         click_on 'Pesquisar'
@@ -146,6 +161,7 @@ describe 'Usuario consulta Codigo de Rastreio' do
         dev = DeliveryOrder.where(code: "XXX1234XX")
 
         # Act
+        login_as(usuario)
         visit root_path
         fill_in 'Codigo de Rastreio', with: 'XXX123XX'
         click_on 'Pesquisar'
