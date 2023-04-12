@@ -59,13 +59,14 @@ describe 'Usuario remove Prazo' do
         click_on 'Modalidades'
         click_on 'CadMod'
         click_on 'Prazos'
-        
-        click_on 'OUTRONOME'
+        within('td', id: 'deadline_1') do
+            click_on 'Remover'
+        end
 
         # Assert
         expect(current_path).to eq mode_transport_deadlines_path(mod.id)
         expect(page).to have_content('Prazo removido com sucesso !!!')
-        expect(page).to have_content('Configuração de Prazos')
+        expect(page).to have_content('Configuração de Prazos, Modalidade: Entrega Rapida')
         expect(page).not_to have_content('Não ha Prazos Cadastrados !!!')
         expect(page).not_to have_content('0')
         expect(page).not_to have_content('100')

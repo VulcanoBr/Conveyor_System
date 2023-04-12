@@ -1,8 +1,8 @@
 class Price < ApplicationRecord
 
-    belongs_to :mode_transport
+  belongs_to :mode_transport
 
-    validates :start_weight, :final_weight, :km_price, presence: true
+  validates :start_weight, :final_weight, :km_price, presence: true
 
   validates :start_weight, :final_weight, :km_price, length: { maximum: 6 }
 

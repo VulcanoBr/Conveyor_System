@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     post 'start_budget', on: :member
     get 'pesq_budget', on: :collection
     get 'closed_budget', on: :collection
+    get 'no_budget_delivery', on: :member
   end
   
 end

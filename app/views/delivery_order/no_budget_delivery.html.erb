@@ -1,0 +1,70 @@
+<br>
+<h1> Ordem de Entrega => <%= @order.code %> </h1>
+<br>
+<h4> Serviço não contratado </h4>
+<br>
+
+<div class="d-flex justify-content">
+    <div class="me-4">
+        <h5>Destinatario</h5>
+        <table class="table-responsive-md table-bordered" >
+            <thead>
+                <tr>         
+                    <th scope="col" > Nome </th>
+                    <th scope="col"> CPF </th> 
+                    <th scope="col" > Telefone </th>
+                    <th scope="col" > Email </th>
+                    <th scope="col"> Endereço </th>          
+                </tr>
+            </thead>
+            <tbody>
+                <tr >
+                    <td> <%= @order.recipient_name %> </td>
+                    <td> <%= @order.recipient_identification %> </td>
+                    <td> <%= @order.recipient_phone %> </td>
+                    <td> <%= @order.recipient_email %> </td>
+                    <td> <%= @order.full_recipient_address %> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>
+<div class="d-flex justify-content">
+    <div class="me-4">
+        <h5>Produto a ser entregue</h5>
+        <table class="table-responsive-md  table-bordered">
+            <thead>
+                <tr>         
+                    <th scope="col" > Codigo </th>
+                    <th scope="col"> Descrição </th> 
+                    <th scope="col" > Peso </th>
+                    <th scope="col" > Altura </th>
+                    <th scope="col"> Largura </th>
+                    <th scope="col"> Profundidade </th> 
+                    <th scope="col"> Distancia </th>         
+                </tr>
+            </thead>
+            <tbody>
+                <tr >
+                    <td class="text-center"> <%= @order.product_code %> </td>
+                    <td class="text-center"> <%= @order.description %> </td>
+                    <td class="text-center"> <%= @order.weight %> Kg</td>
+                    <td class="text-center"> <%= @order.height %> cm</td>
+                    <td class="text-center"> <%= @order.width %> cm</td>
+                    <td class="text-center"> <%= @order.depth %> cm</td>
+                    <td class="text-center"> <%= @order.distance %> Km</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>
+<div>
+    <p>No momento não temos como fazer sua Entrega !!!</p>
+    <p>Por favor, entrar em contato com a nossa central 0800 9999-5959 !!!</p>
+</div>
+
+<div>
+    <p> <%= link_to 'Voltar', orders_path %> </p>
+</div>

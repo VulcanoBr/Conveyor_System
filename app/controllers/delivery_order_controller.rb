@@ -47,8 +47,12 @@ class DeliveryOrderController < ApplicationController
             end
         else
             flash.now[:notice] = "Serviço de entrega para ordem #{order.code}  NÃO contratado  !!!"
-            redirect_to orders_path
+            redirect_to no_budget_delivery_delivery_order_path(order.id)
         end
+    end
+
+    def no_budget_delivery
+        @order = Order.find(params[:id])
     end
 
     def update

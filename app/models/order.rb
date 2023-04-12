@@ -2,7 +2,7 @@ class Order < ApplicationRecord
 
     before_validation :generate_code_order, on: :create
 
-   enum status: {pending: 0, in_delivery: 1, closed: 2}
+    enum status: {pending: 0, in_delivery: 1, closed: 2}
 
     validates :product_code, :description, :weight, :height, :width, :depth, :distance, presence: true
     

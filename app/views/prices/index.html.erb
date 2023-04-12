@@ -28,7 +28,7 @@
                     
                         <td> <%= link_to 'Editar', 
                             edit_mode_transport_price_path(mode_transport_id: p.mode_transport_id, id: p.id) %> </td>
-                        <td> <%= button_to 'OUTRONOME', mode_transport_price_path(mode_transport_id: p.mode_transport_id, id: p.id), method: :delete, class: 'btn btn-sm btn-danger'  %>  </td>
+                        <td id="<%= dom_id(p) %>"> <%= button_to 'Remover', mode_transport_price_path(mode_transport_id: p.mode_transport_id, id: p.id), method: :delete, class: 'btn btn-sm btn-danger'  %>  </td>
                         
                     </tr>
                 <% end %>

@@ -15,18 +15,7 @@ class OrdersController < ApplicationController
     def budget  
         @order = Order.find(params[:id])
         
-        @result = ModeTransport.joins(:prices, :deadlines)
-            .where("mode_transports.minimum_distance <= #{@order.distance} 
-                    AND mode_transports.maximum_distance >= #{@order.distance} 
-                    AND mode_transports.minimum_weight <= #{@order.weight}
-                    AND mode_transports.maximum_weight >= #{@order.weight} 
-                    AND prices.start_weight <= #{@order.weight} 
-                    AND prices.final_weight >= #{@order.weight} 
-                    AND deadlines.start_distance <= #{@order.distance} 
-                    AND deadlines.final_distance >= #{@order.distance} ")
-            .select("mode_transports.id, mode_transports.delivery_fee, 
-                     mode_transports.name, prices.km_price, deadlines.deadline_hours")
-      
+        @result = ModeTransport.with_prices_and_deadlines_for_order(@order.distance, @order.weight)
     end
 
     def create

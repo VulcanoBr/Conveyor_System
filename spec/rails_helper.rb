@@ -1,3 +1,13 @@
+require 'simplecov'
+SimpleCov.start 'rails'do
+  add_group 'Models', 'app/models/'
+  add_filter 'mailers'
+  add_filter 'jobs'
+  add_filter 'channels'
+  add_filter 'vendor'
+end
+
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'

@@ -59,8 +59,9 @@ describe 'Usuario remove Preço' do
         click_on 'Modalidades'
         click_on 'CadMod'
         click_on 'Preços'
-        
-        click_on 'OUTRONOME'
+        within('td', id: 'price_1') do
+            click_on 'Remover'
+        end
 
         # Assert
         expect(current_path).to eq mode_transport_prices_path(mod.id)
