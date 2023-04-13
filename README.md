@@ -1,26 +1,59 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Sobre o projeto
+Esta aplicação e responsável por gerenciar a frota de entrega de uma transportadora com alcance nacional. Diferentes modalidades de transporte são cadastradas definindo prazos, custos e veículos disponíveis para cada uma delas; e calcular prazos e custos para o transporte de um determinado produto  em um  endereço, em diferentes modalidades.
 
-Things you may want to cover:
-
-* Ruby version
+* Requisitos Necessários:
     Ruby 3.1.2
+    Rails 7.0.4
+    Devise
+    Bootstrap 5.2
+    Rspec-rails
+    Simplecov
 
-* System dependencies
+* Banco de Dados:
+    Sqlite3
 
-* Configuration
+### Funcionalidades
+* Cadastros
+    * Categoria
+    * Veiculos
+    * Modalidades
 
-* Database creation
+* Pedidos
+    * Criar Ordem de Entrega
+    * Orçamento
+    * Consulta Ordem de Entrega
+    * Encerrar Ordem de Entrega
 
-* Database initialization
-    rails db:seed
+### Para executar o projeto: 
 
-* How to run the test suite
+* Git Clone
+    ``` https://git-qsd.campuscode.com.br/VulcanoBr/conveyor-system.git ```
 
-* Services (job queues, cache servers, search engines, etc.)
+* Atualizar
+    ``` cd conveyor_system
+        bundle install ```
 
-* Deployment instructions
+* Gerar banco de dados
+    ``` rails db:create
+        rails db:migrate
+        rails db:seed ``` 
 
-* ...
+* Execute a aplicação
+    ``` rails s ```
+
+* Usuarios 
+    ``` vulcano@email.com  password = 123456
+        sanurai@email.com  password = 123456 ```
+
+* Passos
+    1. Criar Categoria
+    2. Criar Veiculos
+    3. Criar Modalidades
+        3.1 Criar Prazos
+        3.2 Criar Preços
+    4. Criar Ordem de Entrega
+    5. Criar Orçamento
+    6. Consultar Ordem de Entrega
+    7. Encerrar Ordem de Entrega
