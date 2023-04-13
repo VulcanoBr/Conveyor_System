@@ -32,13 +32,17 @@ Esta aplicação e responsável por gerenciar a frota de entrega de uma transpor
     ```https://git-qsd.campuscode.com.br/VulcanoBr/conveyor-system.git ```
 
 * Atualizar
-    ```cd conveyor_system
-        bundle install ```
+    ```
+        cd conveyor_system
+        bundle install
+    ```
 
 * Gerar banco de dados
-    ```rails db:create
+    ```
+        rails db:create
         rails db:migrate
-        rails db:seed ``` 
+        rails db:seed 
+    ``` 
 
 * Execute a aplicação
     ```rails s ```
