@@ -11,6 +11,7 @@ Esta aplicação e responsável por gerenciar a frota de entrega de uma transpor
     * Bootstrap 5.2
     * Rspec-rails
     * Simplecov
+    
 
 * Banco de Dados:
     * Sqlite3
@@ -20,6 +21,7 @@ Esta aplicação e responsável por gerenciar a frota de entrega de uma transpor
     * Categoria
     * Veiculos
     * Modalidades
+
 
 * Pedidos
     * Criar Ordem de Entrega
@@ -62,8 +64,8 @@ Esta aplicação e responsável por gerenciar a frota de entrega de uma transpor
     1. Criar Categoria
     2. Criar Veiculos
     3. Criar Modalidades
-        3.1. Criar Prazos
-        3.2. Criar Preços
+        1. Criar Prazos
+        2. Criar Preços
     4. Criar Ordem de Entrega
     5. Criar Orçamento
     6. Consultar Ordem de Entrega
