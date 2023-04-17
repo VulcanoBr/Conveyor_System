@@ -54,6 +54,31 @@ Esta aplicação e responsável por gerenciar a frota de entrega de uma transpor
         rails s 
     ```
 
+### Iniciando o projeto - Docker
+
+Após iniciar o projeto com os passos acima (exceto "Execute a aplicação")
+
+
+* Execute o seguinte comando para criar a imagem
+```
+    sudo docker build -t cobranca:v1 .
+```
+
+* Execute o seguinte comando para subir o container em segundo plano.
+```
+    sudo docker run -p 3000:3000 -d --name cobranca cobranca:v1
+```
+
+* Acesse o navegador com o seguinte endereço
+```
+    http://localhost:3000/
+```
+
+* Rode o comando abaixo para para o container
+```
+sudo docker stop cobranca
+```
+
 * Usuarios 
     ```
         vulcano@email.com  password = 123456
@@ -70,3 +95,4 @@ Esta aplicação e responsável por gerenciar a frota de entrega de uma transpor
     5. Criar Orçamento
     6. Consultar Ordem de Entrega
     7. Encerrar Ordem de Entrega
+
