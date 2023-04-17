@@ -54,19 +54,19 @@ Esta aplicação e responsável por gerenciar a frota de entrega de uma transpor
         rails s 
     ```
 
-### Iniciando o projeto - Docker
+### Iniciando o projeto com Docker
 
 Após iniciar o projeto com os passos acima (exceto "Execute a aplicação")
 
 
 * Execute o seguinte comando para criar a imagem
 ```
-    sudo docker build -t cobranca:v1 .
+    sudo docker build -t conveyor_system:v1 .
 ```
 
 * Execute o seguinte comando para subir o container em segundo plano.
 ```
-    sudo docker run -p 3000:3000 -d --name cobranca cobranca:v1
+    sudo docker run -p 3000:3000 -d --name conveyor_system conveyor_system:v1
 ```
 
 * Acesse o navegador com o seguinte endereço
@@ -76,9 +76,10 @@ Após iniciar o projeto com os passos acima (exceto "Execute a aplicação")
 
 * Rode o comando abaixo para para o container
 ```
-sudo docker stop cobranca
+sudo docker stop conveyor_system
 ```
 
+### Acesso ao sistema
 * Usuarios 
     ```
         vulcano@email.com  password = 123456
