@@ -5,6 +5,7 @@ SimpleCov.start 'rails'do
   add_filter 'jobs'
   add_filter 'channels'
   add_filter 'vendor'
+  add_filter 'spec/'
 end
 
 

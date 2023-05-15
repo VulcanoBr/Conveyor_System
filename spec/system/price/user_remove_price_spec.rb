@@ -50,8 +50,10 @@ describe 'Usuario remove Preço' do
         usuario = User.create!(name: 'Vulcano', email: 'vulcano@email.com', password: 'password')
         mod = ModeTransport.create!(name: 'Entrega Rapida', minimum_distance: 0, maximum_distance: 500, 
             minimum_weight: 0, maximum_weight: 200, delivery_fee: 10.0, status: :active)
-        preco1 =  Price.create!(start_weight: 0, final_weight: 100, km_price: 0.24, mode_transport_id: mod.id)
+        preco1 =  Price.create!(start_weight: 103, final_weight: 110, km_price: 0.24, mode_transport_id: mod.id)
         preco2 = Price.create!(start_weight: 101, final_weight: 200, km_price: 0.48, mode_transport_id: mod.id)
+        
+        mode_transport = ModeTransport.find(mod.id)
         # Act
         login_as(usuario)
         visit root_path
@@ -68,8 +70,8 @@ describe 'Usuario remove Preço' do
         expect(page).to have_content('Preço removido com sucesso !!!')
         expect(page).to have_content('Configuração de Preços')
         expect(page).not_to have_content('Não ha Preços Cadastrados !!!')
-        expect(page).not_to have_content('0')
-        expect(page).not_to have_content('100')
+        expect(page).not_to have_content(103)
+        expect(page).not_to have_content(110)
         expect(page).not_to have_content('R$ 0,24')
 
         expect(page).to have_content('101')

@@ -17,6 +17,7 @@ SimpleCov.command_name 'specs' + (ENV['TEST_ENV_NUMBER'] || '') # remove the TES
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  config.color = true
   config.after(:suite) do
     SimpleCov.result.format!
   end

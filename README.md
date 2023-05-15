@@ -74,7 +74,7 @@ Após iniciar o projeto com os passos acima (exceto "Execute a aplicação")
     http://localhost:3000/
 ```
 
-* Rode o comando abaixo para para o container
+* Rode o comando abaixo para parar o container
 ```
 sudo docker stop conveyor_system
 ```

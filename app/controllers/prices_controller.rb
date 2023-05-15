@@ -47,7 +47,7 @@ class PricesController < ApplicationController
         @mode_transport = ModeTransport.find(params[:mode_transport_id])
         @price.destroy
         
-        redirect_to mode_transport_prices_path(mode_transport_id: @mode_transport.id), notice: 'Prazo removido com sucesso !!!'
+        redirect_to mode_transport_prices_path(mode_transport_id: @mode_transport.id), notice: 'Preço removido com sucesso !!!'
     end
 
     private

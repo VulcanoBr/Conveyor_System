@@ -238,7 +238,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap
   capybara
-  debug
+  debug (>= 1.7.1)
   devise
   importmap-rails (~> 1.1)
   puma (~> 5.0)

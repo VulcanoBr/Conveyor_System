@@ -67,7 +67,6 @@ class VehiclesController < ApplicationController
     end
 
     def indelivery 
-        
         @vehicle.In_delivery!
     end
 
