@@ -15,9 +15,15 @@ class Order < ApplicationRecord
 
     validates  :sender_identification, :recipient_identification, numericality: { only_integer: true }
 
-    validates :sender_identification, :recipient_identification,  length: { maximum: 11 }
-
     validates :code,  length: { is: 15 }
+
+    validate :cpf_cnpj_sender_length, if: -> { sender_identification.present? }
+    validate :cpf_cnpj_recipient_length, if: -> { recipient_identification.present? }
+    validate :cpf_sender_valid, if: -> { sender_identification.to_s.length == 11 }
+    validate :cpf_recipient_valid, if: -> { recipient_identification.to_s.length == 11 }
+    validate :cnpj_sender_valid, if: -> { sender_identification.to_s.length == 14 }
+    validate :cnpj_recipient_valid, if: -> { recipient_identification.to_s.length == 14 }
+
 
     def full_sender_address
         "#{sender_address} - #{sender_city} - #{sender_state} - #{sender_zipcode}"
@@ -34,5 +40,30 @@ class Order < ApplicationRecord
         self.code = SecureRandom.alphanumeric(15).upcase
     end
     
+    def cpf_sender_valid
+        errors.add(:sender_identification, " inválido") unless CPF.valid?(sender_identification)
+    end
     
+    def cpf_recipient_valid
+        errors.add(:recipient_identification, " inválido") unless CPF.valid?(recipient_identification)
+    end
+    def cnpj_sender_valid
+        errors.add(:sender_identification, " inválido") unless CNPJ.valid?(sender_identification)
+    end
+    
+    def cnpj_recipient_valid
+        errors.add(:recipient_identification, " inválido") unless CNPJ.valid?(recipient_identification)
+    end
+    
+    def cpf_cnpj_sender_length
+        return if sender_identification.to_s.length == 11 || sender_identification.to_s.length == 14
+    
+        errors.add(:sender_identification, 'deve ter 11 ou 14 caracteres')
+    end    
+
+    def cpf_cnpj_recipient_length
+        return if recipient_identification.to_s.length == 11 || recipient_identification.to_s.length == 14
+    
+        errors.add(:recipient_identification, ' deve ter 11 ou 14 caracteres')
+    end
 end

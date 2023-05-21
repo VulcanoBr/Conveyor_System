@@ -63,7 +63,7 @@ pt-BR:
         distance: Distancia
         status: Status
         sender_name: Nome Remetente
-        sender_identification: CPF Remetente
+        sender_identification: CPF/CNPJ Remetente
         sender_email: Email Remetente
         sender_phone: Telefone Remetente
         sender_address: Endereço Remetente
@@ -71,7 +71,7 @@ pt-BR:
         sender_state: Estado Remetente
         sender_zipcode: Cep Remetente
         recipient_name: Nome Destinatario
-        recipient_identification: CPF Destinatario
+        recipient_identification: CPF/CNPJ Destinatario
         recipient_email: Email Destinatario
         recipient_phone: Telefone Destinatario
         recipient_address: Endereço Destinatario

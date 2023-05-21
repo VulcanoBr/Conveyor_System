@@ -26,7 +26,7 @@ describe 'Usuario consulta Codigo de Rastreio' do
 
         order = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
-            sender_name: 'Joaquim Severo', sender_identification: 12345678901, sender_email: 'joaquim@email.com',
+            sender_name: 'Joaquim Severo', sender_identification: 48304423000121, sender_email: 'joaquim@email.com',
             sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
             recipient_identification: 62429965704, recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
@@ -81,7 +81,7 @@ describe 'Usuario consulta Codigo de Rastreio' do
 
         order = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
-            sender_name: 'Joaquim Severo', sender_identification: 12345678901, sender_email: 'joaquim@email.com',
+            sender_name: 'Joaquim Severo', sender_identification: 48304423000121, sender_email: 'joaquim@email.com',
             sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
             recipient_identification: 62429965704, recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
@@ -140,7 +140,7 @@ describe 'Usuario consulta Codigo de Rastreio' do
                 minimum_weight: 0, maximum_weight: 10, delivery_fee: 50.0, status: :active)
         order = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
-            sender_name: 'Joaquim Severo', sender_identification: 12345678901, sender_email: 'joaquim@email.com',
+            sender_name: 'Joaquim Severo', sender_identification: 48304423000121, sender_email: 'joaquim@email.com',
             sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
             recipient_identification: 62429965704, recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
@@ -184,7 +184,7 @@ describe 'Usuario consulta Codigo de Rastreio' do
                 minimum_weight: 0, maximum_weight: 10, delivery_fee: 50.0, status: :active)
         order = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
-            sender_name: 'Joaquim Severo', sender_identification: 12345678901, sender_email: 'joaquim@email.com',
+            sender_name: 'Joaquim Severo', sender_identification: 48304423000121, sender_email: 'joaquim@email.com',
             sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
             recipient_identification: 62429965704, recipient_email: 'lili@email.com', recipient_phone: '21 988887676',

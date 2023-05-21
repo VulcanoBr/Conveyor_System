@@ -79,7 +79,7 @@ RSpec.describe Order, type: :model do
 
   end
 
-  it 'CPF Remetente deve ser obrigatoria' do
+  it 'CPF/CNPJ Remetente deve ser obrigatoria' do
 
     # Arrange  não precisa supplier e warehouse
     order = Order.new(sender_identification: '')
@@ -167,7 +167,7 @@ RSpec.describe Order, type: :model do
 
   end
 
-  it 'CPF Destinatario deve ser obrigatoria' do
+  it 'CPF/CNPJ Destinatario deve ser obrigatoria' do
 
     # Arrange  não precisa supplier e warehouse
     order = Order.new(recipient_identification: '')
@@ -321,7 +321,7 @@ RSpec.describe Order, type: :model do
 
   end
 
-  it 'CPF Remetente deve ser numerico' do
+  it 'CPF/CNPJ Remetente deve ser numerico' do
 
     # Arrange  
     order = Order.new(sender_identification: '1234567')
@@ -332,7 +332,7 @@ RSpec.describe Order, type: :model do
 
   end
 
-  it 'CPF Destinatario deve ser numerico' do
+  it 'CPF/CNPJ Destinatario deve ser numerico' do
 
     # Arrange  
     order = Order.new(recipient_identification: '1234567')
@@ -343,7 +343,7 @@ RSpec.describe Order, type: :model do
 
   end
 
-  it 'CPF Remetente deve ter tamanho maximo 11' do
+   it 'CPF Remetente deve ter tamanho 11' do
 
     # Arrange  
     order = Order.new(sender_identification: 123456789012345)
@@ -351,10 +351,10 @@ RSpec.describe Order, type: :model do
     result = order.errors.include?(:sender_identification)
     # Assert
     expect(result).to be false
-
+    expect(order.valid?).to be false
   end
 
-  it 'CPF Destinatario deve ter tamanho maximo 11' do
+  it 'CPF Destinatario deve ter tamanho  11' do
 
     # Arrange  
     order = Order.new(recipient_identification: 123456789012345)
@@ -362,7 +362,73 @@ RSpec.describe Order, type: :model do
     result = order.errors.include?(:recipient_identification)
     # Assert
     expect(result).to be false
+    expect(order.valid?).to be false
+  end
 
+  it 'CNPJ Remetente deve ter tamanho 14' do
+
+    # Arrange  
+    order = Order.new(sender_identification: 123456789012345)
+    # Act 
+    result = order.errors.include?(:sender_identification)
+    # Assert
+    expect(result).to be false
+    expect(order.valid?).to be false
+  end
+
+  it 'CNPJ Destinatario deve ter tamanho  14' do
+
+    # Arrange  
+    order = Order.new(recipient_identification: 123456789012345)
+    # Act 
+    result = order.errors.include?(:recipient_identification)
+    # Assert
+    expect(result).to be false
+    expect(order.valid?).to be false
+  end
+
+  it 'CPF Remetente deve ter valido' do
+
+    # Arrange  
+    order = Order.new(sender_identification: 12345678901)
+    # Act 
+    result = order.errors.include?(:sender_identification)
+    # Assert
+    expect(result).to be false
+    expect(order.valid?).to be false
+  end
+
+  it 'CPF Destinatario deve valido' do
+
+    # Arrange  
+    order = Order.new(recipient_identification: 12345678901)
+    # Act 
+    result = order.errors.include?(:recipient_identification)
+    # Assert
+    expect(result).to be false
+    expect(order.valid?).to be false
+  end
+
+  it 'CNPJ Remetente deve ter valido' do
+
+    # Arrange  
+    order = Order.new(sender_identification: 12345678901234)
+    # Act 
+    result = order.errors.include?(:sender_identification)
+    # Assert
+    expect(result).to be false
+    expect(order.valid?).to be false
+  end
+
+  it 'CNPJ Destinatario deve valido' do
+
+    # Arrange  
+    order = Order.new(recipient_identification: 12345678901234)
+    # Act 
+    @result = order.errors.include?(:recipient_identification)
+    # Assert
+    #expect(result).to be false
+    expect(order.valid?).to be false
   end
 
 end
