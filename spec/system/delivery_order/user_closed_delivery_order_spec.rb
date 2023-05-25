@@ -25,19 +25,19 @@ describe 'Usuario encerra entrega' do
                 minimum_weight: 0, maximum_weight: 10, delivery_fee: 50.0, status: :active)
         order1 = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
-            sender_name: 'Joaquim Severo', sender_identification: 48304423000121, sender_email: 'joaquim@email.com',
+            sender_name: 'Joaquim Severo', sender_identification: "25.446.403/0001-90", sender_email: 'joaquim@email.com',
             sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
-            recipient_identification: 62429965704, recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
+            recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
             recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :in_delivery)
 
         order2 = Order.create!(code: 'MMM1234567890MM', product_code: 'Produto_B', description: 'Produto inflamavel', 
             height: 35, width: 40, depth: 35, weight: 50, distance: 750, user_id: usuario.id,
-            sender_name: 'Maria Albulquerque', sender_identification: 78498924022, sender_email: 'maria@email.com',
+            sender_name: 'Maria Albulquerque', sender_identification: "784.989.240-22", sender_email: 'maria@email.com',
             sender_phone: '51 988975951', sender_address: 'Rua Me Xama, 305/102, Coronel Almeida', sender_city: 'Carolandia', 
             sender_state: 'BA', sender_zipcode: '55987-678', recipient_name: 'Raimunda Lopes Silva', 
-            recipient_identification: 46280065049, recipient_email: 'lopes@email.com', recipient_phone: '35 945347676',
+            recipient_identification: "462.800.650-49", recipient_email: 'lopes@email.com', recipient_phone: '35 945347676',
             recipient_address: 'Rua da Mirella, 5 fundos, Jaguara Norte', recipient_city: 'Xingu Nova', recipient_state: 'RO', 
             recipient_zipcode: '86956-366', status: :in_delivery)
 
@@ -93,19 +93,19 @@ describe 'Usuario encerra entrega' do
                 minimum_weight: 0, maximum_weight: 10, delivery_fee: 50.0, status: :active)
         order1 = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
-            sender_name: 'Joaquim Severo', sender_identification: 48304423000121, sender_email: 'joaquim@email.com',
+            sender_name: 'Joaquim Severo', sender_identification: "25.446.403/0001-90", sender_email: 'joaquim@email.com',
             sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
-            recipient_identification: 62429965704, recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
+            recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
             recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :in_delivery)
 
         order2 = Order.create!(code: 'MMM1234567890MM', product_code: 'Produto_B', description: 'Produto inflamavel', 
             height: 35, width: 40, depth: 35, weight: 50, distance: 750, user_id: usuario.id,
-            sender_name: 'Maria Albulquerque', sender_identification: 78498924022, sender_email: 'maria@email.com',
+            sender_name: 'Maria Albulquerque', sender_identification: "784.989.240-22", sender_email: 'maria@email.com',
             sender_phone: '51 988975951', sender_address: 'Rua Me Xama, 305/102, Coronel Almeida', sender_city: 'Carolandia', 
             sender_state: 'BA', sender_zipcode: '55987-678', recipient_name: 'Raimunda Lopes Silva', 
-            recipient_identification: 46280065049, recipient_email: 'lopes@email.com', recipient_phone: '35 945347676',
+            recipient_identification: "462.800.650-49", recipient_email: 'lopes@email.com', recipient_phone: '35 945347676',
             recipient_address: 'Rua da Mirella, 5 fundos, Jaguara Norte', recipient_city: 'Xingu Nova', recipient_state: 'RO', 
             recipient_zipcode: '86956-366', status: :in_delivery)
 
@@ -160,19 +160,19 @@ describe 'Usuario encerra entrega' do
                 minimum_weight: 0, maximum_weight: 10, delivery_fee: 50.0, status: :active)
         order1 = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
-            sender_name: 'Joaquim Severo', sender_identification: 48304423000121, sender_email: 'joaquim@email.com',
+            sender_name: 'Joaquim Severo', sender_identification: "25.446.403/0001-90", sender_email: 'joaquim@email.com',
             sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
-            recipient_identification: 62429965704, recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
+            recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
             recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :in_delivery)
 
         order2 = Order.create!(code: 'MMM1234567890MM', product_code: 'Produto_B', description: 'Produto inflamavel', 
             height: 35, width: 40, depth: 35, weight: 50, distance: 750, user_id: usuario.id,
-            sender_name: 'Maria Albulquerque', sender_identification: 78498924022, sender_email: 'maria@email.com',
+            sender_name: 'Maria Albulquerque', sender_identification: "784.989.240-22", sender_email: 'maria@email.com',
             sender_phone: '51 988975951', sender_address: 'Rua Me Xama, 305/102, Coronel Almeida', sender_city: 'Carolandia', 
             sender_state: 'BA', sender_zipcode: '55987-678', recipient_name: 'Raimunda Lopes Silva', 
-            recipient_identification: 46280065049, recipient_email: 'lopes@email.com', recipient_phone: '35 945347676',
+            recipient_identification: "462.800.650-49", recipient_email: 'lopes@email.com', recipient_phone: '35 945347676',
             recipient_address: 'Rua da Mirella, 5 fundos, Jaguara Norte', recipient_city: 'Xingu Nova', recipient_state: 'RO', 
             recipient_zipcode: '86956-366', status: :in_delivery)
 
@@ -238,19 +238,19 @@ describe 'Usuario encerra entrega' do
                 minimum_weight: 0, maximum_weight: 10, delivery_fee: 50.0, status: :active)
         order1 = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
-            sender_name: 'Joaquim Severo', sender_identification: 48304423000121, sender_email: 'joaquim@email.com',
+            sender_name: 'Joaquim Severo', sender_identification: "25.446.403/0001-90", sender_email: 'joaquim@email.com',
             sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
-            recipient_identification: 62429965704, recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
+            recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
             recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :in_delivery)
 
         order2 = Order.create!(code: 'MMM1234567890MM', product_code: 'Produto_B', description: 'Produto inflamavel', 
             height: 35, width: 40, depth: 35, weight: 50, distance: 750, user_id: usuario.id,
-            sender_name: 'Maria Albulquerque', sender_identification: 78498924022, sender_email: 'maria@email.com',
+            sender_name: 'Maria Albulquerque', sender_identification: "784.989.240-22", sender_email: 'maria@email.com',
             sender_phone: '51 988975951', sender_address: 'Rua Me Xama, 305/102, Coronel Almeida', sender_city: 'Carolandia', 
             sender_state: 'BA', sender_zipcode: '55987-678', recipient_name: 'Raimunda Lopes Silva', 
-            recipient_identification: 46280065049, recipient_email: 'lopes@email.com', recipient_phone: '35 945347676',
+            recipient_identification: "462.800.650-49", recipient_email: 'lopes@email.com', recipient_phone: '35 945347676',
             recipient_address: 'Rua da Mirella, 5 fundos, Jaguara Norte', recipient_city: 'Xingu Nova', recipient_state: 'RO', 
             recipient_zipcode: '86956-366', status: :in_delivery)
 
@@ -318,19 +318,19 @@ describe 'Usuario encerra entrega' do
                 minimum_weight: 0, maximum_weight: 10, delivery_fee: 50.0, status: :active)
         order1 = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
-            sender_name: 'Joaquim Severo', sender_identification: 48304423000121, sender_email: 'joaquim@email.com',
+            sender_name: 'Joaquim Severo', sender_identification: "25.446.403/0001-90", sender_email: 'joaquim@email.com',
             sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
-            recipient_identification: 62429965704, recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
+            recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
             recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :in_delivery)
 
         order2 = Order.create!(code: 'MMM1234567890MM', product_code: 'Produto_B', description: 'Produto inflamavel', 
             height: 35, width: 40, depth: 35, weight: 50, distance: 750, user_id: usuario.id,
-            sender_name: 'Maria Albulquerque', sender_identification: 78498924022, sender_email: 'maria@email.com',
+            sender_name: 'Maria Albulquerque', sender_identification: "784.989.240-22", sender_email: 'maria@email.com',
             sender_phone: '51 988975951', sender_address: 'Rua Me Xama, 305/102, Coronel Almeida', sender_city: 'Carolandia', 
             sender_state: 'BA', sender_zipcode: '55987-678', recipient_name: 'Raimunda Lopes Silva', 
-            recipient_identification: 46280065049, recipient_email: 'lopes@email.com', recipient_phone: '35 945347676',
+            recipient_identification: "462.800.650-49", recipient_email: 'lopes@email.com', recipient_phone: '35 945347676',
             recipient_address: 'Rua da Mirella, 5 fundos, Jaguara Norte', recipient_city: 'Xingu Nova', recipient_state: 'RO', 
             recipient_zipcode: '86956-366', status: :in_delivery)
 
@@ -389,19 +389,19 @@ describe 'Usuario encerra entrega' do
                     minimum_weight: 0, maximum_weight: 10, delivery_fee: 50.0, status: :active)
         order1 = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
                 height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
-                sender_name: 'Joaquim Severo', sender_identification: 48304423000121, sender_email: 'joaquim@email.com',
+                sender_name: 'Joaquim Severo', sender_identification: "25.446.403/0001-90", sender_email: 'joaquim@email.com',
                 sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
                 sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
-                recipient_identification: 62429965704, recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
+                recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
                 recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
                 recipient_zipcode: '76987-345', status: :in_delivery)
     
         order2 = Order.create!(code: 'MMM1234567890MM', product_code: 'Produto_B', description: 'Produto inflamavel', 
                 height: 35, width: 40, depth: 35, weight: 50, distance: 750, user_id: usuario.id,
-                sender_name: 'Maria Albulquerque', sender_identification: 78498924022, sender_email: 'maria@email.com',
+                sender_name: 'Maria Albulquerque', sender_identification: "784.989.240-22", sender_email: 'maria@email.com',
                 sender_phone: '51 988975951', sender_address: 'Rua Me Xama, 305/102, Coronel Almeida', sender_city: 'Carolandia', 
                 sender_state: 'BA', sender_zipcode: '55987-678', recipient_name: 'Raimunda Lopes Silva', 
-                recipient_identification: 46280065049, recipient_email: 'lopes@email.com', recipient_phone: '35 945347676',
+                recipient_identification: "462.800.650-49", recipient_email: 'lopes@email.com', recipient_phone: '35 945347676',
                 recipient_address: 'Rua da Mirella, 5 fundos, Jaguara Norte', recipient_city: 'Xingu Nova', recipient_state: 'RO', 
                 recipient_zipcode: '86956-366', status: :in_delivery)
     

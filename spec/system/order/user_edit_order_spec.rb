@@ -20,10 +20,10 @@ describe 'Usuario Edita Pedido de Entrega' do
         usuario = User.create!(name: 'Vulcano', email: 'vulcano@email.com', password: 'password')
         order = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 1200, user_id: usuario.id,
-            sender_name: 'Joaqui Severo', sender_identification: 78498924022, sender_email: 'joaquim@email.com',
+            sender_name: 'Joaqui Severo', sender_identification: "784.989.240-22", sender_email: 'joaquim@email.com',
             sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
-            recipient_identification: 62429965704, recipient_email: 'lili@email.com', recipient_phone: '21988887676',
+            recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21988887676',
             recipient_address: 'Avenida Silçva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
         codigo_atual = order.code
@@ -42,7 +42,7 @@ describe 'Usuario Edita Pedido de Entrega' do
         fill_in 'Profundidade', with: '10'
         fill_in 'Descrição', with: 'Descrição'
         fill_in 'Nome Remetente', with: 'João da Silva'
-        fill_in 'CPF/CNPJ Remetente', with: '62429965704'
+        fill_in 'CPF/CNPJ Remetente', with: '624.299.657-04'
         fill_in 'Email Remetente', with: 'silva@email.com'
         fill_in 'Telefone Remetente', with: '21 988975959'
         fill_in 'Endereço Remetente', with: 'Rua sem saida'
@@ -50,7 +50,7 @@ describe 'Usuario Edita Pedido de Entrega' do
         fill_in 'Estado Remetente', with: 'RJ'
         fill_in 'Cep Remetente', with: '22755-170'
         fill_in 'Nome Destinatario', with: 'Maria da Silva'
-        fill_in 'CPF/CNPJ Destinatario', with: '78498924022'
+        fill_in 'CPF/CNPJ Destinatario', with: '784.989.240-22'
         fill_in 'Email Destinatario', with: 'maria@email.com'
         fill_in 'Telefone Destinatario', with: '21 988972929'
         fill_in 'Endereço Destinatario', with: 'Rua com saida'
@@ -73,7 +73,7 @@ describe 'Usuario Edita Pedido de Entrega' do
         expect(page).to have_content('Profundidade: 10')
         
         expect(page).to have_content('Nome Remetente: João da Silva')
-        expect(page).to have_content('CPF/CNPJ Remetente: 62429965704')
+        expect(page).to have_content('CPF/CNPJ Remetente: 624.299.657-04')
         expect(page).to have_content('Email Remetente: silva@email.com')
         expect(page).to have_content('Telefone Remetente: 21 988975959')
         expect(page).to have_content('Endereço Remetente: Rua sem saida')
@@ -81,7 +81,7 @@ describe 'Usuario Edita Pedido de Entrega' do
         expect(page).to have_content('Estado Remetente: RJ')
         expect(page).to have_content('Cep Remetente: 22755-170')
         expect(page).to have_content('Nome Destinatario: Maria da Silva')
-        expect(page).to have_content('CPF/CNPJ Destinatario: 78498924022')
+        expect(page).to have_content('CPF/CNPJ Destinatario: 784.989.240-22')
         expect(page).to have_content('Email Destinatario: maria@email.com')
         expect(page).to have_content('Telefone Destinatario: 21 988972929')
         expect(page).to have_content('Endereço Destinatario: Rua com saida')
@@ -100,10 +100,10 @@ describe 'Usuario Edita Pedido de Entrega' do
         usuario = User.create!(name: 'Vulcano', email: 'vulcano@email.com', password: 'password')
         order = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 1200, user_id: usuario.id,
-            sender_name: 'Joaqui Severo', sender_identification: 78498924022, sender_email: 'joaquim@email.com',
+            sender_name: 'Joaqui Severo', sender_identification: "784.989.240-22", sender_email: 'joaquim@email.com',
             sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
-            recipient_identification: 62429965704, recipient_email: 'lili@email.com', recipient_phone: '21988887676',
+            recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21988887676',
             recipient_address: 'Avenida Silçva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
         
@@ -174,10 +174,10 @@ describe 'Usuario Edita Pedido de Entrega' do
         usuario = User.create!(name: 'Vulcano', email: 'vulcano@email.com', password: 'password')
         order = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 1200, user_id: usuario.id,
-            sender_name: 'Joaqui Severo', sender_identification: 78498924022, sender_email: 'joaquim@email.com',
+            sender_name: 'Joaqui Severo', sender_identification: "784.989.240-22", sender_email: 'joaquim@email.com',
             sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
-            recipient_identification: 62429965704, recipient_email: 'lili@email.com', recipient_phone: '21988887676',
+            recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21988887676',
             recipient_address: 'Avenida Silçva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
 
@@ -192,7 +192,7 @@ describe 'Usuario Edita Pedido de Entrega' do
 
 
         # Assert
-        expect(current_path).to eq orders_path
+        expect(current_path).to eq root_path
         
     end
 

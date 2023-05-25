@@ -110,7 +110,15 @@ def Order
     sender = ["Carlos Magno", "Josival Santos", "Matia Cristina", "Juliana Silva", "Fernando Sanches", 
                   "Marcio Nogueira", "Kamila Campelo", "Tainara Terica", "Ramom Dias", "Valeria Kurusawa"]
     recepient = ["Mendes Alves", "Mirian Novaes", "Julia Mesquita", "Carla Cristina", "Albuquerque Silva",
-                   "Marlon Dias", "Deyse Samuel", "Clara Marcondes", "Sibila Amaral", "Jackson Mendes"]
+                   "Marlon Dias", "Deyse Samuel", "Clara Marcondes", "Sibila Amaral", "366.867.723-99Jackson Mendes"]
+    sender_ident = ["266.495.742-28", "488.554.557-96", "504.648.082-43", "186.426.234-62", "366.867.723-99",
+              "25.446.403/0001-90", "94.484.939/0001-12", "59.341.035/0001-37", "85.232.721/0001-80" ]
+    recipient_ident = ["675.578.970-48", "048.007.900-50", "895.591.420-20", "337.287.160-06", "194.155.970-03",
+                "63.342.153/0001-37", "40.976.052/0001-12", "98.477.137/0001-36", "59.988.115/0001-89"]
+    sender_cep = ["69309-388", "57046-280", "76811-516", "74583-037", "54756-055", "76812-158",
+                  "25740-042", "66633-700", "82960-490", "72811-100"]
+    recipient_cep = ["57080-603", "45012-030", "65092-440", "53640-360", "69900-388", "77060-300",
+                      "53650-040", "77006-146", "23912-535", "59603-245"]
     20.times do |index|
         Order.create!(
             code: SecureRandom.alphanumeric(15).upcase,
@@ -122,21 +130,21 @@ def Order
             description: "descrição padrão #{index + 1}",
             distance: rand(80..1400),
             sender_name: sender[rand(0..9)],
-            sender_identification: rand(11111111111..99999999999),
+            sender_identification: sender_ident[rand(0..8)],
             sender_email: "#{SecureRandom.alphanumeric(6)}@email.com",
             sender_phone: "(#{rand(11..88)}) #{rand(11111..99999)}-#{rand(1111..9999)}",
             sender_address: "#{end1[rand(0..4)]} #{end2[rand(0..9)]}, #{rand(23..400)}, #{end3[rand(0..9)]}",
             sender_city: end4[rand(0..9)],
             sender_state: end5[rand(0..9)],
-            sender_zipcode: "#{rand(11111..99999)}-#{rand(111..999)}",
+            sender_zipcode: sender_cep[rand(0..9)],
             recipient_name: recepient[rand(0..9)],
-            recipient_identification: rand(11111111111..99999999999),
+            recipient_identification: recipient_ident[rand(0..8)],
             recipient_email: "#{SecureRandom.alphanumeric(6)}@email.com",
             recipient_phone: "(#{rand(11..88)}) #{rand(11111..99999)}-#{rand(1111..9999)}", 
             recipient_address: "#{end1[rand(0..4)]} #{end2[rand(0..9)]}, #{rand(23..400)}, #{end3[rand(0..9)]}",
             recipient_city: end4[rand(0..9)],
             recipient_state: end5[rand(0..9)],
-            recipient_zipcode: "#{rand(11111..99999)}-#{rand(111..999)}",
+            recipient_zipcode: recipient_cep[rand(0..9)],
             status: 0,
             user_id: user[rand(0..1)].id)
     end

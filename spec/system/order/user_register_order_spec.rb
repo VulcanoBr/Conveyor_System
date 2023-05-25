@@ -35,7 +35,7 @@ describe 'Usaurio cadastra Pedido de Entrega' do
         fill_in 'Profundidade', with: '10'
         fill_in 'Descrição', with: 'Descrição'
         fill_in 'Nome Remetente', with: 'João da Silva'
-        fill_in 'CPF/CNPJ Remetente', with: '62429965704'
+        fill_in 'CPF/CNPJ Remetente', with: '624.299.657-04'
         fill_in 'Email Remetente', with: 'silva@email.com'
         fill_in 'Telefone Remetente', with: '21 988975959'
         fill_in 'Endereço Remetente', with: 'Rua sem saida'
@@ -43,7 +43,7 @@ describe 'Usaurio cadastra Pedido de Entrega' do
         fill_in 'Estado Remetente', with: 'RJ'
         fill_in 'Cep Remetente', with: '22755-170'
         fill_in 'Nome Destinatario', with: 'Maria da Silva'
-        fill_in 'CPF/CNPJ Destinatario', with: '78498924022'
+        fill_in 'CPF/CNPJ Destinatario', with: '784.989.240-22'
         fill_in 'Email Destinatario', with: 'maria@email.com'
         fill_in 'Telefone Destinatario', with: '21 988972929'
         fill_in 'Endereço Destinatario', with: 'Rua com saida'
@@ -66,7 +66,7 @@ describe 'Usaurio cadastra Pedido de Entrega' do
         expect(page).to have_content('Profundidade: 10')
         
         expect(page).to have_content('Nome Remetente: João da Silva')
-        expect(page).to have_content('CPF/CNPJ Remetente: 62429965704')
+        expect(page).to have_content('CPF/CNPJ Remetente: 624.299.657-04')
         expect(page).to have_content('Email Remetente: silva@email.com')
         expect(page).to have_content('Telefone Remetente: 21 988975959')
         expect(page).to have_content('Endereço Remetente: Rua sem saida')
@@ -74,7 +74,7 @@ describe 'Usaurio cadastra Pedido de Entrega' do
         expect(page).to have_content('Estado Remetente: RJ')
         expect(page).to have_content('Cep Remetente: 22755-170')
         expect(page).to have_content('Nome Destinatario: Maria da Silva')
-        expect(page).to have_content('CPF/CNPJ Destinatario: 78498924022')
+        expect(page).to have_content('CPF/CNPJ Destinatario: 784.989.240-22')
         expect(page).to have_content('Email Destinatario: maria@email.com')
         expect(page).to have_content('Telefone Destinatario: 21 988972929')
         expect(page).to have_content('Endereço Destinatario: Rua com saida')

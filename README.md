@@ -11,6 +11,7 @@ Esta aplicação e responsável por gerenciar a frota de entrega de uma transpor
     * Bootstrap 5.2
     * Rspec-rails
     * Simplecov
+    * cpf_cnpj
     
 
 * Banco de Dados:

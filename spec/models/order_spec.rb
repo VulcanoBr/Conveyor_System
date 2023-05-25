@@ -387,7 +387,7 @@ RSpec.describe Order, type: :model do
     expect(order.valid?).to be false
   end
 
-  it 'CPF Remetente deve ter valido' do
+  it 'CPF Remetente deve ser valido' do
 
     # Arrange  
     order = Order.new(sender_identification: 12345678901)
@@ -398,10 +398,10 @@ RSpec.describe Order, type: :model do
     expect(order.valid?).to be false
   end
 
-  it 'CPF Destinatario deve valido' do
+  it 'CPF Destinatario deve ser valido' do
 
     # Arrange  
-    order = Order.new(recipient_identification: 12345678901)
+    order = Order.new(recipient_identification: 12345678901234)
     # Act 
     result = order.errors.include?(:recipient_identification)
     # Assert
@@ -412,7 +412,7 @@ RSpec.describe Order, type: :model do
   it 'CNPJ Remetente deve ter valido' do
 
     # Arrange  
-    order = Order.new(sender_identification: 12345678901234)
+    order = Order.new(sender_identification: '12.345.678/9012-34')
     # Act 
     result = order.errors.include?(:sender_identification)
     # Assert
@@ -420,14 +420,14 @@ RSpec.describe Order, type: :model do
     expect(order.valid?).to be false
   end
 
-  it 'CNPJ Destinatario deve valido' do
+  it 'CNPJ Destinatario deve ser valido' do
 
     # Arrange  
-    order = Order.new(recipient_identification: 12345678901234)
+    order = Order.new(recipient_identification: '12.345.678/9012-34')
     # Act 
-    @result = order.errors.include?(:recipient_identification)
+    result = order.errors.include?(:recipient_identification)
     # Assert
-    #expect(result).to be false
+    expect(result).to be false
     expect(order.valid?).to be false
   end
 

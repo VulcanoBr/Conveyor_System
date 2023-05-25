@@ -13,16 +13,16 @@ class Order < ApplicationRecord
                :recipient_name, :recipient_identification, :recipient_email, :recipient_phone,
                :recipient_address, :recipient_city, :recipient_state, :recipient_zipcode, presence: true
 
-    validates  :sender_identification, :recipient_identification, numericality: { only_integer: true }
+    #validates  :sender_identification, :recipient_identification, numericality: { only_integer: true }
 
     validates :code,  length: { is: 15 }
 
     validate :cpf_cnpj_sender_length, if: -> { sender_identification.present? }
     validate :cpf_cnpj_recipient_length, if: -> { recipient_identification.present? }
-    validate :cpf_sender_valid, if: -> { sender_identification.to_s.length == 11 }
-    validate :cpf_recipient_valid, if: -> { recipient_identification.to_s.length == 11 }
-    validate :cnpj_sender_valid, if: -> { sender_identification.to_s.length == 14 }
-    validate :cnpj_recipient_valid, if: -> { recipient_identification.to_s.length == 14 }
+    validate :cpf_sender_valid, if: -> { sender_identification.to_s.length == 14 }
+    validate :cpf_recipient_valid, if: -> { recipient_identification.to_s.length == 14 }
+    validate :cnpj_sender_valid, if: -> { sender_identification.to_s.length == 18 }
+    validate :cnpj_recipient_valid, if: -> { recipient_identification.to_s.length == 18 }
 
 
     def full_sender_address
@@ -56,13 +56,13 @@ class Order < ApplicationRecord
     end
     
     def cpf_cnpj_sender_length
-        return if sender_identification.to_s.length == 11 || sender_identification.to_s.length == 14
+        return if sender_identification.to_s.length == 14 || sender_identification.to_s.length == 18
     
         errors.add(:sender_identification, 'deve ter 11 ou 14 caracteres')
     end    
 
     def cpf_cnpj_recipient_length
-        return if recipient_identification.to_s.length == 11 || recipient_identification.to_s.length == 14
+        return if recipient_identification.to_s.length == 14 || recipient_identification.to_s.length == 18
     
         errors.add(:recipient_identification, ' deve ter 11 ou 14 caracteres')
     end

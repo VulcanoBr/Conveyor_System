@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_04_215059) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_24_233429) do
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -70,7 +70,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_04_215059) do
     t.string "description"
     t.integer "distance"
     t.string "sender_name"
-    t.integer "sender_identification"
+    t.string "sender_identification"
     t.string "sender_email"
     t.string "sender_phone"
     t.string "sender_address"
@@ -78,7 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_04_215059) do
     t.string "sender_state"
     t.string "sender_zipcode"
     t.string "recipient_name"
-    t.integer "recipient_identification"
+    t.string "recipient_identification"
     t.string "recipient_email"
     t.string "recipient_phone"
     t.string "recipient_address"
