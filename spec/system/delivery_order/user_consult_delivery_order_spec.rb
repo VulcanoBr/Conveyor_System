@@ -27,10 +27,12 @@ describe 'Usuario consulta Codigo de Rastreio' do
         order = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
             sender_name: 'Joaquim Severo', sender_identification: "48.304.423/0001-21", sender_email: 'joaquim@email.com',
-            sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
+            sender_phone: '21 988975959', sender_address: 'Rua São Siva', sender_number: '100', sender_complement: '', 
+            sender_neighborhood: 'Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
-            recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '', 
+            recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :in_delivery)
 
         category1 = Category.create!(name: 'Carro')
@@ -56,9 +58,9 @@ describe 'Usuario consulta Codigo de Rastreio' do
         expect(current_path).to eq pesq_budget_delivery_order_index_path
         expect(page).to have_content("Codigo do Rastreio: XXX1234567890XX")
         expect(page).to have_content('Remetente')
-        expect(page).to have_content('Rua São Siva, 100, Rubens Jardim - Macarena - AM - 45987-876')
+        expect(page).to have_content('Rua São Siva 100 - Rubens Jardim - Macarena - AM - 45987-876')
         expect(page).to have_content('Destinatario')
-        expect(page).to have_content('Avenida Silva, 1200,São Roque - Mateuzinho - GO - 76987-345')
+        expect(page).to have_content('Avenida Silva 1200 - São Roque - Mateuzinho - GO - 76987-345')
         expect(page).to have_content('Veiculo')
         expect(page).to have_content('Vitara For You - Suzuki / 2018 placa: XYZ-9268')
 
@@ -82,10 +84,12 @@ describe 'Usuario consulta Codigo de Rastreio' do
         order = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
             sender_name: 'Joaquim Severo', sender_identification: "48.304.423/0001-21", sender_email: 'joaquim@email.com',
-            sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
+            sender_phone: '21 988975959', sender_address: 'Rua São Siva', sender_number: '100', sender_complement: '', 
+            sender_neighborhood: 'Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
-            recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '', 
+            recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :in_delivery)
 
         category1 = Category.create!(name: 'Carro')
@@ -113,9 +117,9 @@ describe 'Usuario consulta Codigo de Rastreio' do
         expect(current_path).to eq pesq_budget_delivery_order_index_path
         expect(page).to have_content("Codigo do Rastreio: XXX1234567890XX")
         expect(page).to have_content('Remetente')
-        expect(page).to have_content('Rua São Siva, 100, Rubens Jardim - Macarena - AM - 45987-876')
+        expect(page).to have_content('Rua São Siva 100 - Rubens Jardim - Macarena - AM - 45987-876')
         expect(page).to have_content('Destinatario')
-        expect(page).to have_content('Avenida Silva, 1200,São Roque - Mateuzinho - GO - 76987-345')
+        expect(page).to have_content('Avenida Silva 1200 - São Roque - Mateuzinho - GO - 76987-345')
         expect(page).to have_content('Veiculo')
         expect(page).to have_content('Vitara For You - Suzuki / 2018 placa: XYZ-9268')
 
@@ -141,10 +145,12 @@ describe 'Usuario consulta Codigo de Rastreio' do
         order = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
             sender_name: 'Joaquim Severo', sender_identification: "48.304.423/0001-21", sender_email: 'joaquim@email.com',
-            sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
+            sender_phone: '21 988975959', sender_address: 'Rua São Siva', sender_number: '100', sender_complement: '', 
+            sender_neighborhood: 'Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
-            recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '', 
+            recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :in_delivery)
 
         category1 = Category.create!(name: 'Carro')
@@ -185,10 +191,12 @@ describe 'Usuario consulta Codigo de Rastreio' do
         order = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
             sender_name: 'Joaquim Severo', sender_identification: "48.304.423/0001-21", sender_email: 'joaquim@email.com',
-            sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
+            sender_phone: '21 988975959', sender_address: 'Rua São Siva', sender_number: '100', sender_complement: '', 
+            sender_neighborhood: 'Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
-            recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '', 
+            recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :in_delivery)
 
         category1 = Category.create!(name: 'Carro')

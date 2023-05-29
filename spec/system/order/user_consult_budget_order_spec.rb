@@ -24,18 +24,22 @@ describe 'Usuario consulta Orçamentos' do
         order1 = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 1200, user_id: usuario.id,
             sender_name: 'Joaqui Severo', sender_identification: "48.304.423/0001-21", sender_email: 'joaquim@email.com',
-            sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
+            sender_phone: '21 988975959', sender_address: 'Rua São Siva', sender_number: '100', sender_complement: '',
+            sender_neighborhood: 'Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21988887676',
-            recipient_address: 'Avenida Silçva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '', 
+            recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
         order2 = Order.create!(code: 'ZZZ1234567890ZZ', product_code: 'Produto_B', description: 'Produto  perecivel', 
                 height: 25, width: 30, depth: 35, weight: 110, distance: 800, user_id: usuario2.id,
                 sender_name: 'Clara Severo', sender_identification: "784.989.240-22", sender_email: 'clara@email.com',
-                sender_phone: '21 988976659', sender_address:'Rua Guilhermina, 300, Anil', sender_city: 'Diamantina', 
+                sender_phone: '21 988976659', sender_address:'Rua Guilhermina', sender_number: '300', sender_complement: '', 
+                sender_neighborhood: 'Anil', sender_city: 'Diamantina', 
                 sender_state: 'MG', sender_zipcode: '34987-834', recipient_name: 'Clariça Lins', 
                 recipient_identification: "462.800.650-49", recipient_email: 'lins@email.com', recipient_phone: '21 988885467',
-                recipient_address: 'Rua Mariz Barros, 10/403, São Roque', recipient_city: 'Mateuzinho', recipient_state: 'RD', 
+                recipient_address: 'Rua Mariz Barros', recipient_number: '10/403', recipient_complement: '', 
+                recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'RD', 
                 recipient_zipcode: '89987-398', status: :pending)
 
         # Act
@@ -64,18 +68,22 @@ describe 'Usuario consulta Orçamentos' do
         order1 = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 1200, user_id: usuario2.id,
             sender_name: 'Joaqui Severo', sender_identification: "48.304.423/0001-21", sender_email: 'joaquim@email.com',
-            sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
+            sender_phone: '21 988975959', sender_address: 'Rua São Siva', sender_number: '100', sender_complement: '', 
+            sender_neighborhood: 'Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21988887676',
-            recipient_address: 'Avenida Silçva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '', 
+            recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
         order2 = Order.create!(code: 'ZZZ1234567890ZZ', product_code: 'Produto_B', description: 'Produto  perecivel', 
                 height: 25, width: 30, depth: 35, weight: 110, distance: 800, user_id: usuario2.id,
                 sender_name: 'Clara Severo', sender_identification: "784.989.240-22", sender_email: 'clara@email.com',
-                sender_phone: '21 988976659', sender_address:'Rua Guilhermina, 300, Anil', sender_city: 'Diamantina', 
+                sender_phone: '21 988976659', sender_address:'Rua Guilhermina', sender_number: '300', sender_complement: '', 
+                sender_neighborhood: 'Anil', sender_city: 'Diamantina', 
                 sender_state: 'MG', sender_zipcode: '34987-834', recipient_name: 'Clariça Lins', 
                 recipient_identification: "462.800.650-49", recipient_email: 'lins@email.com', recipient_phone: '21 988885467',
-                recipient_address: 'Rua Mariz Barros, 10/403, São Roque', recipient_city: 'Mateuzinho', recipient_state: 'RD', 
+                recipient_address: 'Rua Mariz Barros', recipient_number: '10/403', recipient_complement: '', 
+                recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'RD', 
                 recipient_zipcode: '89987-398', status: :pending)
 
         # Act

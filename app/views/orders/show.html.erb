@@ -51,6 +51,18 @@
 </div>
 
 <div>
+    <p><strong> <%= Order.human_attribute_name(:sender_number) %>:</strong> <%= @order.sender_number %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:sender_complement) %>:</strong> <%= @order.sender_complement %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:sender_neighborhood) %>:</strong> <%= @order.sender_neighborhood %> </p>
+</div>
+
+<div>
     <p><strong> <%= Order.human_attribute_name(:sender_city) %>:</strong> <%= @order.sender_city %> </p>
 </div>
 
@@ -83,6 +95,18 @@
 </div>
 
 <div>
+    <p><strong> <%= Order.human_attribute_name(:recipient_number) %>:</strong> <%= @order.recipient_number %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:recipient_complement) %>:</strong> <%= @order.recipient_complement %> </p>
+</div>
+
+<div>
+    <p><strong> <%= Order.human_attribute_name(:recipient_neighborhood) %>:</strong> <%= @order.recipient_neighborhood %> </p>
+</div>
+
+<div>
     <p><strong> <%= Order.human_attribute_name(:recipient_city) %>:</strong> <%= @order.recipient_city %> </p>
 </div>
 
@@ -93,8 +117,6 @@
 <div>
     <p><strong> <%= Order.human_attribute_name(:recipient_zipcode) %>:</strong> <%= @order.recipient_zipcode %> </p>
 </div>
-
-
 
 <div>
     <p><strong> <%= Order.human_attribute_name(:distance) %>:</strong> <%= @order.distance %> </p>

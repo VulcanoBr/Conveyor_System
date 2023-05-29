@@ -21,10 +21,12 @@ describe 'Usuario Edita Pedido de Entrega' do
         order = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 1200, user_id: usuario.id,
             sender_name: 'Joaqui Severo', sender_identification: "784.989.240-22", sender_email: 'joaquim@email.com',
-            sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
+            sender_phone: '21 988975959', sender_address: 'Rua São Siva', sender_number: '100', sender_complement: '', 
+            sender_neighborhood: 'Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21988887676',
-            recipient_address: 'Avenida Silçva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '',
+            recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
         codigo_atual = order.code
         # Act
@@ -45,18 +47,24 @@ describe 'Usuario Edita Pedido de Entrega' do
         fill_in 'CPF/CNPJ Remetente', with: '624.299.657-04'
         fill_in 'Email Remetente', with: 'silva@email.com'
         fill_in 'Telefone Remetente', with: '21 988975959'
-        fill_in 'Endereço Remetente', with: 'Rua sem saida'
-        fill_in 'Cidade Remetente', with: 'Rio de Janeiro'
-        fill_in 'Estado Remetente', with: 'RJ'
-        fill_in 'Cep Remetente', with: '22755-170'
+        fill_in 'enderecoRemetente', with: 'Rua sem saida'
+        fill_in 'numeroRemetente', with: '565'
+        fill_in 'complementoRemetente', with: 'casa 5'
+        fill_in 'bairroRemetente', with: 'Campo Grande'
+        fill_in 'cidadeRemetente', with: 'Rio de Janeiro'
+        fill_in 'estadoRemetente', with: 'RJ'
+        fill_in 'cepRemetente', with: '22755-170'
         fill_in 'Nome Destinatario', with: 'Maria da Silva'
         fill_in 'CPF/CNPJ Destinatario', with: '784.989.240-22'
         fill_in 'Email Destinatario', with: 'maria@email.com'
         fill_in 'Telefone Destinatario', with: '21 988972929'
-        fill_in 'Endereço Destinatario', with: 'Rua com saida'
-        fill_in 'Cidade Destinatario', with: 'Rio de Janeiro'
-        fill_in 'Estado Destinatario', with: 'RJ'
-        fill_in 'Cep Destinatario', with: '22755-200'
+        fill_in 'enderecoDestinatario', with: 'Rua com saida'
+        fill_in 'numeroDestinatario', with: '359'
+        fill_in 'complementoDestinatario', with: 'sala 1'
+        fill_in 'bairroDestinatario', with: 'Sulacap'
+        fill_in 'cidadeDestinatario', with: 'Rio de Janeiro'
+        fill_in 'estadoDestinatario', with: 'RJ'
+        fill_in 'cepDestinatario', with: '22755-200'
         
         
         fill_in 'Distancia', with: '959'
@@ -77,6 +85,9 @@ describe 'Usuario Edita Pedido de Entrega' do
         expect(page).to have_content('Email Remetente: silva@email.com')
         expect(page).to have_content('Telefone Remetente: 21 988975959')
         expect(page).to have_content('Endereço Remetente: Rua sem saida')
+        expect(page).to have_content('Numero Remetente: 565')
+        expect(page).to have_content('Complemento Remetente: casa 5')
+        expect(page).to have_content('Bairro Remetente: Campo Grande')
         expect(page).to have_content('Cidade Remetente: Rio de Janeiro')
         expect(page).to have_content('Estado Remetente: RJ')
         expect(page).to have_content('Cep Remetente: 22755-170')
@@ -85,6 +96,9 @@ describe 'Usuario Edita Pedido de Entrega' do
         expect(page).to have_content('Email Destinatario: maria@email.com')
         expect(page).to have_content('Telefone Destinatario: 21 988972929')
         expect(page).to have_content('Endereço Destinatario: Rua com saida')
+        expect(page).to have_content('Numero Destinatario: 359')
+        expect(page).to have_content('Complemento Destinatario: sala 1')
+        expect(page).to have_content('Bairro Destinatario: Sulacap')
         expect(page).to have_content('Cidade Destinatario: Rio de Janeiro')
         expect(page).to have_content('Estado Destinatario: RJ')
         expect(page).to have_content('Cep Destinatario: 22755-200')
@@ -101,10 +115,12 @@ describe 'Usuario Edita Pedido de Entrega' do
         order = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 1200, user_id: usuario.id,
             sender_name: 'Joaqui Severo', sender_identification: "784.989.240-22", sender_email: 'joaquim@email.com',
-            sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
+            sender_phone: '21 988975959', sender_address: 'Rua São Siva', sender_number: '100', sender_complement: '', 
+            sender_neighborhood: 'Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21988887676',
-            recipient_address: 'Avenida Silçva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '',
+             recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
         
         # Act
@@ -124,18 +140,24 @@ describe 'Usuario Edita Pedido de Entrega' do
         fill_in 'CPF/CNPJ Remetente', with: ''
         fill_in 'Email Remetente', with: ''
         fill_in 'Telefone Remetente', with: ''
-        fill_in 'Endereço Remetente', with: ''
-        fill_in 'Cidade Remetente', with: ''
-        fill_in 'Estado Remetente', with: ''
-        fill_in 'Cep Remetente', with: ''
+        fill_in 'enderecoRemetente', with: ''
+        fill_in 'numeroRemetente', with: ''
+        fill_in 'complementoRemetente', with: ''
+        fill_in 'bairroRemetente', with: ''
+        fill_in 'cidadeRemetente', with: ''
+        fill_in 'estadoRemetente', with: ''
+        fill_in 'cepRemetente', with: ''
         fill_in 'Nome Destinatario', with: ''
         fill_in 'CPF/CNPJ Destinatario', with: ''
         fill_in 'Email Destinatario', with: ''
         fill_in 'Telefone Destinatario', with: ''
-        fill_in 'Endereço Destinatario', with: ''
-        fill_in 'Cidade Destinatario', with: ''
-        fill_in 'Estado Destinatario', with: ''
-        fill_in 'Cep Destinatario', with: '' 
+        fill_in 'enderecoDestinatario', with: ''
+        fill_in 'numeroDestinatario', with: ''
+        fill_in 'complementoDestinatario', with: ''
+        fill_in 'bairroDestinatario', with: ''
+        fill_in 'cidadeDestinatario', with: ''
+        fill_in 'estadoDestinatario', with: ''
+        fill_in 'cepDestinatario', with: '' 
         fill_in 'Distancia', with: ''  
         click_on 'Salvar'
 
@@ -175,10 +197,12 @@ describe 'Usuario Edita Pedido de Entrega' do
         order = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 1200, user_id: usuario.id,
             sender_name: 'Joaqui Severo', sender_identification: "784.989.240-22", sender_email: 'joaquim@email.com',
-            sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
+            sender_phone: '21 988975959', sender_address: 'Rua São Siva', sender_number: '100', sender_complement: '', 
+            sender_neighborhood: 'Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21988887676',
-            recipient_address: 'Avenida Silçva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '',
+             recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
 
         # Act

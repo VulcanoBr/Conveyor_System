@@ -1,6 +1,5 @@
-<br>
-<h1>Nova Ordem de Entrega</h1>
-<br>
+
+
 <% if @order.errors.any? %>
     <p>Verifique os erros abaixo</p>
     <ul>
@@ -66,31 +65,54 @@
                     <%= o.email_field :sender_email, class:"form-control" ,  placeholder:"Email" %>
                 </div>
 
-                div class="mb-3">
+                <div class="mb-3">
                     <%= o.label :sender_phone, class:"form-label" %>
                     <%= o.text_field :sender_phone, class:"phone-with-mask form-control" ,
                       placeholder:"(99) 99999-9999", maxlength: "15" %>
                 </div>
 
                 <div class="mb-3">
+                    <%= o.label :sender_zipcode, class:"form-label" %>
+                    <%= o.text_field :sender_zipcode, class:"cep-with-mask form-control",  
+                        placeholder:"Cep somente numeros", maxlength: "9", id: "cepRemetente" %>
+                </div>
+
+                <div class="mb-3">
                     <%= o.label :sender_address, class:"form-label" %>
-                    <%= o.text_field :sender_address, class:"form-control" ,  placeholder:"Endereço Completo" %>
+                    <%= o.text_field :sender_address, class:"form-control" ,  
+                        placeholder:"Endereço ", id: "enderecoRemetente" %>
+                </div>
+
+                <div class="mb-3">
+                    <%= o.label :sender_number, class:"form-label" %>
+                    <%= o.text_field :sender_number, class:"form-control" ,  
+                        placeholder:"Numero ", id: "numeroRemetente" %>
+                </div>
+
+                <div class="mb-3">
+                    <%= o.label :sender_complement, class:"form-label" %>
+                    <%= o.text_field :sender_complement, class:"form-control" ,  
+                        placeholder:"Complemento ", id: "complementoRemetente" %>
+                </div>
+
+                <div class="mb-3">
+                    <%= o.label :sender_neighborhood, class:"form-label" %>
+                    <%= o.text_field :sender_neighborhood, class:"form-control" ,  
+                        placeholder:"Bairro ", id: "bairroRemetente" %>
                 </div>
 
                 <div class="mb-3">
                     <%= o.label :sender_city, class:"form-label" %>
-                    <%= o.text_field :sender_city, class:"form-control" ,  placeholder:"Cidade" %>
+                    <%= o.text_field :sender_city, class:"form-control" ,
+                        placeholder:"Cidade", id: "cidadeRemetente" %>
                 </div>
 
                 <div class="mb-3">
                     <%= o.label :sender_state, class:"form-label" %>
-                    <%= o.text_field :sender_state, class:"form-control" ,  placeholder:"Estado" %>
+                    <%= o.text_field :sender_state, class:"form-control" ,  
+                        placeholder:"Estado", id: "estadoRemetente" %>
                 </div>
 
-                <div class="mb-3">
-                    <%= o.label :sender_zipcode, class:"form-label" %>
-                    <%= o.text_field :sender_zipcode, class:"form-control" ,  placeholder:"Cep 99999-999" %>
-                </div>
             </div>
 
             <div>
@@ -111,31 +133,54 @@
                     <%= o.email_field :recipient_email, class:"form-control" ,  placeholder:"Email" %>
                 </div>
 
-                div class="mb-3">
+                <div class="mb-3">
                     <%= o.label :recipient_phone, class:"form-label" %>
                     <%= o.text_field :recipient_phone, class:"phone-with-mask form-control" ,
                       placeholder:"(99) 99999-9999", maxlength: "15" %>
                 </div>
 
                 <div class="mb-3">
+                    <%= o.label :recipient_zipcode, class:"form-label" %>
+                    <%= o.text_field :recipient_zipcode, class:"cep-with-mask form-control",  
+                        placeholder:"Cep somente numeros", maxlength: "9", id: "cepDestinatario" %>
+                </div>
+
+                <div class="mb-3">
                     <%= o.label :recipient_address, class:"form-label" %>
-                    <%= o.text_field :recipient_address, class:"form-control" ,  placeholder:"Endereço Completo" %>
+                    <%= o.text_field :recipient_address, class:"form-control" ,  
+                        placeholder:"Endereço ", id: "enderecoDestinatario" %>
+                </div>
+
+                <div class="mb-3">
+                    <%= o.label :recipient_number, class:"form-label" %>
+                    <%= o.text_field :recipient_number, class:"form-control" ,  
+                        placeholder:"Numero ", id: "numeroDestinatario" %>
+                </div>
+
+                <div class="mb-3">
+                    <%= o.label :recipient_complement, class:"form-label" %>
+                    <%= o.text_field :recipient_complement, class:"form-control" ,  
+                        placeholder:"Complemento ", id: "complementoDestinatario" %>
+                </div>
+
+                <div class="mb-3">
+                    <%= o.label :recipient_neighborhood, class:"form-label" %>
+                    <%= o.text_field :recipient_neighborhood, class:"form-control" ,  
+                        placeholder:"Bairro ", id: "bairroDestinatario" %>
                 </div>
 
                 <div class="mb-3">
                     <%= o.label :recipient_city, class:"form-label" %>
-                    <%= o.text_field :recipient_city, class:"form-control" ,  placeholder:"Cidade" %>
+                    <%= o.text_field :recipient_city, class:"form-control" ,  
+                        placeholder:"Cidade", id: "cidadeDestinatario"  %>
                 </div>
 
                 <div class="mb-3">
                     <%= o.label :recipient_state, class:"form-label" %>
-                    <%= o.text_field :recipient_state, class:"form-control" ,  placeholder:"Estado" %>
+                    <%= o.text_field :recipient_state, class:"form-control" ,  
+                        placeholder:"Estado", id: "estadoDestinatario"  %>
                 </div>
 
-                <div class="mb-3">
-                    <%= o.label :recipient_zipcode, class:"form-label" %>
-                    <%= o.text_field :recipient_zipcode, class:"form-control" ,  placeholder:"Cep 99999-999" %>
-                </div>
             </div>
 
         
@@ -166,6 +211,7 @@
     document.addEventListener("DOMContentLoaded", () => {
     addMaskToPhoneFields();
     addMaskToCpfCnpjFields();
+    addMaskToCepFields();
     });
     
     function addMaskToPhoneFields() {
@@ -197,4 +243,98 @@
             });
         });
     };
+
+    function addMaskToCepFields() {
+        document.querySelectorAll(".cep-with-mask").forEach((input) => {
+            input.addEventListener("keyup", ({ target }) => {
+                target.value = target.value
+                .replace(/\D/g, "") // Remove tudo o que não é dígito
+                .replace(/(\d{5})(\d{3})$/, "$1-$2"); // Coloca hífen entre o quinto e o sexto dígito
+            });
+        });
+    };
+</script>
+
+<script>
+    // Função para manipular o evento focusout no campo CEP do remetente
+    document.getElementById("cepRemetente").addEventListener("focusout", function() {
+        var cepRemetente = document.getElementById("cepRemetente").value.replace(/\D/g, '');
+        if (cepRemetente.length == 8) {
+            consultarCEP(cepRemetente, "remetente");
+        } else {
+            document.getElementById('enderecoRemetente').value = 'CEP incorreto !!!';
+            return;
+        }
+    });
+
+    // Função para manipular o evento focusout no campo CEP do destinatário
+    document.getElementById("cepDestinatario").addEventListener("focusout", function() {
+        var cepDestinatario = document.getElementById("cepDestinatario").value.replace(/\D/g, '');
+        if (cepDestinatario.length == 8) {
+            consultarCEP(cepDestinatario, "destinatario");
+        } else {
+            document.getElementById('enderecoDestinatario').value = 'CEP incorreto !!!';
+            return;
+        }
+        
+    });
+
+    function consultarCEP(cep, tipo) {
+        limparFormulario(tipo);
+        // usando Fetch API
+        fetch(`https://viacep.com.br/ws/${cep}/json/`)
+            .then(response => response.json())
+            .then(data => {
+            // Aqui você pode manipular a resposta da API e realizar as ações desejadas
+                if (data.erro) {
+                    if (tipo === "remetente") {
+                        document.getElementById('enderecoRemetente').value = 'CEP não encontrado!!!';
+                    } else if (tipo === "destinatario") {
+                             document.getElementById('enderecoDestinatario').value = 'CEP não encontrado!!!';
+                    }
+                    return;
+                }
+                if (tipo === "remetente") {
+                    // Manipular os dados do CEP do remetente
+                    document.getElementById('enderecoRemetente').value = data.logradouro;
+                    document.getElementById('bairroRemetente').value = data.bairro;
+                    document.getElementById('cidadeRemetente').value = data.localidade;
+                    document.getElementById('estadoRemetente').value = data.uf;
+                    document.getElementById('numeroRemetente').focus();
+                } else if (tipo === "destinatario") {
+                    // Manipular os dados do CEP do destinatário
+                    document.getElementById('enderecoDestinatario').value = data.logradouro;
+                    document.getElementById('bairroDestinatario').value = data.bairro;
+                    document.getElementById('cidadeDestinatario').value = data.localidade;
+                    document.getElementById('estadoDestinatario').value = data.uf;
+                    document.getElementById('numeroDestinatario').focus();
+                }
+            })
+            .catch(error => {
+                if (tipo === "remetente") {
+                        document.getElementById('enderecoRemetente').value = 'CEP incorreto !!!';
+                    } else if (tipo === "destinatario") {
+                             document.getElementById('enderecoDestinatario').value = 'CEP incorreto !!!';
+                    }
+            });
+    }
+
+    function limparFormulario(tipo) {
+        if (tipo === "remetente") {
+            document.getElementById('enderecoRemetente').value = '';
+            document.getElementById('numeroRemetente').value = '';
+            document.getElementById('complementoRemetente').value = '';
+            document.getElementById('bairroRemetente').value = '';
+            document.getElementById('cidadeRemetente').value = '';
+            document.getElementById('estadoRemetente').value = '';
+        } else if (tipo === "destinatario") {
+                    document.getElementById('enderecoDestinatario').value = '';
+                    document.getElementById('numeroDestinatario').value = '';
+                    document.getElementById('complementoDestinatario').value = '';
+                    document.getElementById('bairroDestinatario').value = '';
+                    document.getElementById('cidadeDestinatario').value = '';
+                    document.getElementById('estadoDestinatario').value = '';
+        }
+    };
+
 </script>

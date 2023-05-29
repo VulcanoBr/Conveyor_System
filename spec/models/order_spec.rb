@@ -123,6 +123,39 @@ RSpec.describe Order, type: :model do
 
   end
 
+  it 'Numero Remetente deve ser obrigatoria' do
+
+    # Arrange  não precisa supplier e warehouse
+    order = Order.new(sender_number: '')
+    # Act 
+    result = order.errors.include?(:sender_number)
+    # Assert
+    expect(result).to be false
+
+  end
+
+  it 'Complemento Remetente deve ser obrigatoria' do
+
+    # Arrange  não precisa supplier e warehouse
+    order = Order.new(sender_complement: '')
+    # Act 
+    result = order.errors.include?(:sender_complement)
+    # Assert
+    expect(result).to be false
+
+  end
+
+  it 'Bairro Remetente deve ser obrigatoria' do
+
+    # Arrange  não precisa supplier e warehouse
+    order = Order.new(sender_neighborhood: '')
+    # Act 
+    result = order.errors.include?(:sender_neighborhood)
+    # Assert
+    expect(result).to be false
+
+  end
+
   it 'Cidade Remetente deve ser obrigatoria' do
 
     # Arrange  não precisa supplier e warehouse
@@ -206,6 +239,39 @@ RSpec.describe Order, type: :model do
     order = Order.new(recipient_address: '')
     # Act 
     result = order.errors.include?(:recipient_address)
+    # Assert
+    expect(result).to be false
+
+  end
+
+  it 'Numero Destinatario deve ser obrigatoria' do
+
+    # Arrange  não precisa supplier e warehouse
+    order = Order.new(recipient_number: '')
+    # Act 
+    result = order.errors.include?(:recipient_number)
+    # Assert
+    expect(result).to be false
+
+  end
+
+  it 'Complemento Destinatario deve ser obrigatoria' do
+
+    # Arrange  não precisa supplier e warehouse
+    order = Order.new(recipient_complement: '')
+    # Act 
+    result = order.errors.include?(:recipient_Complement)
+    # Assert
+    expect(result).to be false
+
+  end
+
+  it 'Bairro Destinatario deve ser obrigatoria' do
+
+    # Arrange  não precisa supplier e warehouse
+    order = Order.new(recipient_neighborhood: '')
+    # Act 
+    result = order.errors.include?(:recipient_neighborhood)
     # Assert
     expect(result).to be false
 

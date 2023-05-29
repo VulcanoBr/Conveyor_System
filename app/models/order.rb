@@ -9,11 +9,11 @@ class Order < ApplicationRecord
     validates :weight, :height, :width, :depth, :distance, numericality: { only_integer: true }
 
     validates  :sender_name, :sender_identification, :sender_email,
-               :sender_phone, :sender_address, :sender_city, :sender_state, :sender_zipcode,
+               :sender_phone, :sender_address, :sender_number, :sender_neighborhood, 
+               :sender_city, :sender_state, :sender_zipcode,
                :recipient_name, :recipient_identification, :recipient_email, :recipient_phone,
-               :recipient_address, :recipient_city, :recipient_state, :recipient_zipcode, presence: true
-
-    #validates  :sender_identification, :recipient_identification, numericality: { only_integer: true }
+               :recipient_address, :recipient_number, :recipient_neighborhood, 
+               :recipient_city, :recipient_state, :recipient_zipcode, presence: true
 
     validates :code,  length: { is: 15 }
 
@@ -26,11 +26,13 @@ class Order < ApplicationRecord
 
 
     def full_sender_address
-        "#{sender_address} - #{sender_city} - #{sender_state} - #{sender_zipcode}"
+        "#{sender_address} #{sender_number} #{sender_complement} - #{sender_neighborhood} - 
+         #{sender_city} - #{sender_state} - #{sender_zipcode}"
     end
 
     def full_recipient_address
-        "#{recipient_address} - #{recipient_city} - #{recipient_state} - #{recipient_zipcode}"
+        "#{recipient_address} #{recipient_number} #{recipient_complement} - 
+         #{recipient_neighborhood} - #{recipient_city} - #{recipient_state} - #{recipient_zipcode}"
     end
 
 

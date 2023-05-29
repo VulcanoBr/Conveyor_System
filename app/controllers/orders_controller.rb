@@ -56,9 +56,11 @@ class OrdersController < ApplicationController
         params.require(:order).permit(:code, :product_code, :description, :height, :width, :depth, :weight, 
                     :distance, :status, :user_id,
                     :sender_name, :sender_identification, :sender_email,
-                    :sender_phone, :sender_address, :sender_city, :sender_state, :sender_zipcode,
+                    :sender_phone, :sender_address, :sender_number, :sender_complement, 
+                    :sender_neighborhood, :sender_city, :sender_state, :sender_zipcode,
                     :recipient_name, :recipient_identification, :recipient_email, :recipient_phone,
-                    :recipient_address, :recipient_city, :recipient_state, :recipient_zipcode )
+                    :recipient_address, :recipient_number, :recipient_complement, 
+                    :recipient_neighborhood, :recipient_city, :recipient_state, :recipient_zipcode )
     end
 
 end

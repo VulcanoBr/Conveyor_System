@@ -67,6 +67,9 @@ pt-BR:
         sender_email: Email Remetente
         sender_phone: Telefone Remetente
         sender_address: Endereço Remetente
+        sender_number: Numero Remetente
+        sender_complement: Complemento Remetente
+        sender_neighborhood: Bairro Remetente
         sender_city: Cidade Remetente
         sender_state: Estado Remetente
         sender_zipcode: Cep Remetente
@@ -75,6 +78,9 @@ pt-BR:
         recipient_email: Email Destinatario
         recipient_phone: Telefone Destinatario
         recipient_address: Endereço Destinatario
+        recipient_number: Numero Destinatario
+        recipient_complement: Complemento Destinatario
+        recipient_neighborhood: Bairro Destinatario
         recipient_city: Cidade Destinatario
         recipient_state: Estado Destinatario
         recipient_zipcode: Cep Destinatario

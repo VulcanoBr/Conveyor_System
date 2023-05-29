@@ -36,10 +36,12 @@ describe 'Usuario faz Orçamento' do
         order = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
             sender_name: 'Joaquim Severo', sender_identification: "48.304.423/0001-21", sender_email: 'joaquim@email.com',
-            sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
+            sender_phone: '21 988975959', sender_address: 'Rua São Silva', sender_number: '100', 
+            sender_complement: '', sender_neighborhood: 'Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
-            recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '',
+            recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
 
         result = ModeTransport.with_prices_and_deadlines_for_order(order.distance, order.weight)
@@ -57,11 +59,11 @@ describe 'Usuario faz Orçamento' do
         expect(page).to have_content('Joaquim Severo')
         expect(page).to have_content('48.304.423/0001-21')
         expect(page).to have_content('21 988975959')
-        expect(page).to have_content('Rua São Siva, 100, Rubens Jardim - Macarena - AM - 45987-876')
+        expect(page).to have_content('Rua São Silva 100 - Rubens Jardim - Macarena - AM - 45987-876')
         expect(page).to have_content('Lilian Monteiro')
         expect(page).to have_content('624.299.657-04')
         expect(page).to have_content('21 988887676')
-        expect(page).to have_content('Avenida Silva, 1200,São Roque - Mateuzinho - GO - 76987-345')
+        expect(page).to have_content('Avenida Silva 1200 - São Roque - Mateuzinho - GO - 76987-345')
 
         expect(page).to have_content('Produto a ser entregue')
         expect(page).to have_content(order.product_code)
@@ -105,19 +107,23 @@ describe 'Usuario faz Orçamento' do
         order1 = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
             sender_name: 'Joaquim Severo', sender_identification: "48.304.423/0001-21", sender_email: 'joaquim@email.com',
-            sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
+            sender_phone: '21 988975959', sender_address: 'Rua São Silva', sender_number: '100',
+            sender_complement: "", sender_neighborhood: 'Rubens Jardim', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
-            recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '',
+            recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
 
         order2 = Order.create!(code: 'MMM1234567890MM', product_code: 'Produto_B', description: 'Produto perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
             sender_name: 'Silvio Santos', sender_identification: "784.989.240-22", sender_email: 'santos@email.com',
-            sender_phone: '34 988975934', sender_address: 'Rua  Siva, 100, Jalapão', sender_city: 'Imperatriz', 
+            sender_phone: '34 988975934', sender_address: 'Rua São Silva', sender_number: '100',
+            sender_complement: '', sender_neighborhood: 'Jalapão', sender_city: 'Imperatriz', 
             sender_state: 'MA', sender_zipcode: '54987-454', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
-            recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '',
+            recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
 
 
@@ -184,19 +190,23 @@ describe 'Usuario faz Orçamento' do
         order1 = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
             sender_name: 'Joaquim Severo', sender_identification: "48.304.423/0001-21", sender_email: 'joaquim@email.com',
-            sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
+            sender_phone: '21 988975959', sender_address: 'Rua São Silva', sender_number: '100',
+            sender_complement: '', sender_neighborhood: 'Jalapão', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
-            recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '',
+            recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
 
         order2 = Order.create!(code: 'MMM1234567890MM', product_code: 'Produto_B', description: 'Produto perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
             sender_name: 'Silvio Santos', sender_identification: "784.989.240-22", sender_email: 'santos@email.com',
-            sender_phone: '34 988975934', sender_address: 'Rua  Siva, 100, Jalapão', sender_city: 'Imperatriz', 
+            sender_phone: '34 988975934', sender_address: 'Rua São Silva', sender_number: '100',
+            sender_complement: '', sender_neighborhood: 'Jalapão', sender_city: 'Imperatriz', 
             sender_state: 'MA', sender_zipcode: '54987-454', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
-            recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '',
+            recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
 
 
@@ -265,19 +275,23 @@ describe 'Usuario faz Orçamento' do
         order1 = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
             sender_name: 'Joaquim Severo', sender_identification: "48.304.423/0001-21", sender_email: 'joaquim@email.com',
-            sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
+            sender_phone: '21 988975959', sender_address: 'Rua São Silva', sender_number: '100',
+            sender_complement: '', sender_neighborhood: 'Jalapão', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
-            recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '',
+            recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
 
         order2 = Order.create!(code: 'MMM1234567890MM', product_code: 'Produto_B', description: 'Produto perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
             sender_name: 'Silvio Santos', sender_identification: "784.989.240-22", sender_email: 'santos@email.com',
-            sender_phone: '34 988975934', sender_address: 'Rua  Siva, 100, Jalapão', sender_city: 'Imperatriz', 
+            sender_phone: '34 988975934', sender_address: 'Rua São Silva', sender_number: '100',
+            sender_complement: '', sender_neighborhood: 'Jalapão', sender_city: 'Imperatriz', 
             sender_state: 'MA', sender_zipcode: '54987-454', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
-            recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '',
+            recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
 
 
@@ -337,19 +351,23 @@ describe 'Usuario faz Orçamento' do
         order1 = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
             sender_name: 'Joaquim Severo', sender_identification: "48.304.423/0001-21", sender_email: 'joaquim@email.com',
-            sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
+            sender_phone: '21 988975959', sender_address: 'Rua São Silva', sender_number: '100',
+            sender_complement: '', sender_neighborhood: 'Jalapão', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
-            recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '',
+            recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
 
         order2 = Order.create!(code: 'MMM1234567890MM', product_code: 'Produto_B', description: 'Produto perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
             sender_name: 'Silvio Santos', sender_identification: "784.989.240-22", sender_email: 'santos@email.com',
-            sender_phone: '34 988975934', sender_address: 'Rua  Siva, 100, Jalapão', sender_city: 'Imperatriz', 
+            sender_phone: '34 988975934', sender_address: 'Rua São Silva', sender_number: '100',
+            sender_complement: '', sender_neighborhood: 'Jalapão', sender_city: 'Imperatriz', 
             sender_state: 'MA', sender_zipcode: '54987-454', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
-            recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '',
+            recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
 
         result = ModeTransport.with_prices_and_deadlines_for_order(order1.distance, order1.weight)
@@ -395,19 +413,23 @@ describe 'Usuario faz Orçamento' do
         order1 = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 5015, width: 20, depth: 5, weight: 10, distance: 6450, user_id: usuario.id,
             sender_name: 'Joaquim Severo', sender_identification: "48.304.423/0001-21", sender_email: 'joaquim@email.com',
-            sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
+            sender_phone: '21 988975959', sender_address: 'Rua São Silva', sender_number: '100',
+            sender_complement: '', sender_neighborhood: 'Jalapão', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
-            recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '',
+            recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
 
         order2 = Order.create!(code: 'MMM1234567890MM', product_code: 'Produto_B', description: 'Produto perecivel', 
             height: 6515, width: 20, depth: 5, weight: 10, distance: 7450, user_id: usuario.id,
             sender_name: 'Silvio Santos', sender_identification: "784.989.240-22", sender_email: 'santos@email.com',
-            sender_phone: '34 988975934', sender_address: 'Rua  Siva, 100, Jalapão', sender_city: 'Imperatriz', 
+            sender_phone: '34 988975934', sender_address: 'Rua São Silva', sender_number: '100',
+            sender_complement: '', sender_neighborhood: 'Jalapão', sender_city: 'Imperatriz', 
             sender_state: 'MA', sender_zipcode: '54987-454', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
-            recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '',
+            recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
 
         result = ModeTransport.with_prices_and_deadlines_for_order(order1.distance, order1.weight)
@@ -426,11 +448,11 @@ describe 'Usuario faz Orçamento' do
         expect(page).to have_content('Joaquim Severo')
         expect(page).to have_content('48.304.423/0001-21')
         expect(page).to have_content('21 988975959')
-        expect(page).to have_content('Rua São Siva, 100, Rubens Jardim - Macarena - AM - 45987-876')
+        expect(page).to have_content('Rua São Silva 100 - Jalapão - Macarena - AM - 45987-876')
         expect(page).to have_content('Lilian Monteiro')
         expect(page).to have_content('624.299.657-04')
         expect(page).to have_content('21 988887676')
-        expect(page).to have_content('Avenida Silva, 1200,São Roque - Mateuzinho - GO - 76987-345')
+        expect(page).to have_content('Avenida Silva 1200 - São Roque - Mateuzinho - GO - 76987-345')
 
         expect(page).to have_content('Produto a ser entregue')
         expect(page).to have_content(order1.product_code)
@@ -469,19 +491,23 @@ describe 'Usuario faz Orçamento' do
         order1 = Order.create!(code: 'XXX1234567890XX', product_code: 'Produto_A', description: 'Produto não perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
             sender_name: 'Joaquim Severo', sender_identification: "48.304.423/0001-21", sender_email: 'joaquim@email.com',
-            sender_phone: '21 988975959', sender_address: 'Rua São Siva, 100, Rubens Jardim', sender_city: 'Macarena', 
+            sender_phone: '21 988975959', sender_address: 'Rua São Silva', sender_number: '100',
+            sender_complement: '', sender_neighborhood: 'Jalapão', sender_city: 'Macarena', 
             sender_state: 'AM', sender_zipcode: '45987-876', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
-            recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '',
+            recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
 
         order2 = Order.create!(code: 'MMM1234567890MM', product_code: 'Produto_B', description: 'Produto perecivel', 
             height: 15, width: 20, depth: 5, weight: 10, distance: 450, user_id: usuario.id,
             sender_name: 'Silvio Santos', sender_identification: "784.989.240-22", sender_email: 'santos@email.com',
-            sender_phone: '34 988975934', sender_address: 'Rua  Siva, 100, Jalapão', sender_city: 'Imperatriz', 
+            sender_phone: '34 988975934', sender_address: 'Rua São Silva', sender_number: '100',
+            sender_complement: '', sender_neighborhood: 'Jalapão', sender_city: 'Imperatriz', 
             sender_state: 'MA', sender_zipcode: '54987-454', recipient_name: 'Lilian Monteiro', 
             recipient_identification: "624.299.657-04", recipient_email: 'lili@email.com', recipient_phone: '21 988887676',
-            recipient_address: 'Avenida Silva, 1200,São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
+            recipient_address: 'Avenida Silva', recipient_number: '1200', recipient_complement: '',
+            recipient_neighborhood: 'São Roque', recipient_city: 'Mateuzinho', recipient_state: 'GO', 
             recipient_zipcode: '76987-345', status: :pending)
 
 
@@ -510,7 +536,7 @@ describe 'Usuario faz Orçamento' do
         expect(page).to have_content('Lilian Monteiro')
         expect(page).to have_content('624.299.657-04')
         expect(page).to have_content('21 988887676')
-        expect(page).to have_content('Avenida Silva, 1200,São Roque - Mateuzinho - GO - 76987-345')
+        expect(page).to have_content('Avenida Silva 1200 - São Roque - Mateuzinho - GO - 76987-345')
 
         expect(page).to have_content('Produto a ser entregue')
         expect(page).to have_content(order1.product_code)
