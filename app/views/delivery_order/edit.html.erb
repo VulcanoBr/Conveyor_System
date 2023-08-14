@@ -36,7 +36,7 @@
 
     <div class="mb-3">
         <%= dvo.label :closure_status, class:"form-label" %>  
-        <%= dvo.select :closure_status, DeliveryOrder.closure_statuses.keys.map{ |key, value| [key.humanize, key] }, 
+        <%= dvo.select :closure_status, I18n.t(DeliveryOrder.closure_statuses.keys).map{ |key, value| [key.humanize, key] }, 
              include_blank: "Selecione o status de encerramento", class:"form-control"  %>
     </div>
 

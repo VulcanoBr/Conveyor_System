@@ -475,7 +475,7 @@ RSpec.describe Order, type: :model do
     expect(order.valid?).to be false
   end
 
-  it 'CNPJ Remetente deve ter valido' do
+  it 'CNPJ Remetente deve ser valido' do
 
     # Arrange  
     order = Order.new(sender_identification: '12.345.678/9012-34')
