@@ -229,7 +229,6 @@
         document.querySelectorAll(".cpf_cnpj-with-mask").forEach((input) => {
             input.addEventListener("keyup", ({ target }) => {
                 var valor = target.value;
-      
                 // Remove qualquer caractere não numérico
                 valor = valor.replace(/\D/g, '');
                 
@@ -290,7 +289,7 @@
                     if (tipo === "remetente") {
                         document.getElementById('enderecoRemetente').value = 'CEP não encontrado!!!';
                     } else if (tipo === "destinatario") {
-                             document.getElementById('enderecoDestinatario').value = 'CEP não encontrado!!!';
+                                document.getElementById('enderecoDestinatario').value = 'CEP não encontrado!!!';
                     }
                     return;
                 }
@@ -314,7 +313,7 @@
                 if (tipo === "remetente") {
                         document.getElementById('enderecoRemetente').value = 'CEP incorreto !!!';
                     } else if (tipo === "destinatario") {
-                             document.getElementById('enderecoDestinatario').value = 'CEP incorreto !!!';
+                                document.getElementById('enderecoDestinatario').value = 'CEP incorreto !!!';
                     }
             });
     }
